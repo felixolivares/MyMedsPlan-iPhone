@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		300FC4D91EE37E0F00D93A6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */; };
+		300FC4DB1EE37E0F00D93A6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4DA1EE37E0F00D93A6D /* ViewController.swift */; };
+		300FC4DE1EE37E0F00D93A6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300FC4DC1EE37E0F00D93A6D /* Main.storyboard */; };
+		300FC4E01EE37E0F00D93A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300FC4DF1EE37E0F00D93A6D /* Assets.xcassets */; };
+		300FC4E31EE37E0F00D93A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300FC4E11EE37E0F00D93A6D /* LaunchScreen.storyboard */; };
+		300FC4EE1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4ED1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift */; };
+		300FC4F91EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		300FC4EA1EE37E0F00D93A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 300FC4CD1EE37E0F00D93A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 300FC4D41EE37E0F00D93A6D;
+			remoteInfo = "MyMedsPlan-iPhone";
+		};
+		300FC4F51EE37E0F00D93A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 300FC4CD1EE37E0F00D93A6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 300FC4D41EE37E0F00D93A6D;
+			remoteInfo = "MyMedsPlan-iPhone";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		300FC4D51EE37E0F00D93A6D /* MyMedsPlan-iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyMedsPlan-iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		300FC4DA1EE37E0F00D93A6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		300FC4DD1EE37E0F00D93A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		300FC4DF1EE37E0F00D93A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		300FC4E21EE37E0F00D93A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		300FC4E41EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300FC4E91EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyMedsPlan-iPhoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		300FC4ED1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsPlan_iPhoneTests.swift; sourceTree = "<group>"; };
+		300FC4EF1EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300FC4F41EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyMedsPlan-iPhoneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsPlan_iPhoneUITests.swift; sourceTree = "<group>"; };
+		300FC4FA1EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		300FC4D21EE37E0F00D93A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300FC4E61EE37E0F00D93A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300FC4F11EE37E0F00D93A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		300FC4CC1EE37E0F00D93A6D = {
+			isa = PBXGroup;
+			children = (
+				300FC4D71EE37E0F00D93A6D /* MyMedsPlan-iPhone */,
+				300FC4EC1EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests */,
+				300FC4F71EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests */,
+				300FC4D61EE37E0F00D93A6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		300FC4D61EE37E0F00D93A6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				300FC4D51EE37E0F00D93A6D /* MyMedsPlan-iPhone.app */,
+				300FC4E91EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests.xctest */,
+				300FC4F41EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		300FC4D71EE37E0F00D93A6D /* MyMedsPlan-iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */,
+				300FC4DA1EE37E0F00D93A6D /* ViewController.swift */,
+				300FC4DC1EE37E0F00D93A6D /* Main.storyboard */,
+				300FC4DF1EE37E0F00D93A6D /* Assets.xcassets */,
+				300FC4E11EE37E0F00D93A6D /* LaunchScreen.storyboard */,
+				300FC4E41EE37E0F00D93A6D /* Info.plist */,
+			);
+			path = "MyMedsPlan-iPhone";
+			sourceTree = "<group>";
+		};
+		300FC4EC1EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				300FC4ED1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift */,
+				300FC4EF1EE37E0F00D93A6D /* Info.plist */,
+			);
+			path = "MyMedsPlan-iPhoneTests";
+			sourceTree = "<group>";
+		};
+		300FC4F71EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests */ = {
+			isa = PBXGroup;
+			children = (
+				300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */,
+				300FC4FA1EE37E0F00D93A6D /* Info.plist */,
+			);
+			path = "MyMedsPlan-iPhoneUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		300FC4D41EE37E0F00D93A6D /* MyMedsPlan-iPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 300FC4FD1EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhone" */;
+			buildPhases = (
+				300FC4D11EE37E0F00D93A6D /* Sources */,
+				300FC4D21EE37E0F00D93A6D /* Frameworks */,
+				300FC4D31EE37E0F00D93A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyMedsPlan-iPhone";
+			productName = "MyMedsPlan-iPhone";
+			productReference = 300FC4D51EE37E0F00D93A6D /* MyMedsPlan-iPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		300FC4E81EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 300FC5001EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneTests" */;
+			buildPhases = (
+				300FC4E51EE37E0F00D93A6D /* Sources */,
+				300FC4E61EE37E0F00D93A6D /* Frameworks */,
+				300FC4E71EE37E0F00D93A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				300FC4EB1EE37E0F00D93A6D /* PBXTargetDependency */,
+			);
+			name = "MyMedsPlan-iPhoneTests";
+			productName = "MyMedsPlan-iPhoneTests";
+			productReference = 300FC4E91EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		300FC4F31EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 300FC5031EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneUITests" */;
+			buildPhases = (
+				300FC4F01EE37E0F00D93A6D /* Sources */,
+				300FC4F11EE37E0F00D93A6D /* Frameworks */,
+				300FC4F21EE37E0F00D93A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				300FC4F61EE37E0F00D93A6D /* PBXTargetDependency */,
+			);
+			name = "MyMedsPlan-iPhoneUITests";
+			productName = "MyMedsPlan-iPhoneUITests";
+			productReference = 300FC4F41EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		300FC4CD1EE37E0F00D93A6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Félix Olivares";
+				TargetAttributes = {
+					300FC4D41EE37E0F00D93A6D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = NNWZVWTFJB;
+						ProvisioningStyle = Automatic;
+					};
+					300FC4E81EE37E0F00D93A6D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = NNWZVWTFJB;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 300FC4D41EE37E0F00D93A6D;
+					};
+					300FC4F31EE37E0F00D93A6D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = NNWZVWTFJB;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 300FC4D41EE37E0F00D93A6D;
+					};
+				};
+			};
+			buildConfigurationList = 300FC4D01EE37E0F00D93A6D /* Build configuration list for PBXProject "MyMedsPlan-iPhone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 300FC4CC1EE37E0F00D93A6D;
+			productRefGroup = 300FC4D61EE37E0F00D93A6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				300FC4D41EE37E0F00D93A6D /* MyMedsPlan-iPhone */,
+				300FC4E81EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests */,
+				300FC4F31EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		300FC4D31EE37E0F00D93A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				300FC4E31EE37E0F00D93A6D /* LaunchScreen.storyboard in Resources */,
+				300FC4E01EE37E0F00D93A6D /* Assets.xcassets in Resources */,
+				300FC4DE1EE37E0F00D93A6D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300FC4E71EE37E0F00D93A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300FC4F21EE37E0F00D93A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		300FC4D11EE37E0F00D93A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				300FC4DB1EE37E0F00D93A6D /* ViewController.swift in Sources */,
+				300FC4D91EE37E0F00D93A6D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300FC4E51EE37E0F00D93A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				300FC4EE1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		300FC4F01EE37E0F00D93A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				300FC4F91EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		300FC4EB1EE37E0F00D93A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 300FC4D41EE37E0F00D93A6D /* MyMedsPlan-iPhone */;
+			targetProxy = 300FC4EA1EE37E0F00D93A6D /* PBXContainerItemProxy */;
+		};
+		300FC4F61EE37E0F00D93A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 300FC4D41EE37E0F00D93A6D /* MyMedsPlan-iPhone */;
+			targetProxy = 300FC4F51EE37E0F00D93A6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		300FC4DC1EE37E0F00D93A6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				300FC4DD1EE37E0F00D93A6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		300FC4E11EE37E0F00D93A6D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				300FC4E21EE37E0F00D93A6D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		300FC4FB1EE37E0F00D93A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		300FC4FC1EE37E0F00D93A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		300FC4FE1EE37E0F00D93A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		300FC4FF1EE37E0F00D93A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		300FC5011EE37E0F00D93A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "MyMedsPlan-iPhoneTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMedsPlan-iPhone.app/MyMedsPlan-iPhone";
+			};
+			name = Debug;
+		};
+		300FC5021EE37E0F00D93A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "MyMedsPlan-iPhoneTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMedsPlan-iPhone.app/MyMedsPlan-iPhone";
+			};
+			name = Release;
+		};
+		300FC5041EE37E0F00D93A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "MyMedsPlan-iPhoneUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "MyMedsPlan-iPhone";
+			};
+			name = Debug;
+		};
+		300FC5051EE37E0F00D93A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "MyMedsPlan-iPhoneUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "MyMedsPlan-iPhone";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		300FC4D01EE37E0F00D93A6D /* Build configuration list for PBXProject "MyMedsPlan-iPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300FC4FB1EE37E0F00D93A6D /* Debug */,
+				300FC4FC1EE37E0F00D93A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		300FC4FD1EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300FC4FE1EE37E0F00D93A6D /* Debug */,
+				300FC4FF1EE37E0F00D93A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		300FC5001EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300FC5011EE37E0F00D93A6D /* Debug */,
+				300FC5021EE37E0F00D93A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		300FC5031EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300FC5041EE37E0F00D93A6D /* Debug */,
+				300FC5051EE37E0F00D93A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 300FC4CD1EE37E0F00D93A6D /* Project object */;
+}
