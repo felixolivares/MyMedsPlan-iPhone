@@ -6,6 +6,10 @@ target 'MyMedsPlan-iPhone' do
   use_frameworks!
 
   pod 'AlecrimCoreData', '~> 5.0'
+  pod 'IQKeyboardManagerSwift'
+  pod 'PopupDialog', '~> 0.5'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+
 
   target 'MyMedsPlan-iPhoneTests' do
     inherit! :search_paths

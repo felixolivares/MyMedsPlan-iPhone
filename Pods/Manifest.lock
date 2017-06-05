@@ -1,12 +1,32 @@
 PODS:
   - AlecrimCoreData (5.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - IQKeyboardManagerSwift (4.0.9)
+  - PopupDialog (0.5.4)
 
 DEPENDENCIES:
   - AlecrimCoreData (~> 5.0)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - IQKeyboardManagerSwift
+  - PopupDialog (~> 0.5)
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
   AlecrimCoreData: f1251de3630f4d4d3a212e405298084c229cef29
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
+  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
 
-PODFILE CHECKSUM: fdc592a4e75434d79ecd6e427ded611f9dff7971
+PODFILE CHECKSUM: c0d5b356b7ca9b98fa10bc158765972b34a5aa27
 
 COCOAPODS: 1.1.1
