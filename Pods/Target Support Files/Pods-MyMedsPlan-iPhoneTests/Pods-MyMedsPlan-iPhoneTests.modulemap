@@ -1,0 +1,6 @@
+framework module Pods_MyMedsPlan_iPhoneTests {
+  umbrella header "Pods-MyMedsPlan-iPhoneTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -14,6 +14,13 @@
 		300FC4E31EE37E0F00D93A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300FC4E11EE37E0F00D93A6D /* LaunchScreen.storyboard */; };
 		300FC4EE1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4ED1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift */; };
 		300FC4F91EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */; };
+		30F7A2741EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */; };
+		30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */; };
+		30F7A27A1EE4F02E002A0981 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */; };
+		30F7A27B1EE4F02E002A0981 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2781EE4F02E002A0981 /* Plan+CoreDataProperties.swift */; };
+		9EBAE816D85427AD62911D39 /* Pods_MyMedsPlan_iPhoneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1620978D6E5A562D554594 /* Pods_MyMedsPlan_iPhoneTests.framework */; };
+		CF2FAED1C50892FB9A017BCC /* Pods_MyMedsPlan_iPhoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FAEA0F98FB3E690A48459D /* Pods_MyMedsPlan_iPhoneUITests.framework */; };
+		D76969B110A59842FC9AA4FD /* Pods_MyMedsPlan_iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6F5FF7931858701EA87048 /* Pods_MyMedsPlan_iPhone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2106C14FB7F799C309D03F56 /* Pods-MyMedsPlan-iPhoneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests.debug.xcconfig"; sourceTree = "<group>"; };
+		26C1F5D58F4BECDF51863822 /* Pods-MyMedsPlan-iPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone.debug.xcconfig"; sourceTree = "<group>"; };
 		300FC4D51EE37E0F00D93A6D /* MyMedsPlan-iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyMedsPlan-iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		300FC4DA1EE37E0F00D93A6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +56,17 @@
 		300FC4F41EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyMedsPlan-iPhoneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsPlan_iPhoneUITests.swift; sourceTree = "<group>"; };
 		300FC4FA1EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30F7A2731EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMedsPlanModel.xcdatamodel; sourceTree = "<group>"; };
+		30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+AlecrimCoreDataAttributes.swift"; path = "Model/Plan+AlecrimCoreDataAttributes.swift"; sourceTree = "<group>"; };
+		30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+CoreDataClass.swift"; path = "Model/Plan+CoreDataClass.swift"; sourceTree = "<group>"; };
+		30F7A2781EE4F02E002A0981 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+CoreDataProperties.swift"; path = "Model/Plan+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		509DFCD74F97EAADB793F1AC /* Pods-MyMedsPlan-iPhoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B6F5FF7931858701EA87048 /* Pods_MyMedsPlan_iPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMedsPlan_iPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73D2E1EE9D54CF9ECF529E2 /* Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B23F20D8755E0758530C9F5B /* Pods-MyMedsPlan-iPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhone.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone.release.xcconfig"; sourceTree = "<group>"; };
+		D9FAEA0F98FB3E690A48459D /* Pods_MyMedsPlan_iPhoneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMedsPlan_iPhoneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5E3DEA6A402005F11C3F0D0 /* Pods-MyMedsPlan-iPhoneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FA1620978D6E5A562D554594 /* Pods_MyMedsPlan_iPhoneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMedsPlan_iPhoneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D76969B110A59842FC9AA4FD /* Pods_MyMedsPlan_iPhone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EBAE816D85427AD62911D39 /* Pods_MyMedsPlan_iPhoneTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2FAED1C50892FB9A017BCC /* Pods_MyMedsPlan_iPhoneUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +104,8 @@
 				300FC4EC1EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests */,
 				300FC4F71EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests */,
 				300FC4D61EE37E0F00D93A6D /* Products */,
+				EDEA3EDD2BB82DBB7A66EDCA /* Pods */,
+				A4AC5A13574C1746FA688E21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +122,7 @@
 		300FC4D71EE37E0F00D93A6D /* MyMedsPlan-iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				30F7A2751EE4ED4E002A0981 /* Model */,
 				300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */,
 				300FC4DA1EE37E0F00D93A6D /* ViewController.swift */,
 				300FC4DC1EE37E0F00D93A6D /* Main.storyboard */,
@@ -125,6 +151,40 @@
 			path = "MyMedsPlan-iPhoneUITests";
 			sourceTree = "<group>";
 		};
+		30F7A2751EE4ED4E002A0981 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */,
+				30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */,
+				30F7A2781EE4F02E002A0981 /* Plan+CoreDataProperties.swift */,
+				30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A4AC5A13574C1746FA688E21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B6F5FF7931858701EA87048 /* Pods_MyMedsPlan_iPhone.framework */,
+				FA1620978D6E5A562D554594 /* Pods_MyMedsPlan_iPhoneTests.framework */,
+				D9FAEA0F98FB3E690A48459D /* Pods_MyMedsPlan_iPhoneUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDEA3EDD2BB82DBB7A66EDCA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26C1F5D58F4BECDF51863822 /* Pods-MyMedsPlan-iPhone.debug.xcconfig */,
+				B23F20D8755E0758530C9F5B /* Pods-MyMedsPlan-iPhone.release.xcconfig */,
+				2106C14FB7F799C309D03F56 /* Pods-MyMedsPlan-iPhoneTests.debug.xcconfig */,
+				509DFCD74F97EAADB793F1AC /* Pods-MyMedsPlan-iPhoneTests.release.xcconfig */,
+				A73D2E1EE9D54CF9ECF529E2 /* Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig */,
+				F5E3DEA6A402005F11C3F0D0 /* Pods-MyMedsPlan-iPhoneUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 300FC4FD1EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhone" */;
 			buildPhases = (
+				749C4575876F310E2867052F /* [CP] Check Pods Manifest.lock */,
 				300FC4D11EE37E0F00D93A6D /* Sources */,
 				300FC4D21EE37E0F00D93A6D /* Frameworks */,
 				300FC4D31EE37E0F00D93A6D /* Resources */,
+				FB3CDED72F390ABD71D94459 /* [CP] Embed Pods Frameworks */,
+				FB04AB712A9EB2A4EDE240C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 300FC5001EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneTests" */;
 			buildPhases = (
+				EE3522175AE0BCCEA170A403 /* [CP] Check Pods Manifest.lock */,
 				300FC4E51EE37E0F00D93A6D /* Sources */,
 				300FC4E61EE37E0F00D93A6D /* Frameworks */,
 				300FC4E71EE37E0F00D93A6D /* Resources */,
+				58695585D08420D5B84BC0C7 /* [CP] Embed Pods Frameworks */,
+				F9A48B99B1B9F5D93A78B2BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 300FC5031EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneUITests" */;
 			buildPhases = (
+				8EC586028B699BD78BF6B1E8 /* [CP] Check Pods Manifest.lock */,
 				300FC4F01EE37E0F00D93A6D /* Sources */,
 				300FC4F11EE37E0F00D93A6D /* Frameworks */,
 				300FC4F21EE37E0F00D93A6D /* Resources */,
+				8389913DE05E9BC64A2FD7A4 /* [CP] Embed Pods Frameworks */,
+				8A51991B90AC85AFBFAE5A5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,13 +326,155 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		58695585D08420D5B84BC0C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		749C4575876F310E2867052F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8389913DE05E9BC64A2FD7A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A51991B90AC85AFBFAE5A5E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EC586028B699BD78BF6B1E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE3522175AE0BCCEA170A403 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F9A48B99B1B9F5D93A78B2BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB04AB712A9EB2A4EDE240C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB3CDED72F390ABD71D94459 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		300FC4D11EE37E0F00D93A6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F7A27B1EE4F02E002A0981 /* Plan+CoreDataProperties.swift in Sources */,
+				30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */,
 				300FC4DB1EE37E0F00D93A6D /* ViewController.swift in Sources */,
+				30F7A2741EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld in Sources */,
 				300FC4D91EE37E0F00D93A6D /* AppDelegate.swift in Sources */,
+				30F7A27A1EE4F02E002A0981 /* Plan+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +624,7 @@
 		};
 		300FC4FE1EE37E0F00D93A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26C1F5D58F4BECDF51863822 /* Pods-MyMedsPlan-iPhone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
@@ -426,6 +638,7 @@
 		};
 		300FC4FF1EE37E0F00D93A6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B23F20D8755E0758530C9F5B /* Pods-MyMedsPlan-iPhone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
@@ -439,6 +652,7 @@
 		};
 		300FC5011EE37E0F00D93A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2106C14FB7F799C309D03F56 /* Pods-MyMedsPlan-iPhoneTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -454,6 +668,7 @@
 		};
 		300FC5021EE37E0F00D93A6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 509DFCD74F97EAADB793F1AC /* Pods-MyMedsPlan-iPhoneTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -469,6 +684,7 @@
 		};
 		300FC5041EE37E0F00D93A6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A73D2E1EE9D54CF9ECF529E2 /* Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
@@ -483,6 +699,7 @@
 		};
 		300FC5051EE37E0F00D93A6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5E3DEA6A402005F11C3F0D0 /* Pods-MyMedsPlan-iPhoneUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
@@ -514,6 +731,7 @@
 				300FC4FF1EE37E0F00D93A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		300FC5001EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +740,7 @@
 				300FC5021EE37E0F00D93A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		300FC5031EE37E0F00D93A6D /* Build configuration list for PBXNativeTarget "MyMedsPlan-iPhoneUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,8 +749,22 @@
 				300FC5051EE37E0F00D93A6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				30F7A2731EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodel */,
+			);
+			currentVersion = 30F7A2731EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodel */;
+			path = MyMedsPlanModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 300FC4CD1EE37E0F00D93A6D /* Project object */;
 }
