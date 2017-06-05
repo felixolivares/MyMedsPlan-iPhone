@@ -5,12 +5,14 @@ PODS:
     - ChameleonFramework/Default
   - IQKeyboardManagerSwift (4.0.9)
   - PopupDialog (0.5.4)
+  - SwiftyPickerPopover (4.0.0)
 
 DEPENDENCIES:
   - AlecrimCoreData (~> 5.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - IQKeyboardManagerSwift
   - PopupDialog (~> 0.5)
+  - SwiftyPickerPopover
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -26,7 +28,8 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
+  SwiftyPickerPopover: 2b8cda56c6635a59248cb6f675e595899813d944
 
-PODFILE CHECKSUM: c0d5b356b7ca9b98fa10bc158765972b34a5aa27
+PODFILE CHECKSUM: 5e4737153282d1a8c44405645977c36d5e1a521d
 
 COCOAPODS: 1.1.1

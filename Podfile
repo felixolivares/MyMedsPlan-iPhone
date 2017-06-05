@@ -9,7 +9,7 @@ target 'MyMedsPlan-iPhone' do
   pod 'IQKeyboardManagerSwift'
   pod 'PopupDialog', '~> 0.5'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-
+  pod 'SwiftyPickerPopover'
 
   target 'MyMedsPlan-iPhoneTests' do
     inherit! :search_paths

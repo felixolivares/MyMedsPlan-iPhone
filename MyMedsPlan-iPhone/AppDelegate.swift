@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import AlecrimCoreData
+import IQKeyboardManagerSwift
+import CoreData
+
+let persistentContainer = PersistentContainer(name: "MyMedsPlanModel")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        persistentContainer.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        IQKeyboardManager.sharedManager().enable = true
+        
         return true
     }
 

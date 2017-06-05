@@ -18,6 +18,15 @@
 		30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */; };
 		30F7A27A1EE4F02E002A0981 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */; };
 		30F7A27B1EE4F02E002A0981 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2781EE4F02E002A0981 /* Plan+CoreDataProperties.swift */; };
+		30F7A2821EE4FF86002A0981 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30F7A27E1EE4FF86002A0981 /* Nunito-Bold.ttf */; };
+		30F7A2831EE4FF86002A0981 /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30F7A27F1EE4FF86002A0981 /* Nunito-Italic.ttf */; };
+		30F7A2841EE4FF86002A0981 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30F7A2801EE4FF86002A0981 /* Nunito-Light.ttf */; };
+		30F7A2851EE4FF86002A0981 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30F7A2811EE4FF86002A0981 /* Nunito-Regular.ttf */; };
+		30F7A2891EE50EE5002A0981 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2881EE50EE5002A0981 /* MainViewController.swift */; };
+		30F7A28B1EE50F0E002A0981 /* AddMedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A28A1EE50F0E002A0981 /* AddMedicineViewController.swift */; };
+		30F7A28E1EE51555002A0981 /* UIColor+ColorAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A28D1EE51555002A0981 /* UIColor+ColorAdditions.swift */; };
+		30F7A2901EE51614002A0981 /* MMPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A28F1EE51614002A0981 /* MMPButton.swift */; };
+		30F7A2921EE51AD5002A0981 /* MMPRoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2911EE51AD5002A0981 /* MMPRoundedCornersView.swift */; };
 		9EBAE816D85427AD62911D39 /* Pods_MyMedsPlan_iPhoneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1620978D6E5A562D554594 /* Pods_MyMedsPlan_iPhoneTests.framework */; };
 		CF2FAED1C50892FB9A017BCC /* Pods_MyMedsPlan_iPhoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FAEA0F98FB3E690A48459D /* Pods_MyMedsPlan_iPhoneUITests.framework */; };
 		D76969B110A59842FC9AA4FD /* Pods_MyMedsPlan_iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6F5FF7931858701EA87048 /* Pods_MyMedsPlan_iPhone.framework */; };
@@ -60,6 +69,15 @@
 		30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+AlecrimCoreDataAttributes.swift"; path = "Model/Plan+AlecrimCoreDataAttributes.swift"; sourceTree = "<group>"; };
 		30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+CoreDataClass.swift"; path = "Model/Plan+CoreDataClass.swift"; sourceTree = "<group>"; };
 		30F7A2781EE4F02E002A0981 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+CoreDataProperties.swift"; path = "Model/Plan+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		30F7A27E1EE4FF86002A0981 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Bold.ttf"; path = "Fonts/Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		30F7A27F1EE4FF86002A0981 /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Italic.ttf"; path = "Fonts/Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		30F7A2801EE4FF86002A0981 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Light.ttf"; path = "Fonts/Nunito-Light.ttf"; sourceTree = "<group>"; };
+		30F7A2811EE4FF86002A0981 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "Fonts/Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		30F7A2881EE50EE5002A0981 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		30F7A28A1EE50F0E002A0981 /* AddMedicineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMedicineViewController.swift; sourceTree = "<group>"; };
+		30F7A28D1EE51555002A0981 /* UIColor+ColorAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorAdditions.swift"; sourceTree = "<group>"; };
+		30F7A28F1EE51614002A0981 /* MMPButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPButton.swift; sourceTree = "<group>"; };
+		30F7A2911EE51AD5002A0981 /* MMPRoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPRoundedCornersView.swift; sourceTree = "<group>"; };
 		509DFCD74F97EAADB793F1AC /* Pods-MyMedsPlan-iPhoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B6F5FF7931858701EA87048 /* Pods_MyMedsPlan_iPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMedsPlan_iPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73D2E1EE9D54CF9ECF529E2 /* Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,12 +140,12 @@
 		300FC4D71EE37E0F00D93A6D /* MyMedsPlan-iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				30F7A28C1EE51534002A0981 /* Utilities */,
 				30F7A2751EE4ED4E002A0981 /* Model */,
-				300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */,
-				300FC4DA1EE37E0F00D93A6D /* ViewController.swift */,
-				300FC4DC1EE37E0F00D93A6D /* Main.storyboard */,
+				30F7A27C1EE4FEB8002A0981 /* Common */,
+				30F7A2871EE50B1C002A0981 /* Views */,
+				30F7A2861EE50B10002A0981 /* Controllers */,
 				300FC4DF1EE37E0F00D93A6D /* Assets.xcassets */,
-				300FC4E11EE37E0F00D93A6D /* LaunchScreen.storyboard */,
 				300FC4E41EE37E0F00D93A6D /* Info.plist */,
 			);
 			path = "MyMedsPlan-iPhone";
@@ -160,6 +178,55 @@
 				30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		30F7A27C1EE4FEB8002A0981 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				30F7A27D1EE4FEC1002A0981 /* Fonts */,
+				300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		30F7A27D1EE4FEC1002A0981 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				30F7A27E1EE4FF86002A0981 /* Nunito-Bold.ttf */,
+				30F7A27F1EE4FF86002A0981 /* Nunito-Italic.ttf */,
+				30F7A2801EE4FF86002A0981 /* Nunito-Light.ttf */,
+				30F7A2811EE4FF86002A0981 /* Nunito-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		30F7A2861EE50B10002A0981 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				300FC4DA1EE37E0F00D93A6D /* ViewController.swift */,
+				30F7A2881EE50EE5002A0981 /* MainViewController.swift */,
+				30F7A28A1EE50F0E002A0981 /* AddMedicineViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		30F7A2871EE50B1C002A0981 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				300FC4DC1EE37E0F00D93A6D /* Main.storyboard */,
+				300FC4E11EE37E0F00D93A6D /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		30F7A28C1EE51534002A0981 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				30F7A28D1EE51555002A0981 /* UIColor+ColorAdditions.swift */,
+				30F7A28F1EE51614002A0981 /* MMPButton.swift */,
+				30F7A2911EE51AD5002A0981 /* MMPRoundedCornersView.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		A4AC5A13574C1746FA688E21 /* Frameworks */ = {
@@ -305,7 +372,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				300FC4E31EE37E0F00D93A6D /* LaunchScreen.storyboard in Resources */,
+				30F7A2831EE4FF86002A0981 /* Nunito-Italic.ttf in Resources */,
+				30F7A2841EE4FF86002A0981 /* Nunito-Light.ttf in Resources */,
 				300FC4E01EE37E0F00D93A6D /* Assets.xcassets in Resources */,
+				30F7A2851EE4FF86002A0981 /* Nunito-Regular.ttf in Resources */,
+				30F7A2821EE4FF86002A0981 /* Nunito-Bold.ttf in Resources */,
 				300FC4DE1EE37E0F00D93A6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,12 +540,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F7A28B1EE50F0E002A0981 /* AddMedicineViewController.swift in Sources */,
+				30F7A2891EE50EE5002A0981 /* MainViewController.swift in Sources */,
 				30F7A27B1EE4F02E002A0981 /* Plan+CoreDataProperties.swift in Sources */,
 				30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */,
+				30F7A2901EE51614002A0981 /* MMPButton.swift in Sources */,
+				30F7A28E1EE51555002A0981 /* UIColor+ColorAdditions.swift in Sources */,
 				300FC4DB1EE37E0F00D93A6D /* ViewController.swift in Sources */,
 				30F7A2741EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld in Sources */,
 				300FC4D91EE37E0F00D93A6D /* AppDelegate.swift in Sources */,
 				30F7A27A1EE4F02E002A0981 /* Plan+CoreDataClass.swift in Sources */,
+				30F7A2921EE51AD5002A0981 /* MMPRoundedCornersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -643,6 +720,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
