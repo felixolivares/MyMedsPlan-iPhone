@@ -23,7 +23,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="jpg-VS-rI3" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TFm-vS-1Ov">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TFm-vS-1Ov">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -51,9 +51,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Meds Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnY-mb-x0r">
-                                        <rect key="frame" x="149.66666666666663" y="36" width="115.33333333333337" height="25"/>
+                                        <rect key="frame" x="149.66666666666663" y="36" width="115.33333333333337" height="24.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
-                                        <color key="textColor" red="0.396078431372549" green="0.42745098039215684" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-5b-JIJ">
@@ -63,7 +63,7 @@
                                             <constraint firstAttribute="height" constant="22" id="wfj-kU-dez"/>
                                         </constraints>
                                         <color key="tintColor" red="0.0039215686274509803" green="0.066666666666666666" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="plusSign"/>
+                                        <state key="normal" image="plusIcon"/>
                                         <connections>
                                             <segue destination="pgV-Wd-ed9" kind="show" id="MGM-PK-Mmx">
                                                 <segue key="commit" inheritsFrom="parent" id="VRI-f4-HjX"/>
@@ -72,7 +72,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.24313725490196078" green="0.76470588235294112" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dgX-5b-JIJ" secondAttribute="trailing" constant="20" id="0Bq-aG-nEt"/>
                                     <constraint firstAttribute="height" constant="75" id="GkW-JI-t9Y"/>
@@ -81,15 +81,30 @@
                                     <constraint firstItem="nnY-mb-x0r" firstAttribute="top" secondItem="2um-hd-eDK" secondAttribute="top" constant="36" id="kf0-mV-4oB"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nal-jv-L1F">
+                                <rect key="frame" x="0.0" y="75" width="414" height="661"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="hm8-FY-b9c"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BCG-je-XCn"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92549019607843142" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nal-jv-L1F" secondAttribute="bottom" id="0Qt-FT-mLq"/>
+                            <constraint firstItem="nal-jv-L1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Asc-Fx-gbR"/>
                             <constraint firstItem="2um-hd-eDK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="I2j-Ez-7Ga"/>
                             <constraint firstItem="2um-hd-eDK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QBB-SQ-btj"/>
+                            <constraint firstItem="nal-jv-L1F" firstAttribute="top" secondItem="2um-hd-eDK" secondAttribute="bottom" id="SPt-Y0-Tje"/>
+                            <constraint firstAttribute="trailing" secondItem="nal-jv-L1F" secondAttribute="trailing" id="Slk-ye-qz8"/>
                             <constraint firstAttribute="trailing" secondItem="2um-hd-eDK" secondAttribute="trailing" id="egJ-U8-8ag"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="anz-9t-gQn"/>
+                    <connections>
+                        <outlet property="tableView" destination="nal-jv-L1F" id="Cjr-h1-1vF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,7 +131,7 @@
                                             <constraint firstAttribute="height" constant="25" id="t5Z-FW-tS1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
-                                        <color key="textColor" red="0.39607843139999999" green="0.42745098040000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eq-aq-bEd">
@@ -135,7 +150,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.76470588240000004" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="7CM-dk-rgw" firstAttribute="centerY" secondItem="0Eq-aq-bEd" secondAttribute="centerY" id="5az-B7-zpq"/>
                                     <constraint firstAttribute="height" constant="75" id="gIV-sm-omO"/>
@@ -342,7 +357,7 @@
     </scenes>
     <resources>
         <image name="backArrow" width="233" height="233"/>
-        <image name="plusSign" width="233" height="233"/>
+        <image name="plusIcon" width="233" height="233"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MGM-PK-Mmx"/>

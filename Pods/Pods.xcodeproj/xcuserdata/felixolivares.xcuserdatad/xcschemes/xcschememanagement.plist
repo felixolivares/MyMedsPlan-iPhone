@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AsyncSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ChameleonFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,17 +57,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F08618E5F48A8513B12A43D97F2464E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2FC63D27401212F33AA8C7C9B2774B54</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
+		<key>5429D2EB0EC3BE03ADC19B555A1D17B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +67,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6FD12F06DD82D913CFBD59A6E18CA502</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>76BD4592010354D6C23D6ECCA20D83A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA3C4EA5C802926E7CBE10D4A98B07DC</key>
+		<key>7F45F2F21482C3777494ACE42307212D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C235F77E101E742652CCF98FFDFA5182</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4877ED6F03C3F29A7A78EAC601017B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

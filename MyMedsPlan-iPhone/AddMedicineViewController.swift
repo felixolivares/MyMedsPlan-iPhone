@@ -24,7 +24,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     
     let periodicityArray:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12","24"]
     let unitsPerDoseArray:[String] = ["1","2","3","4","5","10","15","20","30"]
-    let medicineKindArray:[String] = ["Pills", "Dropplets", "Tablets", "Tea Spoons","Shots"]
+    let medicineKindArray:[String] = [MedicineType.Pill, MedicineType.Dropplet, MedicineType.Tablet, MedicineType.TeaSpoon, MedicineType.Shot]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,9 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveButtonPressed(_ sender: Any) {
         
+        guard nameTextField.text != "", kindTextField.text != "", periodicityTextField.text != "", unitsTextField.text != "" else {MMPUtils.showPopupWithOK(message: "Please complete all fields", vc: self); return}
+        
+        
         let context = persistentContainer.viewContext
         
         let plan = context.plans.create()
@@ -55,7 +58,10 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         
         do{
             try context.save()
-        }catch {}
+            MMPUtils.showPopup(message: "Saved succesfully", vc: self)
+        }catch {
+            MMPUtils.showPopup(message: "There has been an error, please try again.", vc: self)
+        }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -106,6 +112,25 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             .appear(originView: kindUnderline, baseViewController: self)
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag{
+        case 1:
+            
+            if (textField.text?.characters.count)! > 0 {
+                nameUnderline.backgroundColor = UIColor.mmpMainBlue
+            }else{
+                nameUnderline.backgroundColor = UIColor.mmpSoftGray
+            }
+        case 2:
+            if (textField.text?.characters.count)! > 0{
+                periodicityUnderline.backgroundColor = UIColor.mmpMainBlue
+            }else{
+                periodicityUnderline.backgroundColor = UIColor.mmpSoftGray
+            }
+        default:
+            print("no selection")
+        }
+    }
     
     /*
     // MARK: - Navigation

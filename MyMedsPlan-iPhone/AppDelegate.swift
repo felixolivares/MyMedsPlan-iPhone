@@ -10,6 +10,7 @@ import UIKit
 import AlecrimCoreData
 import IQKeyboardManagerSwift
 import CoreData
+import PopupDialog
 
 let persistentContainer = PersistentContainer(name: "MyMedsPlanModel")
 
@@ -20,10 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //Setup persistent container in order to avoid concurrency
         persistentContainer.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
+        //Setup intelligent keyboard
         IQKeyboardManager.sharedManager().enable = true
         
+        //Setup popup properties
+        setupPopup()
         return true
     }
 
@@ -49,6 +54,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func setupPopup(){
+        let cancelButtonAppearance = CancelButton.appearance()
+        // Default button
+        cancelButtonAppearance.titleFont        = UIFont(name: "Nunito-Bold", size: 18)!
+        cancelButtonAppearance.titleColor       = UIColor.mmpMainBlue
+        cancelButtonAppearance.buttonColor      = UIColor.clear
+        cancelButtonAppearance.separatorColor   = UIColor.mmpMainBlueAlpha
+        
+        let defaultButtonAppereance = DefaultButton.appearance()
+        defaultButtonAppereance.titleFont       = UIFont(name: "Nunito-Bold", size: 18)!
+        defaultButtonAppereance.titleColor      = UIColor.white
+        defaultButtonAppereance.buttonColor     = UIColor.mmpMainBlue
+        defaultButtonAppereance.separatorColor  = UIColor.mmpMainBlueAlpha
+        
+        let dialogAppearance = PopupDialogDefaultView.appearance()
+        dialogAppearance.backgroundColor        = UIColor.white
+        dialogAppearance.titleFont              = UIFont(name: "Nunito-Bold", size: 18)!
+        dialogAppearance.messageFont            = UIFont(name: "Nunito-Regular", size: 16)!
+        
+    }
 }
 

@@ -12,11 +12,20 @@ import UIKit
 
 class MMPRoundedCornersView: UIView {
 
-    @IBInspectable var cornerRadius: CGFloat = 0 {
+    @IBInspectable var cornerGray: CGFloat = 0 {
         didSet {
-            layer.cornerRadius = cornerRadius
-            layer.masksToBounds = cornerRadius > 0
+            layer.cornerRadius = cornerGray
+            layer.masksToBounds = cornerGray > 0
             layer.borderColor = UIColor.mmpSoftGray.cgColor
+            layer.borderWidth = 1.0
+        }
+    }
+    
+    @IBInspectable var cornerBlue: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerBlue
+            layer.masksToBounds = cornerBlue > 0
+            layer.borderColor = UIColor.mmpMainBlue.cgColor
             layer.borderWidth = 1.0
         }
     }

@@ -41,6 +41,15 @@ class MMPButton: UIButton {
         
     }
     
+    func setStartButton(){
+        self.layer.cornerRadius = 4;
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.mmpFadedRedTwo.cgColor;
+        self.backgroundColor = UIColor.mmpFadedRedTwo
+        self.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.tintColor = UIColor.mmpFadedRedTwo;
+    }
+    
     func setButtonDisabled(){
         self.layer.cornerRadius = 4;
         self.backgroundColor = UIColor.init(red:170.0/255.0, green:178.0/255.0, blue:188.0/255.0, alpha:1);
