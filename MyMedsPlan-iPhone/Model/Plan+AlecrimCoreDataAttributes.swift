@@ -18,11 +18,14 @@ import AlecrimCoreData
 extension Plan {
 
     static let additionalInfo = AlecrimCoreData.NullableAttribute<String>("additionalInfo")
+    static let endDate = AlecrimCoreData.NullableAttribute<Date>("endDate")
     static let fireDate = AlecrimCoreData.NullableAttribute<Date>("fireDate")
+    static let inProgress = AlecrimCoreData.NullableAttribute<Bool>("inProgress")
     static let medicineKind = AlecrimCoreData.NullableAttribute<String>("medicineKind")
     static let medicineName = AlecrimCoreData.NullableAttribute<String>("medicineName")
     static let otherUser = AlecrimCoreData.NullableAttribute<String>("otherUser")
     static let periodicity = AlecrimCoreData.NullableAttribute<Int16>("periodicity")
+    static let startDate = AlecrimCoreData.NullableAttribute<Date>("startDate")
     static let unitsPerDose = AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose")
 
 }
@@ -32,11 +35,14 @@ extension Plan {
 extension AlecrimCoreData.AttributeProtocol where Self.ValueType: Plan {
 
     var additionalInfo: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("additionalInfo", self) }
+    var endDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("endDate", self) }
     var fireDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("fireDate", self) }
+    var inProgress: AlecrimCoreData.NullableAttribute<Bool> { return AlecrimCoreData.NullableAttribute<Bool>("inProgress", self) }
     var medicineKind: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("medicineKind", self) }
     var medicineName: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("medicineName", self) }
     var otherUser: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("otherUser", self) }
     var periodicity: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("periodicity", self) }
+    var startDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("startDate", self) }
     var unitsPerDose: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose", self) }
 
 }

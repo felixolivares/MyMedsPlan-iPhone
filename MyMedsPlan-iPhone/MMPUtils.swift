@@ -18,6 +18,14 @@ struct MedicineType{
     public static let Dropplet = "Dropplets"
 }
 
+struct MedicineIcon{
+    public static let Dropplet = "droppletsIcon"
+    public static let Pill = "pillIcon"
+    public static let Shot = "shotIcon"
+    public static let Tablet = "tabletsIcon"
+    public static let Spoon = "spoonIcon"
+}
+
 class MMPUtils{
     
     public static func showPopup(error : NSError, vc : UIViewController){

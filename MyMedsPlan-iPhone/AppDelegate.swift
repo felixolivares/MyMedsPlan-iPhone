@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Setup popup properties
         setupPopup()
+        
+        //Remove data from DB
+        //removeDataDB()
+        
         return true
     }
 
@@ -73,6 +77,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dialogAppearance.titleFont              = UIFont(name: "Nunito-Bold", size: 18)!
         dialogAppearance.messageFont            = UIFont(name: "Nunito-Regular", size: 16)!
         
+    }
+    
+    func removeDataDB(){
+        let plans = persistentContainer.viewContext.plans
+        plans.deleteAll()
+        
+        do{
+            try persistentContainer.viewContext.save()
+        }catch {}
     }
 }
 

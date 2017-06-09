@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,7 +59,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-5b-JIJ">
-                                        <rect key="frame" x="372" y="37.666666666666664" width="22" height="22"/>
+                                        <rect key="frame" x="372" y="38" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="qH6-FK-aYw"/>
                                             <constraint firstAttribute="height" constant="22" id="wfj-kU-dez"/>
@@ -104,6 +106,7 @@
                     <navigationItem key="navigationItem" id="anz-9t-gQn"/>
                     <connections>
                         <outlet property="tableView" destination="nal-jv-L1F" id="Cjr-h1-1vF"/>
+                        <segue destination="r12-nw-wKz" kind="show" identifier="toMedicinePlan" id="j9I-Nb-f5s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -354,9 +357,220 @@
             </objects>
             <point key="canvasLocation" x="933.33333333333337" y="150"/>
         </scene>
+        <!--Medicine Plan View Controller-->
+        <scene sceneID="sxh-5y-fCd">
+            <objects>
+                <viewController id="r12-nw-wKz" customClass="MedicinePlanViewController" customModule="MyMedsPlan_iPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gNA-Fp-hre"/>
+                        <viewControllerLayoutGuide type="bottom" id="5eH-Pf-Sgv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QOo-bR-mzr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVR-ao-ZIG" userLabel="NavBar">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicine Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvn-Ac-7Yt">
+                                        <rect key="frame" x="149.66666666666663" y="36" width="115.33333333333337" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="UdS-IO-ziF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                                        <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-B5-RdV">
+                                        <rect key="frame" x="20" y="37" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="6cw-Oa-iPx"/>
+                                            <constraint firstAttribute="height" constant="22" id="qID-5X-R1e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                                        <color key="tintColor" red="0.0039215686269999999" green="0.066666666669999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="backArrowGray">
+                                            <color key="titleColor" red="0.043137254899999998" green="0.090196078430000007" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="r12-nw-wKz" eventType="touchUpInside" id="1m3-xO-elZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="0lT-A9-F4t"/>
+                                    <constraint firstItem="mCV-B5-RdV" firstAttribute="leading" secondItem="FVR-ao-ZIG" secondAttribute="leading" constant="20" id="3GD-US-cRh"/>
+                                    <constraint firstItem="Tvn-Ac-7Yt" firstAttribute="top" secondItem="FVR-ao-ZIG" secondAttribute="top" constant="36" id="FHc-h0-lHb"/>
+                                    <constraint firstItem="Tvn-Ac-7Yt" firstAttribute="centerX" secondItem="FVR-ao-ZIG" secondAttribute="centerX" id="GcZ-i7-CvA"/>
+                                    <constraint firstAttribute="height" constant="75" id="mjS-a8-pd8"/>
+                                    <constraint firstItem="Tvn-Ac-7Yt" firstAttribute="centerY" secondItem="mCV-B5-RdV" secondAttribute="centerY" id="zPn-1J-H4s"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pillIcon" translatesAutoresizingMaskIntoConstraints="NO" id="EsX-9U-VeQ">
+                                <rect key="frame" x="157" y="95" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="fBk-2Y-rn1"/>
+                                    <constraint firstAttribute="width" constant="100" id="zQh-8T-ZB8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwm-OZ-C7v">
+                                <rect key="frame" x="184.66666666666666" y="203" width="44.666666666666686" height="24.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                                <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kH3-7n-R1Z">
+                                <rect key="frame" x="0.0" y="247.66666666666669" width="207" height="67.000000000000057"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAKE MEDICINE EVERY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4P-3b-iLe">
+                                        <rect key="frame" x="35" y="15.000000000000028" width="137.33333333333334" height="14.333333333333314"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfR-P1-EwM">
+                                        <rect key="frame" x="85.666666666666686" y="38.000000000000028" width="36.333333333333329" height="20.666666666666629"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
+                                        <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="DVL-QY-YDn"/>
+                                    <constraint firstItem="bfR-P1-EwM" firstAttribute="centerX" secondItem="kH3-7n-R1Z" secondAttribute="centerX" id="Gai-3K-hwe"/>
+                                    <constraint firstItem="N4P-3b-iLe" firstAttribute="centerX" secondItem="kH3-7n-R1Z" secondAttribute="centerX" id="X1p-Ii-YIj"/>
+                                    <constraint firstItem="bfR-P1-EwM" firstAttribute="top" secondItem="N4P-3b-iLe" secondAttribute="bottom" constant="8" id="cUF-a0-zGD"/>
+                                    <constraint firstItem="N4P-3b-iLe" firstAttribute="top" secondItem="kH3-7n-R1Z" secondAttribute="top" constant="15" id="dvi-gx-yCa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znq-2K-GvA">
+                                <rect key="frame" x="207" y="247" width="207" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNITS PER EACH DOSE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-Fw-HNV">
+                                        <rect key="frame" x="34.666666666666657" y="15" width="138.66666666666666" height="14.333333333333314"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJy-eD-hiP">
+                                        <rect key="frame" x="85" y="37" width="36.333333333333314" height="20.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
+                                        <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1J9-Fw-HNV" firstAttribute="top" secondItem="znq-2K-GvA" secondAttribute="top" constant="15" id="0yK-wE-doq"/>
+                                    <constraint firstItem="1J9-Fw-HNV" firstAttribute="centerX" secondItem="znq-2K-GvA" secondAttribute="centerX" id="7Nm-Q3-Lbu"/>
+                                    <constraint firstItem="LJy-eD-hiP" firstAttribute="top" secondItem="1J9-Fw-HNV" secondAttribute="bottom" constant="8" id="P8W-B4-IUk"/>
+                                    <constraint firstItem="LJy-eD-hiP" firstAttribute="centerX" secondItem="znq-2K-GvA" secondAttribute="centerX" id="YQ9-N9-ThR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lr7-0U-UB1" userLabel="Separator">
+                                <rect key="frame" x="206" y="247" width="1" height="67"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="sWv-Sn-dlv"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEXT INTAKE IN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8A-eQ-GcJ">
+                                <rect key="frame" x="159" y="344.66666666666674" width="94.666666666666657" height="14.333333333333314"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-Pl-KRw" customClass="CountdownLabel" customModule="MyMedsPlan_iPhone" customModuleProvider="target">
+                                <rect key="frame" x="127" y="364" width="161" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="aT4-Lc-CWq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FL5-Dc-2jF">
+                                <rect key="frame" x="35" y="420" width="344" height="1"/>
+                                <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="45a-dg-tE9"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTHER INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFQ-wQ-RFY">
+                                <rect key="frame" x="35" y="451" width="130" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k3v-1P-KSc">
+                                <rect key="frame" x="35" y="465" width="344" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="A0S-Nl-jBE"/>
+                                </constraints>
+                                <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baH-OV-hxB">
+                                <rect key="frame" x="0.0" y="697" width="229" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take it"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n8A-eQ-GcJ" firstAttribute="top" secondItem="kH3-7n-R1Z" secondAttribute="bottom" constant="30" id="1q0-Ju-eVO"/>
+                            <constraint firstItem="kH3-7n-R1Z" firstAttribute="leading" secondItem="QOo-bR-mzr" secondAttribute="leading" id="3IM-Ym-VXr"/>
+                            <constraint firstItem="pFQ-wQ-RFY" firstAttribute="leading" secondItem="QOo-bR-mzr" secondAttribute="leadingMargin" constant="15" id="4Lj-9X-gjj"/>
+                            <constraint firstItem="znq-2K-GvA" firstAttribute="top" secondItem="kH3-7n-R1Z" secondAttribute="top" id="6VE-Bu-mvJ"/>
+                            <constraint firstAttribute="trailing" secondItem="FVR-ao-ZIG" secondAttribute="trailing" id="8Vx-Fs-cgd"/>
+                            <constraint firstItem="EsX-9U-VeQ" firstAttribute="centerX" secondItem="QOo-bR-mzr" secondAttribute="centerX" id="ByQ-8h-Zgz"/>
+                            <constraint firstItem="cCG-Pl-KRw" firstAttribute="top" secondItem="n8A-eQ-GcJ" secondAttribute="bottom" constant="5" id="KlN-2A-raj"/>
+                            <constraint firstItem="FL5-Dc-2jF" firstAttribute="top" secondItem="cCG-Pl-KRw" secondAttribute="bottom" constant="15" id="PNx-pS-lma"/>
+                            <constraint firstItem="FL5-Dc-2jF" firstAttribute="leading" secondItem="QOo-bR-mzr" secondAttribute="leadingMargin" constant="15" id="QQg-hk-vxa"/>
+                            <constraint firstItem="pFQ-wQ-RFY" firstAttribute="top" secondItem="FL5-Dc-2jF" secondAttribute="bottom" constant="30" id="Rbq-If-JRM"/>
+                            <constraint firstItem="bwm-OZ-C7v" firstAttribute="centerX" secondItem="QOo-bR-mzr" secondAttribute="centerX" id="SGW-pl-vsB"/>
+                            <constraint firstItem="cCG-Pl-KRw" firstAttribute="centerX" secondItem="QOo-bR-mzr" secondAttribute="centerX" id="URp-nC-sH2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k3v-1P-KSc" secondAttribute="trailing" constant="15" id="VMW-oT-VaK"/>
+                            <constraint firstItem="bwm-OZ-C7v" firstAttribute="top" secondItem="EsX-9U-VeQ" secondAttribute="bottom" constant="8" id="Vbl-eS-ycv"/>
+                            <constraint firstItem="kH3-7n-R1Z" firstAttribute="top" secondItem="bwm-OZ-C7v" secondAttribute="bottom" constant="20" id="XGz-qJ-h3k"/>
+                            <constraint firstAttribute="trailing" secondItem="znq-2K-GvA" secondAttribute="trailing" id="YhZ-B0-quf"/>
+                            <constraint firstItem="FVR-ao-ZIG" firstAttribute="leading" secondItem="QOo-bR-mzr" secondAttribute="leading" id="ZVw-lr-NyC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FL5-Dc-2jF" secondAttribute="trailing" constant="15" id="bE6-Pf-DJy"/>
+                            <constraint firstItem="Lr7-0U-UB1" firstAttribute="centerX" secondItem="QOo-bR-mzr" secondAttribute="centerX" id="d72-R9-a0E"/>
+                            <constraint firstItem="znq-2K-GvA" firstAttribute="bottom" secondItem="Lr7-0U-UB1" secondAttribute="bottom" id="eP4-g5-Meu"/>
+                            <constraint firstItem="znq-2K-GvA" firstAttribute="top" secondItem="Lr7-0U-UB1" secondAttribute="top" id="gEg-QF-sj0"/>
+                            <constraint firstItem="k3v-1P-KSc" firstAttribute="leading" secondItem="QOo-bR-mzr" secondAttribute="leadingMargin" constant="15" id="hoF-1L-6O3"/>
+                            <constraint firstItem="kH3-7n-R1Z" firstAttribute="width" secondItem="QOo-bR-mzr" secondAttribute="width" multiplier="0.5" id="iQ8-Rf-swV"/>
+                            <constraint firstItem="znq-2K-GvA" firstAttribute="height" secondItem="kH3-7n-R1Z" secondAttribute="height" id="myu-bz-HTX"/>
+                            <constraint firstItem="FVR-ao-ZIG" firstAttribute="top" secondItem="QOo-bR-mzr" secondAttribute="top" id="o6I-8M-jx3"/>
+                            <constraint firstItem="n8A-eQ-GcJ" firstAttribute="centerX" secondItem="QOo-bR-mzr" secondAttribute="centerX" id="qbf-vk-phu"/>
+                            <constraint firstItem="EsX-9U-VeQ" firstAttribute="top" secondItem="FVR-ao-ZIG" secondAttribute="bottom" constant="20" id="s3B-SW-NkB"/>
+                            <constraint firstItem="znq-2K-GvA" firstAttribute="width" secondItem="QOo-bR-mzr" secondAttribute="width" multiplier="0.5" id="yxb-rq-c4x"/>
+                            <constraint firstItem="k3v-1P-KSc" firstAttribute="top" secondItem="pFQ-wQ-RFY" secondAttribute="bottom" id="zs3-Pu-KIq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="counterLabel" destination="cCG-Pl-KRw" id="upf-wT-FYm"/>
+                        <outlet property="medicineIconImageView" destination="EsX-9U-VeQ" id="8DW-Th-y4Q"/>
+                        <outlet property="medicineNameLabel" destination="bwm-OZ-C7v" id="4i5-H4-BpT"/>
+                        <outlet property="otherInfoTextView" destination="k3v-1P-KSc" id="dS7-pH-xrw"/>
+                        <outlet property="periodicityLabel" destination="bfR-P1-EwM" id="aCb-Ru-Qwc"/>
+                        <outlet property="unitsPerDoseLabel" destination="LJy-eD-hiP" id="bB2-mT-g4J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cs2-NX-II2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776.8115942028987" y="150"/>
+        </scene>
     </scenes>
     <resources>
         <image name="backArrow" width="233" height="233"/>
+        <image name="backArrowGray" width="233" height="233"/>
+        <image name="pillIcon" width="233" height="233"/>
         <image name="plusIcon" width="233" height="233"/>
     </resources>
     <inferredMetricsTieBreakers>

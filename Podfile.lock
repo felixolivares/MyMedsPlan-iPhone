@@ -7,6 +7,7 @@ PODS:
   - IQKeyboardManagerSwift (4.0.10)
   - PopupDialog (0.5.4)
   - SwiftyPickerPopover (4.0.1)
+  - SwipeCellKit (1.8.0)
 
 DEPENDENCIES:
   - AlecrimCoreData (~> 5.0)
@@ -15,15 +16,22 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - PopupDialog (~> 0.5)
   - SwiftyPickerPopover
+  - SwipeCellKit (from `https://github.com/jerkoch/SwipeCellKit.git`, branch `develop`)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
+  SwipeCellKit:
+    :branch: develop
+    :git: https://github.com/jerkoch/SwipeCellKit.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
     :git: https://github.com/ViccAlexander/Chameleon.git
+  SwipeCellKit:
+    :commit: 73ff931fb2cf543b5511648f437e9a79ec4b4ae5
+    :git: https://github.com/jerkoch/SwipeCellKit.git
 
 SPEC CHECKSUMS:
   AlecrimCoreData: f1251de3630f4d4d3a212e405298084c229cef29
@@ -32,7 +40,8 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   SwiftyPickerPopover: 0c86bf20937763b2059f031b5ca332f8823aa610
+  SwipeCellKit: 048e2035809b7a4bc71b86bcb76c7b85d28d6620
 
-PODFILE CHECKSUM: f66a1b65b331e0df2a38591b8e7680163d8b1f53
+PODFILE CHECKSUM: e6f7dcf9c87dbf84cd5cad5ae06d2296ea31f409
 
 COCOAPODS: 1.1.1

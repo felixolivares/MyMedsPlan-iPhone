@@ -15,11 +15,14 @@ import CoreData
 extension Plan {
 
     @NSManaged var additionalInfo: String?
+    @NSManaged var endDate: Date?
     @NSManaged var fireDate: Date?
+    @NSManaged var inProgress: Bool // cannot mark as optional because Objective-C compatibility issues
     @NSManaged var medicineKind: String?
     @NSManaged var medicineName: String?
     @NSManaged var otherUser: String?
     @NSManaged var periodicity: Int16 // cannot mark as optional because Objective-C compatibility issues
+    @NSManaged var startDate: Date?
     @NSManaged var unitsPerDose: Int16 // cannot mark as optional because Objective-C compatibility issues
 
 }

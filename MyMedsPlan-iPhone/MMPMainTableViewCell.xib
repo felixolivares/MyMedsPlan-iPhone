@@ -100,6 +100,7 @@
                 <outlet property="dosisLabel" destination="Hb5-6Z-fpV" id="I4t-KB-Xod"/>
                 <outlet property="medicineImageView" destination="C6f-M2-s1Q" id="t2Y-yH-Qvu"/>
                 <outlet property="nameLabel" destination="ey8-15-wlm" id="gpo-Ag-37O"/>
+                <outlet property="nextIntakeLabel" destination="2fT-Qp-W8M" id="VIm-3l-k6N"/>
                 <outlet property="startButton" destination="dmV-pF-GmJ" id="K4I-XY-T3e"/>
             </connections>
             <point key="canvasLocation" x="34" y="70.5"/>

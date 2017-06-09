@@ -55,7 +55,9 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         plan.medicineKind = kindTextField.text
         plan.periodicity = Int16(periodicityTextField.text!)!
         plan.unitsPerDose = Int16(unitsTextField.text!)!
-        
+        plan.startDate = Date()
+        plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
+        plan.inProgress = false
         do{
             try context.save()
             MMPUtils.showPopup(message: "Saved succesfully", vc: self)
@@ -76,7 +78,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func periodicityTextFieldPressed(_ sender: Any) {
         
-        StringPickerPopover(title: "Perdiodicity", choices: periodicityArray)
+        StringPickerPopover(title: "Hrs", choices: periodicityArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 print("done row \(selectedRow) \(selectedString)")

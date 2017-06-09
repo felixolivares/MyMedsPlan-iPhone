@@ -8,38 +8,46 @@
 
 import UIKit
 //import CountdownLabel
+import SwipeCellKit
 
-class MMPMainTableViewCell: UITableViewCell {
+class MMPMainTableViewCell: SwipeTableViewCell {
 
     
     @IBOutlet weak var startButton: MMPButton!
     @IBOutlet weak var dosisLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var medicineImageView: UIImageView!
+    @IBOutlet weak var nextIntakeLabel: UILabel!
 
     
     var plan:Plan? {
         didSet{
             guard plan != nil else {return}
             nameLabel.text = plan?.medicineName
-            dosisLabel.text = "Take " + String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!)
+            dosisLabel.text = "Dose: " + String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!)
+            if (plan?.inProgress)!{
+                nextIntakeLabel.text = "Next intake in \(MMPDateUtils.remainingTimeForNextIntake(date:(plan?.fireDate)!))"
+            }else{
+                nextIntakeLabel.text = "Hit start button"
+            }
             if let kind = plan?.medicineKind{
                 
                 switch kind {
                 case MedicineType.Dropplet:
-                    medicineImageView.image = UIImage(named: "droppletsIcon")
+                    medicineImageView.image = UIImage(named: MedicineIcon.Dropplet)
                 case MedicineType.Pill:
-                    medicineImageView.image = UIImage(named: "pillIcon")
+                    medicineImageView.image = UIImage(named: MedicineIcon.Pill)
                 case MedicineType.Shot:
-                    medicineImageView.image = UIImage(named: "shotIcon")
+                    medicineImageView.image = UIImage(named: MedicineIcon.Shot)
                 case MedicineType.Tablet:
-                    medicineImageView.image = UIImage(named: "tabletsIcon")
+                    medicineImageView.image = UIImage(named: MedicineIcon.Tablet)
                 case MedicineType.TeaSpoon:
-                    medicineImageView.image = UIImage(named: "spoonIcon")
+                    medicineImageView.image = UIImage(named: MedicineIcon.Spoon)
                 default:
-                    medicineImageView.image = UIImage(named: "pillIcon")
+                    medicineImageView.image = UIImage(named: MedicineIcon.Pill)
                 }
             }
+            
         }
     }
     

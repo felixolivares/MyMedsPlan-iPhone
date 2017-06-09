@@ -11,6 +11,7 @@ target 'MyMedsPlan-iPhone' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'SwiftyPickerPopover'
   pod ‘AsyncSwift’
+  pod 'SwipeCellKit', :git => 'https://github.com/jerkoch/SwipeCellKit.git', :branch => 'develop'
 
   target 'MyMedsPlan-iPhoneTests' do
     inherit! :search_paths

@@ -14,6 +14,7 @@
 		300FC4EE1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4ED1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift */; };
 		300FC4F91EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */; };
 		30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */; };
+		30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */; };
 		30BE9ED81EE78BAE00808FDB /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9ED61EE78BAE00808FDB /* CountdownLabel.swift */; };
 		30BE9ED91EE78BAE00808FDB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30BE9ED71EE78BAE00808FDB /* Info.plist */; };
 		30BE9EE81EE78BC100808FDB /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EDA1EE78BC100808FDB /* LTCharacterDiffResult.swift */; };
@@ -87,6 +88,7 @@
 		300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsPlan_iPhoneUITests.swift; sourceTree = "<group>"; };
 		300FC4FA1EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPDateUtils.swift; sourceTree = "<group>"; };
+		30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicinePlanViewController.swift; sourceTree = "<group>"; };
 		30BE9ED51EE78BAE00808FDB /* CountdownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountdownLabel.h; path = CountdownLabel/CountdownLabel.h; sourceTree = "<group>"; };
 		30BE9ED61EE78BAE00808FDB /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountdownLabel.swift; path = CountdownLabel/CountdownLabel.swift; sourceTree = "<group>"; };
 		30BE9ED71EE78BAE00808FDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CountdownLabel/Info.plist; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				30BE9ECF1EE7584600808FDB /* Cell */,
 				30F7A2881EE50EE5002A0981 /* MainViewController.swift */,
 				30F7A28A1EE50F0E002A0981 /* AddMedicineViewController.swift */,
+				30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */,
 				30BE9EF31EE78BC100808FDB /* LTMorphingLabel+Sparkle.swift in Sources */,
 				30F7A2891EE50EE5002A0981 /* MainViewController.swift in Sources */,
+				30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */,
 				30BE9EF21EE78BC100808FDB /* LTMorphingLabel+Pixelate.swift in Sources */,
 				30BE9EF41EE78BC100808FDB /* LTStringDiffResult.swift in Sources */,
 				30BE9EE91EE78BC100808FDB /* LTCharacterLimbo.swift in Sources */,
