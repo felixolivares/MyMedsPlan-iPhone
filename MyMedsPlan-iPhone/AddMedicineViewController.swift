@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftyPickerPopover
+import Async
+import PopupDialog
 
 class AddMedicineViewController: UIViewController, UITextFieldDelegate {
 
@@ -26,10 +28,13 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     let unitsPerDoseArray:[String] = ["1","2","3","4","5","10","15","20","30"]
     let medicineKindArray:[String] = [MedicineType.Pill, MedicineType.Dropplet, MedicineType.Tablet, MedicineType.TeaSpoon, MedicineType.Shot]
     
+    var editPlan:Plan?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadPlan()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +44,12 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func goBack(_ sender: Any) {
         
+        dismissView()
+    }
+    
+    func dismissView(){
+        
+        guard editPlan == nil else {self.dismiss(animated: true, completion: {});return}
         _ = navigationController?.popToRootViewController(animated: true)
     }
 
@@ -49,21 +60,44 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         
         let context = persistentContainer.viewContext
         
-        let plan = context.plans.create()
+        if editPlan != nil{
+            editPlan?.medicineName = nameTextField.text
+            editPlan?.medicineKind = kindTextField.text
+            editPlan?.periodicity = Int16(periodicityTextField.text!)!
+            editPlan?.unitsPerDose = Int16(unitsTextField.text!)!
+            editPlan?.startDate = Date()
+            //plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
+            editPlan?.additionalInfo = otherInformationTextView.text
+            editPlan?.inProgress = false
+        }else{
+            
+            let plan = context.plans.create()
+            plan.medicineName = nameTextField.text
+            plan.medicineKind = kindTextField.text
+            plan.periodicity = Int16(periodicityTextField.text!)!
+            plan.unitsPerDose = Int16(unitsTextField.text!)!
+            plan.startDate = Date()
+            //plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
+            plan.additionalInfo = otherInformationTextView.text
+        }
         
-        plan.medicineName = nameTextField.text
-        plan.medicineKind = kindTextField.text
-        plan.periodicity = Int16(periodicityTextField.text!)!
-        plan.unitsPerDose = Int16(unitsTextField.text!)!
-        plan.startDate = Date()
-        plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
-        plan.inProgress = false
         do{
             try context.save()
-            MMPUtils.showPopup(message: "Saved succesfully", vc: self)
+            showPopup(message: "Saved succesfully", vc: self)
         }catch {
-            MMPUtils.showPopup(message: "There has been an error, please try again.", vc: self)
+            showPopup(message: "There has been an error, please try again.", vc: self)
         }
+    }
+    
+    func loadPlan(){
+        
+        guard editPlan != nil else {return}
+        
+        nameTextField.text = editPlan?.medicineName
+        otherInformationTextView.text = editPlan?.additionalInfo
+        periodicityTextField.text = String(describing: (editPlan?.periodicity)!)
+        unitsTextField.text = String(describing: (editPlan?.unitsPerDose)!)
+        kindTextField.text = String(describing: (editPlan?.medicineKind)!)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -134,6 +168,20 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func showPopup(message:String?, vc : UIViewController){
+        // Create the dialog
+        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
+            print("Completed")
+            self.dismissView()
+        }
+        
+        // Present dialog
+        vc.present(popup, animated: true, completion: nil)
+        
+        Async.main(after: 2){
+            popup.dismiss()
+        }
+    }
     /*
     // MARK: - Navigation
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupDialog
 
 class MMPButton: UIButton {
 
@@ -16,7 +17,7 @@ class MMPButton: UIButton {
         // set other operations after super.init, if required
         self.layer.cornerRadius = 4;
         //        self.backgroundColor = UIColor.init(red:79/255, green:192/255, blue:232/255, alpha:1);
-        self.backgroundColor = UIColor.mmpMainBlue;
+        //self.backgroundColor = UIColor.mmpMainBlue;
         self.tintColor = UIColor.white;
     }
     
@@ -26,7 +27,7 @@ class MMPButton: UIButton {
         // set other operations after super.init if required
         self.layer.cornerRadius = 4;
         //        self.backgroundColor = UIColor.init(red:79/255, green:192/255, blue:232/255, alpha:1);
-        self.backgroundColor = UIColor.mmpMainBlue;
+        //self.backgroundColor = UIColor.mmpMainBlue;
         self.tintColor = UIColor.white;
     }
     
@@ -50,10 +51,30 @@ class MMPButton: UIButton {
         self.tintColor = UIColor.mmpFadedRedTwo;
     }
     
+    func setViewButton(){
+        self.layer.cornerRadius = 4;
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.mmpCoolGreen.cgColor;
+        self.backgroundColor = UIColor.mmpCoolGreen
+        self.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.tintColor = UIColor.mmpCoolGreen;
+    }
+    
     func setButtonDisabled(){
         self.layer.cornerRadius = 4;
         self.backgroundColor = UIColor.init(red:170.0/255.0, green:178.0/255.0, blue:188.0/255.0, alpha:1);
         self.tintColor = UIColor.white;
     }
 
+}
+
+public final class PopupDialogOtherButton: PopupDialogButton {
+    
+    override public func setupView() {
+        defaultTitleFont      = UIFont.boldSystemFont(ofSize: 16)
+        defaultTitleColor     = UIColor.white
+        defaultButtonColor    = UIColor.blue
+        defaultSeparatorColor = UIColor.clear
+        super.setupView()
+    }
 }

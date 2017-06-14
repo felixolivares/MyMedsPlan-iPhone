@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Remove data from DB
         //removeDataDB()
         
+        _ = MMPManager.sharedInstance
+        
         return true
     }
 
@@ -61,16 +63,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupPopup(){
         let cancelButtonAppearance = CancelButton.appearance()
         // Default button
-        cancelButtonAppearance.titleFont        = UIFont(name: "Nunito-Bold", size: 18)!
-        cancelButtonAppearance.titleColor       = UIColor.mmpMainBlue
+        cancelButtonAppearance.titleFont        = UIFont.systemFont(ofSize: 14) //UIFont(name: "Nunito-Bold", size: 14)!
+        cancelButtonAppearance.titleColor       = UIColor.mmpMainAqua
         cancelButtonAppearance.buttonColor      = UIColor.clear
-        cancelButtonAppearance.separatorColor   = UIColor.mmpMainBlueAlpha
+        cancelButtonAppearance.separatorColor   = UIColor.mmpMainAquaAlpha
         
         let defaultButtonAppereance = DefaultButton.appearance()
-        defaultButtonAppereance.titleFont       = UIFont(name: "Nunito-Bold", size: 18)!
+        defaultButtonAppereance.titleFont       = UIFont.systemFont(ofSize: 14)
         defaultButtonAppereance.titleColor      = UIColor.white
-        defaultButtonAppereance.buttonColor     = UIColor.mmpMainBlue
-        defaultButtonAppereance.separatorColor  = UIColor.mmpMainBlueAlpha
+        defaultButtonAppereance.buttonColor     = UIColor.mmpMainAqua
+        defaultButtonAppereance.separatorColor  = UIColor.mmpMainAquaAlpha
+        
+        let destructiveButtonAppereance = DestructiveButton.appearance()
+        destructiveButtonAppereance.separatorColor = UIColor.mmpMainAquaAlpha
         
         let dialogAppearance = PopupDialogDefaultView.appearance()
         dialogAppearance.backgroundColor        = UIColor.white

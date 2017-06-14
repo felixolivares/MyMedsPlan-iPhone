@@ -30,6 +30,7 @@ import UIKit
 
 /// Represents the default button for the popup dialog
 public final class DefaultButton: PopupDialogButton {}
+public final class PopupDialogOtherButton: PopupDialogButton {}
 
 // MARK: Cancel button
 

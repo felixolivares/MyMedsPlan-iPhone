@@ -23,10 +23,13 @@ extension Plan {
     static let inProgress = AlecrimCoreData.NullableAttribute<Bool>("inProgress")
     static let medicineKind = AlecrimCoreData.NullableAttribute<String>("medicineKind")
     static let medicineName = AlecrimCoreData.NullableAttribute<String>("medicineName")
+    static let notificationId = AlecrimCoreData.NullableAttribute<String>("notificationId")
     static let otherUser = AlecrimCoreData.NullableAttribute<String>("otherUser")
     static let periodicity = AlecrimCoreData.NullableAttribute<Int16>("periodicity")
     static let startDate = AlecrimCoreData.NullableAttribute<Date>("startDate")
     static let unitsPerDose = AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose")
+
+    static let event = AlecrimCoreData.Attribute<Set<Event>>("event")
 
 }
 
@@ -40,10 +43,13 @@ extension AlecrimCoreData.AttributeProtocol where Self.ValueType: Plan {
     var inProgress: AlecrimCoreData.NullableAttribute<Bool> { return AlecrimCoreData.NullableAttribute<Bool>("inProgress", self) }
     var medicineKind: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("medicineKind", self) }
     var medicineName: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("medicineName", self) }
+    var notificationId: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("notificationId", self) }
     var otherUser: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("otherUser", self) }
     var periodicity: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("periodicity", self) }
     var startDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("startDate", self) }
     var unitsPerDose: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose", self) }
+
+    var event: AlecrimCoreData.Attribute<Set<Event>> { return AlecrimCoreData.Attribute<Set<Event>>("event", self) }
 
 }
 

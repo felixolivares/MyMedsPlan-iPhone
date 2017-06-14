@@ -25,4 +25,16 @@ extension UIColor {
     class var mmpFadedRedTwo: UIColor {
         return UIColor(red: 210.0 / 255.0, green: 64.0 / 255.0, blue: 84.0 / 255.0, alpha: 1.0)
     }
+    
+    class var mmpMainAqua: UIColor {
+        return UIColor(red: 62.0 / 255.0, green: 195.0 / 255.0, blue: 214.0 / 255.0, alpha: 1.0)
+    }
+    
+    class var mmpMainAquaAlpha: UIColor {
+        return UIColor(red: 62.0 / 255.0, green: 195.0 / 255.0, blue: 214.0 / 255.0, alpha: 0.5)
+    }
+    
+    class var mmpCoolGreen: UIColor {
+        return UIColor(red: 114.0 / 255.0, green: 205.0 / 255.0, blue: 148.0 / 255.0, alpha: 1.0)
+    }
 }

@@ -15,6 +15,13 @@
 		300FC4F91EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */; };
 		30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */; };
 		30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */; };
+		308D94BD1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94BB1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift */; };
+		308D94BE1EEB745D00929C7C /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94BC1EEB745D00929C7C /* Event+CoreDataClass.swift */; };
+		308D94C31EEB746800929C7C /* Entity+AlecrimCoreDataAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94BF1EEB746800929C7C /* Entity+AlecrimCoreDataAttributes.swift */; };
+		308D94C41EEB746800929C7C /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94C01EEB746800929C7C /* Entity+CoreDataClass.swift */; };
+		308D94C51EEB746800929C7C /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94C11EEB746800929C7C /* Entity+CoreDataProperties.swift */; };
+		308D94C61EEB746800929C7C /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94C21EEB746800929C7C /* Event+CoreDataProperties.swift */; };
+		308D94C91EF0712600929C7C /* MMPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94C81EF0712600929C7C /* MMPManager.swift */; };
 		30BE9ED81EE78BAE00808FDB /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9ED61EE78BAE00808FDB /* CountdownLabel.swift */; };
 		30BE9ED91EE78BAE00808FDB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30BE9ED71EE78BAE00808FDB /* Info.plist */; };
 		30BE9EE81EE78BC100808FDB /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EDA1EE78BC100808FDB /* LTCharacterDiffResult.swift */; };
@@ -89,6 +96,13 @@
 		300FC4FA1EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPDateUtils.swift; sourceTree = "<group>"; };
 		30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicinePlanViewController.swift; sourceTree = "<group>"; };
+		308D94BB1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Event+AlecrimCoreDataAttributes.swift"; path = "Model/Event+AlecrimCoreDataAttributes.swift"; sourceTree = "<group>"; };
+		308D94BC1EEB745D00929C7C /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Event+CoreDataClass.swift"; path = "Model/Event+CoreDataClass.swift"; sourceTree = "<group>"; };
+		308D94BF1EEB746800929C7C /* Entity+AlecrimCoreDataAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entity+AlecrimCoreDataAttributes.swift"; path = "Model/Entity+AlecrimCoreDataAttributes.swift"; sourceTree = "<group>"; };
+		308D94C01EEB746800929C7C /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entity+CoreDataClass.swift"; path = "Model/Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		308D94C11EEB746800929C7C /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entity+CoreDataProperties.swift"; path = "Model/Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		308D94C21EEB746800929C7C /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Event+CoreDataProperties.swift"; path = "Model/Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		308D94C81EF0712600929C7C /* MMPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPManager.swift; sourceTree = "<group>"; };
 		30BE9ED51EE78BAE00808FDB /* CountdownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountdownLabel.h; path = CountdownLabel/CountdownLabel.h; sourceTree = "<group>"; };
 		30BE9ED61EE78BAE00808FDB /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountdownLabel.swift; path = CountdownLabel/CountdownLabel.swift; sourceTree = "<group>"; };
 		30BE9ED71EE78BAE00808FDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CountdownLabel/Info.plist; sourceTree = "<group>"; };
@@ -188,6 +202,7 @@
 		300FC4D71EE37E0F00D93A6D /* MyMedsPlan-iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				308D94C71EF070CA00929C7C /* SDK */,
 				30F7A28C1EE51534002A0981 /* Utilities */,
 				30F7A2751EE4ED4E002A0981 /* Model */,
 				30F7A27C1EE4FEB8002A0981 /* Common */,
@@ -223,6 +238,14 @@
 				30F7A2961EE653AD002A0981 /* MMPMainTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		308D94C71EF070CA00929C7C /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				308D94C81EF0712600929C7C /* MMPManager.swift */,
+			);
+			name = SDK;
 			sourceTree = "<group>";
 		};
 		30BE9ECF1EE7584600808FDB /* Cell */ = {
@@ -280,10 +303,16 @@
 		30F7A2751EE4ED4E002A0981 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */,
+				308D94BF1EEB746800929C7C /* Entity+AlecrimCoreDataAttributes.swift */,
+				308D94C01EEB746800929C7C /* Entity+CoreDataClass.swift */,
+				308D94C11EEB746800929C7C /* Entity+CoreDataProperties.swift */,
+				308D94C21EEB746800929C7C /* Event+CoreDataProperties.swift */,
+				308D94BB1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift */,
+				308D94BC1EEB745D00929C7C /* Event+CoreDataClass.swift */,
 				30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */,
 				30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */,
 				30F7A2781EE4F02E002A0981 /* Plan+CoreDataProperties.swift */,
-				30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -673,13 +702,19 @@
 				30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */,
 				30BE9ED81EE78BAE00808FDB /* CountdownLabel.swift in Sources */,
 				30F7A2941EE63776002A0981 /* MMPUtils.swift in Sources */,
+				308D94C31EEB746800929C7C /* Entity+AlecrimCoreDataAttributes.swift in Sources */,
+				308D94C51EEB746800929C7C /* Entity+CoreDataProperties.swift in Sources */,
 				30F7A2901EE51614002A0981 /* MMPButton.swift in Sources */,
 				30BE9EF01EE78BC100808FDB /* LTMorphingLabel+Evaporate.swift in Sources */,
+				308D94C61EEB746800929C7C /* Event+CoreDataProperties.swift in Sources */,
 				30F7A28E1EE51555002A0981 /* UIColor+ColorAdditions.swift in Sources */,
+				308D94BD1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift in Sources */,
 				30F7A2741EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld in Sources */,
 				30BE9EE81EE78BC100808FDB /* LTCharacterDiffResult.swift in Sources */,
 				30BE9EEB1EE78BC100808FDB /* LTEmitterView.swift in Sources */,
+				308D94C41EEB746800929C7C /* Entity+CoreDataClass.swift in Sources */,
 				30BE9EF11EE78BC100808FDB /* LTMorphingLabel+Fall.swift in Sources */,
+				308D94BE1EEB745D00929C7C /* Event+CoreDataClass.swift in Sources */,
 				300FC4D91EE37E0F00D93A6D /* AppDelegate.swift in Sources */,
 				30BE9EEC1EE78BC100808FDB /* LTMorphingEffect.swift in Sources */,
 				30BE9EEF1EE78BC100808FDB /* LTMorphingLabel+Burn.swift in Sources */,
@@ -687,6 +722,7 @@
 				30F7A2971EE653AD002A0981 /* MMPMainTableViewCell.swift in Sources */,
 				30F7A2921EE51AD5002A0981 /* MMPRoundedCornersView.swift in Sources */,
 				30BE9EEE1EE78BC100808FDB /* LTMorphingLabel+Anvil.swift in Sources */,
+				308D94C91EF0712600929C7C /* MMPManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

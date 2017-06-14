@@ -25,6 +25,11 @@ class MMPMainTableViewCell: SwipeTableViewCell {
             guard plan != nil else {return}
             nameLabel.text = plan?.medicineName
             dosisLabel.text = "Dose: " + String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!)
+            
+//            let isValid = productExpiryDate?.compare(today_date) == .orderedDescending ? true:false
+            let isValid = plan?.fireDate?.compare(Date()) == .orderedDescending ? true : false
+            plan?.inProgress = isValid
+
             if (plan?.inProgress)!{
                 nextIntakeLabel.text = "Next intake in \(MMPDateUtils.remainingTimeForNextIntake(date:(plan?.fireDate)!))"
             }else{
@@ -47,7 +52,12 @@ class MMPMainTableViewCell: SwipeTableViewCell {
                     medicineImageView.image = UIImage(named: MedicineIcon.Pill)
                 }
             }
+            if (plan?.inProgress)! {
+                startButton.setViewButton()
+                startButton.setTitle("View", for: .normal)
+            }
             
+            try! persistentContainer.viewContext.save()
         }
     }
     

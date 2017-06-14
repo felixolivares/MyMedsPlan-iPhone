@@ -8,6 +8,7 @@
 
 import UIKit
 import SwipeCellKit
+import UserNotifications
 
 class MainViewController: UIViewController {
 
@@ -26,14 +27,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let planTableViewCell = UINib(nibName: "MMPMainTableViewCell", bundle: nil)
-        tableView.register(planTableViewCell, forCellReuseIdentifier: kPlanTableViewCellIdentifier)
-        tableView.separatorStyle = .none
         
-        tableView.allowsSelection = true
-        tableView.allowsMultipleSelectionDuringEditing = true
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
+        configure()
         
         loadData()
     }
@@ -47,6 +42,31 @@ class MainViewController: UIViewController {
         super.viewWillAppear(true)
         
         loadData()
+    }
+    
+    func configure(){
+        
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert,.sound,.badge],
+            completionHandler: { (granted,error) in
+                MMPManager.sharedInstance.saveGrantedNotificationAccess(completed: granted)
+                if !granted{
+                    MMPUtils.showPopupWithOK(message: "In order to receive local notifications you need to enable notificiations for My Meds Plan app in you phone settings", vc: self)
+                }
+        })
+        
+        if MMPManager._isGrantedNotificationAccess!{
+            print("Permissions granted for notifications")
+        }
+        
+        let planTableViewCell = UINib(nibName: "MMPMainTableViewCell", bundle: nil)
+        tableView.register(planTableViewCell, forCellReuseIdentifier: kPlanTableViewCellIdentifier)
+        tableView.separatorStyle = .none
+        
+        tableView.allowsSelection = true
+        tableView.allowsMultipleSelectionDuringEditing = true
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func loadData(){
@@ -67,10 +87,12 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: "toMedicinePlan", sender: allPlans[indexPath.row])
         
         let plan = allPlans[indexPath.row]
-        plan.inProgress = true
-        do {
-            try persistentContainer.viewContext.save()
-        } catch {}
+        if !plan.inProgress{
+            print("plan in progress now")
+            plan.fireDate = MMPDateUtils.calculateFireDate(hours: plan.periodicity)
+            plan.inProgress = true
+            try! persistentContainer.viewContext.save()
+        }
         
 //        let cell = self.tableView.cellForRow(at: indexPath as IndexPath) as! MMPMainTableViewCell
 //        cell.counterLabel.start()
@@ -102,13 +124,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         cell.plan = allPlans[indexP.row]
         cell.startButton.tag = indexPath.row
         cell.startButton.addTarget(self, action: #selector(startButtonPressed(button:)), for: .touchUpInside)
-//        cell.counterLabel.setCountDownTime(minutes: 60*60)
-        
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        performSegue(withIdentifier: "toMedicinePlan", sender: allPlans[indexPath.row])
     }
 }
 
@@ -119,6 +145,10 @@ extension MainViewController: SwipeTableViewCellDelegate{
         if orientation == .right {
             
             let delete = SwipeAction(style: .destructive, title: nil) { action, indexPath in
+                let plan = self.allPlans[indexPath.row]
+                persistentContainer.viewContext.plans.delete(plan)
+                try! persistentContainer.viewContext.save()
+                
                 self.allPlans.remove(at: indexPath.row)
                 
                 self.tableView.beginUpdates()
