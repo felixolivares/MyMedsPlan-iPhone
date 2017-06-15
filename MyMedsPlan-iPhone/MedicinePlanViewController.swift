@@ -29,7 +29,6 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        createNotificationID()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,8 +46,6 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     }
     
     func configure(){
-        
-        UNUserNotificationCenter.current().delegate = self
         
         medicineNameLabel.text = plan?.medicineName
         periodicityLabel.text = String(describing: (plan?.periodicity)!) + " hrs."
@@ -110,6 +107,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             }
             self.saveToCoreData()
             self.updateFireDate()
+            
         }
         
         let buttonTwo = CancelButton(title: "CANCEL"){
@@ -168,14 +166,17 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     //MARK: - Buttons
     @IBAction func takeItButtonPressed(_ sender: Any) {
+        
         showConfirmationPopup(message: "After you accept, the countdown will reset and it will be ready for your next intake", vc: self, take: true)
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {
+        
         showConfirmationPopup(message: "Would you like to reset the countdown to be ready for a next intake? ", vc: self, take: false)
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
+        
         updateFireDate()
     }
     
@@ -190,24 +191,26 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         counterLabel.setCountDownDate(fromDate: Date() as NSDate, targetDate: (plan?.fireDate)! as NSDate)
         counterLabel.start()
         self.saveToCoreData()
+        
+        let date = Date(timeIntervalSinceNow: 10)
+        MMPNotificationCenter.sharedInstance.registerLocalNotification(
+            title: "My Meds Plan",
+            subtitle: "You need to take your medicine:",
+            body: "\((self.plan?.medicineName)!)",
+            identifier: (self.plan?.notificationId!)!,
+            dateTrigger: date ) //(self.plan?.fireDate!)!
     }
     
     func saveToCoreData(){
         try! persistentContainer.viewContext.save()
     }
-    
-    func createNotificationID(){
-        
-        let id:String = "MyMedsPlan." + String(describing:(plan?.medicineName)!).trimmingCharacters(in: .whitespaces) + "." + (plan?.medicineKind)! + "." + String(describing: (plan?.periodicity)!) + "." + String(describing: (plan?.unitsPerDose)!)
-        print(String(describing: id))
-    }
-    
-    //MARK: Delegates
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert,.sound])
-        
-    }
-    
+//    
+//    //MARK: Delegates
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        completionHandler([.alert,.sound])
+//        
+//    }
+//    
     /*
     // MARK: - Navigation
 

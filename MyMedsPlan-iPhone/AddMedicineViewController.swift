@@ -59,6 +59,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         
         
         let context = persistentContainer.viewContext
+        var identifier = String()
         
         if editPlan != nil{
             editPlan?.medicineName = nameTextField.text
@@ -79,6 +80,8 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             plan.startDate = Date()
             //plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
             plan.additionalInfo = otherInformationTextView.text
+            identifier = "MyMedsPlan." + String(describing:(plan.medicineName)!).trimmingCharacters(in: .whitespaces) + "." + (plan.medicineKind)! + "." + String(describing: (plan.periodicity)) + "." + String(describing: (plan.unitsPerDose))
+            plan.notificationId = identifier
         }
         
         do{
@@ -99,6 +102,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         unitsTextField.text = String(describing: (editPlan?.unitsPerDose)!)
         kindTextField.text = String(describing: (editPlan?.medicineKind)!)
     }
+    
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         

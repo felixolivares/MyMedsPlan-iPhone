@@ -11,11 +11,12 @@ import AlecrimCoreData
 import IQKeyboardManagerSwift
 import CoreData
 import PopupDialog
+import UserNotifications
 
 let persistentContainer = PersistentContainer(name: "MyMedsPlanModel")
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -33,7 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Remove data from DB
         //removeDataDB()
         
+        //Init Managers
         _ = MMPManager.sharedInstance
+        _ = MMPNotificationCenter.sharedInstance
+        
+        //Register rich notifications
+        registerForRichNotifications()
         
         return true
     }
@@ -92,5 +98,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try persistentContainer.viewContext.save()
         }catch {}
     }
+    
+    func registerForRichNotifications() {
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted:Bool, error:Error?) in
+            if error != nil {
+                print(String(describing: error?.localizedDescription))
+            }
+            if granted {
+                print("Permission granted")
+            } else {
+                print("Permission not granted")
+            }
+        }
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        //actions defination
+        let action1 = UNNotificationAction(identifier: "action1", title: "Take It", options: [.foreground])
+        let action2 = UNNotificationAction(identifier: "action2", title: "Skip", options: [.foreground])
+        
+        let category = UNNotificationCategory(identifier: "actionCategory", actions: [action1,action2], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
+    }
+    @available(iOS 10.0, *)
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        print("GO IN HERE")
+        completionHandler([.alert,.sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case "action1":
+            print("Taken")
+        case "action2":
+            print("Skipped")
+        default:
+            break
+        }
+        completionHandler()
+    }
+        
+    /*
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound])
+        print("Notifiation triggered")
+    }
+    
+    */
 }
 

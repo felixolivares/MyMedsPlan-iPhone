@@ -42,6 +42,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(true)
         
         loadData()
+        listNotifications()
     }
     
     func configure(){
@@ -94,6 +95,12 @@ class MainViewController: UIViewController {
             try! persistentContainer.viewContext.save()
         }
         
+        MMPNotificationCenter.sharedInstance.registerLocalNotification(title: "My Meds Plan",
+                                                                       subtitle: "You need to take your medicine:",
+                                                                       body: "\((plan.medicineName)!)",
+                                                                       identifier: plan.notificationId!,
+                                                                       dateTrigger: plan.fireDate!)
+        
 //        let cell = self.tableView.cellForRow(at: indexPath as IndexPath) as! MMPMainTableViewCell
 //        cell.counterLabel.start()
     }
@@ -104,6 +111,30 @@ class MainViewController: UIViewController {
             vc.plan = sender as? Plan
         }
     }
+    
+    func listNotifications(){
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
+            print("\(requests.count) requests -------")
+            for request in requests{
+                print(request.identifier)
+            }
+        })
+        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: {deliveredNotifications -> () in
+            print("\(deliveredNotifications.count) Delivered notifications-------")
+            for notification in deliveredNotifications{
+                print(notification.request.identifier)
+            }
+        })
+    }
+    
+    func deleteNotification(id:String){
+        print("Notification to remove: \(id)")
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+    }
+    
+    // MARK: - Delegate Notifications
+    
     
 }
 
@@ -138,6 +169,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
+
+
+
 extension MainViewController: SwipeTableViewCellDelegate{
  
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
@@ -146,6 +180,7 @@ extension MainViewController: SwipeTableViewCellDelegate{
             
             let delete = SwipeAction(style: .destructive, title: nil) { action, indexPath in
                 let plan = self.allPlans[indexPath.row]
+                self.deleteNotification(id: plan.notificationId!)
                 persistentContainer.viewContext.plans.delete(plan)
                 try! persistentContainer.viewContext.save()
                 
