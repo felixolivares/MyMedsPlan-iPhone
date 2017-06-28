@@ -32,8 +32,12 @@ class MMPMainTableViewCell: SwipeTableViewCell {
 
             if (plan?.inProgress)!{
                 nextIntakeLabel.text = "Next intake in \(MMPDateUtils.remainingTimeForNextIntake(date:(plan?.fireDate)!))"
+                startButton.setViewButton()
+                startButton.setTitle("View", for: .normal)
             }else{
                 nextIntakeLabel.text = "Hit start button"
+                startButton.setStartButton()
+                startButton.setTitle("Start", for: .normal)
             }
             if let kind = plan?.medicineKind{
                 
@@ -53,8 +57,7 @@ class MMPMainTableViewCell: SwipeTableViewCell {
                 }
             }
             if (plan?.inProgress)! {
-                startButton.setViewButton()
-                startButton.setTitle("View", for: .normal)
+                
             }
             
             try! persistentContainer.viewContext.save()

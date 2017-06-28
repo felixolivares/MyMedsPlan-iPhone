@@ -47,15 +47,21 @@ class MainViewController: UIViewController {
     
     func configure(){
         
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: [.alert,.sound,.badge],
-            completionHandler: { (granted,error) in
-                MMPManager.sharedInstance.saveGrantedNotificationAccess(completed: granted)
-                if !granted{
-                    MMPUtils.showPopupWithOK(message: "In order to receive local notifications you need to enable notificiations for My Meds Plan app in you phone settings", vc: self)
-                }
-        })
-        
+        /*
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted:Bool, error:Error?) in
+            if error != nil {
+                print(String(describing: error?.localizedDescription))
+            }
+            
+            MMPManager.sharedInstance.saveGrantedNotificationAccess(completed: granted)
+            if granted {
+                print("Permission granted")
+            } else {
+                print("Permission not granted")
+                MMPUtils.showPopupWithOK(message: "In order to receive local notifications you need to enable notificiations for My Meds Plan app in you phone settings", vc: self)
+            }
+        }
+        */
         if MMPManager._isGrantedNotificationAccess!{
             print("Permissions granted for notifications")
         }

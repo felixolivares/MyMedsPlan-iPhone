@@ -24,6 +24,11 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     var plan:Plan?
     var notificatinID:String?
+    public var comingFromNotification:Bool = false
+    public var isTaken:Bool? = false
+    
+    let takeMessage = "AWESOME!\nWould you like to reset the countdown so it could be ready for your next intake?"
+    let skipMessage = "OH NO!\nWould you like to reset the countdown to be ready for a next intake?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +44,42 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configure()
+        
+        if comingFromNotification{
+            
+            guard isTaken != nil else {return}
+            if isTaken!{
+                showConfirmationPopup(title: "TAKEN", message: takeMessage, vc: self, take: true)
+            }else{
+                showConfirmationPopup(title: "SKIPPED", message: skipMessage, vc: self, take: false)
+            }
+        }
     }
     
     @IBAction func goBack(_ sender: Any) {
-        _ = navigationController?.popToRootViewController(animated: true)
+        
+        if !comingFromNotification{
+            _ = navigationController?.popToRootViewController(animated: true)
+        }else{
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func configure(){
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted:Bool, error:Error?) in
+            if error != nil {
+                print(String(describing: error?.localizedDescription))
+            }
+            
+            MMPManager.sharedInstance.saveGrantedNotificationAccess(completed: granted)
+            if granted {
+                print("Permission granted")
+            } else {
+                print("Permission not granted")
+                MMPUtils.showPopupWithOK(message: "In order to receive local notifications you need to enable notificiations for My Meds Plan app in you phone settings", vc: self)
+            }
+        }
         
         medicineNameLabel.text = plan?.medicineName
         periodicityLabel.text = String(describing: (plan?.periodicity)!) + " hrs."
@@ -78,40 +112,42 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             }
         }
         
-        if !((plan?.inProgress)!){
-            startButton.isHidden = false
-        }
-        
+        startButton.alpha = (plan?.inProgress)! ? 0 : 1
     }
 
     
     //MARK: - Popups
-    func showConfirmationPopup(message:String?, vc : UIViewController, take:Bool){
+    func showConfirmationPopup(title:String?, message:String?, vc : UIViewController, take:Bool){
         // Create the dialog
         let image = UIImage(named: "questionMarkBannerBlue")
         
-        let popup = PopupDialog(title: "ATTENTION", message: message, image: image, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
+        let popup = PopupDialog(title: title, message: message, image: image, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
             
         }
         
-        let buttonOne = DefaultButton(title: "OK") {
+        let buttonOne = DefaultButton(title: "RESET") {
+            
             let event = persistentContainer.viewContext.events.create()
             event.eventDate = Date()
             event.plan = self.plan
             if take{
+                
                 print("OK - Take")
                 event.taken = true
             }else{
+                
                 print("OK - Skip")
                 event.taken = false
             }
+            
             self.saveToCoreData()
             self.updateFireDate()
             
         }
         
-        let buttonTwo = CancelButton(title: "CANCEL"){
+        let buttonTwo = CancelButton(title: "STOP"){
             print("Cancel")
+            self.updateCounterRemoveFireDate()
         }
         
         popup.addButtons([buttonTwo, buttonOne])
@@ -167,12 +203,12 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     //MARK: - Buttons
     @IBAction func takeItButtonPressed(_ sender: Any) {
         
-        showConfirmationPopup(message: "After you accept, the countdown will reset and it will be ready for your next intake", vc: self, take: true)
+        showConfirmationPopup(title: "TAKEN", message: takeMessage, vc: self, take: true)
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {
         
-        showConfirmationPopup(message: "Would you like to reset the countdown to be ready for a next intake? ", vc: self, take: false)
+        showConfirmationPopup(title: "SKIPPED", message: skipMessage, vc: self, take: false)
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
@@ -192,25 +228,37 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         counterLabel.start()
         self.saveToCoreData()
         
-        let date = Date(timeIntervalSinceNow: 10)
+        //let date = Date(timeIntervalSinceNow: 10)
         MMPNotificationCenter.sharedInstance.registerLocalNotification(
             title: "My Meds Plan",
             subtitle: "You need to take your medicine:",
             body: "\((self.plan?.medicineName)!)",
             identifier: (self.plan?.notificationId!)!,
-            dateTrigger: date ) //(self.plan?.fireDate!)!
+            dateTrigger: (self.plan?.fireDate!)! ) //(self.plan?.fireDate!)!
+        
+        UIView.animate(withDuration: 0.2) {
+            self.startButton.alpha = 0
+        }
+    }
+    
+    func updateCounterRemoveFireDate(){
+        
+        self.plan?.fireDate = nil
+        self.plan?.inProgress = false
+        counterLabel.cancel()
+        counterLabel.setCountDownDate(fromDate: Date() as NSDate, targetDate: Date() as NSDate)
+        counterLabel.start()
+        self.saveToCoreData()
+        
+        UIView.animate(withDuration: 0.2) {
+            self.startButton.alpha = 1
+        }
     }
     
     func saveToCoreData(){
         try! persistentContainer.viewContext.save()
     }
-//    
-//    //MARK: Delegates
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        completionHandler([.alert,.sound])
-//        
-//    }
-//    
+
     /*
     // MARK: - Navigation
 

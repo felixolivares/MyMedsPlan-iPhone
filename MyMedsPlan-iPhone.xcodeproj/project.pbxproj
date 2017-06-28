@@ -83,7 +83,7 @@
 /* Begin PBXFileReference section */
 		2106C14FB7F799C309D03F56 /* Pods-MyMedsPlan-iPhoneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26C1F5D58F4BECDF51863822 /* Pods-MyMedsPlan-iPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone.debug.xcconfig"; sourceTree = "<group>"; };
-		300FC4D51EE37E0F00D93A6D /* MyMedsPlan-iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyMedsPlan-iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		300FC4D51EE37E0F00D93A6D /* My Meds Plan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Meds Plan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		300FC4D81EE37E0F00D93A6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		300FC4DD1EE37E0F00D93A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		300FC4DF1EE37E0F00D93A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 		300FC4D61EE37E0F00D93A6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				300FC4D51EE37E0F00D93A6D /* MyMedsPlan-iPhone.app */,
+				300FC4D51EE37E0F00D93A6D /* My Meds Plan.app */,
 				300FC4E91EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests.xctest */,
 				300FC4F41EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests.xctest */,
 			);
@@ -417,7 +417,7 @@
 			);
 			name = "MyMedsPlan-iPhone";
 			productName = "MyMedsPlan-iPhone";
-			productReference = 300FC4D51EE37E0F00D93A6D /* MyMedsPlan-iPhone.app */;
+			productReference = 300FC4D51EE37E0F00D93A6D /* My Meds Plan.app */;
 			productType = "com.apple.product-type.application";
 		};
 		300FC4E81EE37E0F00D93A6D /* MyMedsPlan-iPhoneTests */ = {
@@ -878,13 +878,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 26C1F5D58F4BECDF51863822 /* Pods-MyMedsPlan-iPhone.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhone";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Meds Plan";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -893,13 +896,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B23F20D8755E0758530C9F5B /* Pods-MyMedsPlan-iPhone.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhone";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Meds Plan";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

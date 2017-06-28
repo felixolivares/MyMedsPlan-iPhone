@@ -41,7 +41,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MyMedsPlan_iPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="My_Meds_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -60,7 +60,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-5b-JIJ">
-                                        <rect key="frame" x="372" y="37.333333333333336" width="22" height="22"/>
+                                        <rect key="frame" x="372" y="37.666666666666664" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="qH6-FK-aYw"/>
                                             <constraint firstAttribute="height" constant="22" id="wfj-kU-dez"/>
@@ -117,7 +117,7 @@
         <!--Add Medicine View Controller-->
         <scene sceneID="T0d-md-fVS">
             <objects>
-                <viewController id="pgV-Wd-ed9" customClass="AddMedicineViewController" customModule="MyMedsPlan_iPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pgV-Wd-ed9" customClass="AddMedicineViewController" customModule="My_Meds_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8b4-U8-l3q"/>
                         <viewControllerLayoutGuide type="bottom" id="bWm-GO-fdO"/>
@@ -176,7 +176,7 @@
                                         <rect key="frame" x="25" y="15" width="364" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
                                             <outlet property="delegate" destination="pgV-Wd-ed9" id="HQB-SW-mYN"/>
                                         </connections>
@@ -278,7 +278,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laM-7N-VfA">
                                 <rect key="frame" x="0.0" y="406.33333333333326" width="414" height="249.66666666666674"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLO-11-F0a" customClass="MMPRoundedCornersView" customModule="MyMedsPlan_iPhone" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLO-11-F0a" customClass="MMPRoundedCornersView" customModule="My_Meds_Plan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="20" width="364" height="209.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -306,7 +306,7 @@
                                     <constraint firstAttribute="bottom" secondItem="DYX-Qa-mc0" secondAttribute="bottom" constant="25" id="lBz-83-qhA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFd-vX-puJ" customClass="MMPButton" customModule="MyMedsPlan_iPhone" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFd-vX-puJ" customClass="MMPButton" customModule="My_Meds_Plan" customModuleProvider="target">
                                 <rect key="frame" x="80" y="676" width="254" height="40"/>
                                 <color key="backgroundColor" red="0.043137254901960784" green="0.090196078431372548" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -361,7 +361,7 @@
         <!--Medicine Plan View Controller-->
         <scene sceneID="sxh-5y-fCd">
             <objects>
-                <viewController id="r12-nw-wKz" customClass="MedicinePlanViewController" customModule="MyMedsPlan_iPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="medicinePlanDetail" id="r12-nw-wKz" customClass="MedicinePlanViewController" customModule="My_Meds_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gNA-Fp-hre"/>
                         <viewControllerLayoutGuide type="bottom" id="5eH-Pf-Sgv"/>
@@ -499,7 +499,7 @@
                                 <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-Pl-KRw" customClass="CountdownLabel" customModule="MyMedsPlan_iPhone" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-Pl-KRw" customClass="CountdownLabel" customModule="My_Meds_Plan" customModuleProvider="target">
                                 <rect key="frame" x="127" y="339.33333333333331" width="161" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="aT4-Lc-CWq"/>
@@ -522,16 +522,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k3v-1P-KSc">
-                                <rect key="frame" x="35" y="440.33333333333337" width="344" height="90.000000000000114"/>
+                                <rect key="frame" x="35" y="440.33333333333326" width="344" height="180.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="A0S-Nl-jBE"/>
-                                </constraints>
                                 <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baH-OV-hxB" customClass="MMPButton" customModule="MyMedsPlan_iPhone" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baH-OV-hxB" customClass="MMPButton" customModule="My_Meds_Plan" customModuleProvider="target">
                                 <rect key="frame" x="30" y="676" width="161.66666666666666" height="40"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.76470588235294112" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -553,7 +550,7 @@
                                     <constraint firstAttribute="width" constant="1" id="LhZ-ia-fKG"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnN-58-SkE" customClass="MMPButton" customModule="MyMedsPlan_iPhone" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnN-58-SkE" customClass="MMPButton" customModule="My_Meds_Plan" customModuleProvider="target">
                                 <rect key="frame" x="222.66666666666663" y="676" width="161.33333333333337" height="40"/>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.25098039220000001" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -567,7 +564,7 @@
                                     <action selector="skipButtonPressed:" destination="r12-nw-wKz" eventType="touchUpInside" id="z1l-OE-Br9"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQc-Vr-Oe4" customClass="MMPButton" customModule="MyMedsPlan_iPhone" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQc-Vr-Oe4" customClass="MMPButton" customModule="My_Meds_Plan" customModuleProvider="target">
                                 <rect key="frame" x="30" y="626" width="354" height="40"/>
                                 <color key="backgroundColor" red="0.44705882352941173" green="0.80392156862745101" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -584,6 +581,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jQc-Vr-Oe4" firstAttribute="top" secondItem="k3v-1P-KSc" secondAttribute="bottom" constant="5" id="0fQ-Zm-VIY"/>
                             <constraint firstItem="n8A-eQ-GcJ" firstAttribute="top" secondItem="kH3-7n-R1Z" secondAttribute="bottom" constant="20" id="1q0-Ju-eVO"/>
                             <constraint firstItem="kH3-7n-R1Z" firstAttribute="leading" secondItem="QOo-bR-mzr" secondAttribute="leading" id="3IM-Ym-VXr"/>
                             <constraint firstItem="GnN-58-SkE" firstAttribute="trailing" secondItem="jQc-Vr-Oe4" secondAttribute="trailing" id="3Zt-Ge-yj3"/>
@@ -651,6 +649,6 @@
         <image name="plusIcon" width="233" height="233"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kPt-nh-Gl3"/>
+        <segue reference="aro-6t-H3c"/>
     </inferredMetricsTieBreakers>
 </document>

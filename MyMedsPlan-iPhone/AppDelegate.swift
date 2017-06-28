@@ -110,6 +110,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             } else {
                 print("Permission not granted")
             }
+            
+            MMPManager.sharedInstance.saveGrantedNotificationAccess(completed: granted)
         }
         
         UNUserNotificationCenter.current().delegate = self
@@ -132,17 +134,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
         switch response.actionIdentifier {
+        case "com.apple.UNNotificationDefaultActionIdentifier":
+            
+            print("Normal tap")
+            goToMedicineDetail(notificationId: response.notification.request.identifier, isTaken: nil)
         case "action1":
+            
             print("Taken")
+            goToMedicineDetail(notificationId: response.notification.request.identifier, isTaken: true)
         case "action2":
+            
             print("Skipped")
+            goToMedicineDetail(notificationId: response.notification.request.identifier, isTaken: false)
         default:
             break
         }
         completionHandler()
     }
+    
+    func goToMedicineDetail(notificationId:String, isTaken:Bool?){
         
+        let plan = persistentContainer.viewContext.plans.first{$0.notificationId == notificationId}
+        
+        if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "medicinePlanDetail") as? MedicinePlanViewController {
+            if let window = self.window, let rootViewController = window.rootViewController {
+                var currentController = rootViewController
+                while let presentedController = currentController.presentedViewController {
+                    currentController = presentedController
+                }
+                controller.plan = plan
+                controller.comingFromNotification = true
+                controller.isTaken = isTaken
+                currentController.present(controller, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
     /*
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert,.sound])

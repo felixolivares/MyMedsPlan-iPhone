@@ -30,10 +30,11 @@ class MMPNotificationCenter:NSObject {
             
             //Set the content of the notification
             let content = UNMutableNotificationContent()
-            content.title = title
+            //content.title = title
             content.subtitle = subtitle
             content.body = body
             content.categoryIdentifier = "actionCategory"
+            content.sound = UNNotificationSound.default()
             
             //Set the trigger of the notification -- here a timer.
             let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateTrigger)
