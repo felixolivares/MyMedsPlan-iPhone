@@ -116,7 +116,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func periodicityTextFieldPressed(_ sender: Any) {
         
-        StringPickerPopover(title: "Hrs", choices: periodicityArray)
+        StringPickerPopover(title: "Hours", choices: periodicityArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 print("done row \(selectedRow) \(selectedString)")

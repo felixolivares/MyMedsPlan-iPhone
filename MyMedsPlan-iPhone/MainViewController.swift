@@ -108,7 +108,7 @@ class MainViewController: UIViewController {
         
         MMPNotificationCenter.sharedInstance.registerLocalNotification(title: "My Meds Plan",
                                                                        subtitle: "You need to take your medicine:",
-                                                                       body: "\((plan.medicineName)!)",
+                                                                       body: "\((plan.medicineName)!) \(String(describing: (plan.unitsPerDose)) + " " + String(describing: (plan.medicineKind)))",
                                                                        identifier: plan.notificationId!,
                                                                        dateTrigger: plan.fireDate!)
         

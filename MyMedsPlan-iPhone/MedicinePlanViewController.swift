@@ -228,13 +228,13 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         counterLabel.start()
         self.saveToCoreData()
         
-        //let date = Date(timeIntervalSinceNow: 10)
+        let date = Date(timeIntervalSinceNow: 10)
         MMPNotificationCenter.sharedInstance.registerLocalNotification(
             title: "My Meds Plan",
             subtitle: "You need to take your medicine:",
-            body: "\((self.plan?.medicineName)!)",
+            body: "\((self.plan?.medicineName)!) \(String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!))",
             identifier: (self.plan?.notificationId!)!,
-            dateTrigger: (self.plan?.fireDate!)! ) //(self.plan?.fireDate!)!
+            dateTrigger: date ) //(self.plan?.fireDate!)!
         
         UIView.animate(withDuration: 0.2) {
             self.startButton.alpha = 0
