@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     var buttonDisplayMode: ButtonDisplayMode = .titleAndImage
     var buttonStyle: ButtonStyle = .backgroundColor
     
+    @IBOutlet weak var emptyMessageContainer: UIView!
     let kPlanTableViewCellIdentifier = "PlanTableViewCellIdentifier"
     
     override func viewDidLoad() {
@@ -80,6 +81,10 @@ class MainViewController: UIViewController {
         
         allPlans.removeAll()
         let plans = persistentContainer.viewContext.plans
+        
+        guard plans.count() > 0 else { emptyMessageContainer.isHidden = false; return}
+        
+        emptyMessageContainer.isHidden = true
         for eachPlan in plans{
             allPlans.append(eachPlan)
             print("\(String(describing: eachPlan.medicineName))")
@@ -195,6 +200,7 @@ extension MainViewController: SwipeTableViewCellDelegate{
                 self.tableView.beginUpdates()
                 action.fulfill(with: .delete)
                 self.tableView.endUpdates()
+                self.loadData()
             }
             configure(action: delete, with: .trash)
             return [delete]
