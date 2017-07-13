@@ -1,0 +1,72 @@
+
+/* Class = "UILabel"; text = "UNITS PER EACH DOSE"; ObjectID = "1J9-Fw-HNV"; */
+"1J9-Fw-HNV.text" = "UNIDADES POR DOSIS";
+
+/* Class = "UITextField"; placeholder = "Need to take medicine every"; ObjectID = "3zf-7D-mUY"; */
+"3zf-7D-mUY.placeholder" = "Tomar medicina cada";
+
+/* Class = "UILabel"; text = "Add Medicine"; ObjectID = "7CM-dk-rgw"; */
+"7CM-dk-rgw.text" = "Agregar Medicina";
+
+/* Class = "UILabel"; text = "General Information"; ObjectID = "BYl-0L-qGX"; */
+"BYl-0L-qGX.text" = "Información General";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "GnN-58-SkE"; */
+"GnN-58-SkE.normalTitle" = "Saltar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LJy-eD-hiP"; */
+"LJy-eD-hiP.text" = "Label";
+
+/* Class = "UILabel"; text = "TAKE MEDICINE EVERY"; ObjectID = "N4P-3b-iLe"; */
+"N4P-3b-iLe.text" = "TOMAR MEDICINA CADA";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "P0F-gK-Kas"; */
+"P0F-gK-Kas.placeholder" = "Nombre";
+
+/* Class = "UILabel"; text = "No meds to track"; ObjectID = "S4Q-OC-qFR"; */
+"S4Q-OC-qFR.text" = "No hay medicinas";
+
+/* Class = "UILabel"; text = "Medicine Plan"; ObjectID = "Tvn-Ac-7Yt"; */
+"Tvn-Ac-7Yt.text" = "Tu Medicina";
+
+/* Class = "UIButton"; normalTitle = "Take it"; ObjectID = "baH-OV-hxB"; */
+"baH-OV-hxB.normalTitle" = "Tomar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bfR-P1-EwM"; */
+"bfR-P1-EwM.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bwm-OZ-C7v"; */
+"bwm-OZ-C7v.text" = "Label";
+
+/* Class = "UILabel"; text = "--"; ObjectID = "cCG-Pl-KRw"; */
+"cCG-Pl-KRw.text" = "--";
+
+/* Class = "UITextField"; placeholder = "For how many days (optional)"; ObjectID = "gfy-MN-b9B"; */
+"gfy-MN-b9B.placeholder" = "Por cuantos dias (opcional)";
+
+/* Class = "UILabel"; text = "Other Information"; ObjectID = "giH-V6-lp9"; */
+"giH-V6-lp9.text" = "Otra Informacion";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "jQc-Vr-Oe4"; */
+"jQc-Vr-Oe4.normalTitle" = "Empezar";
+
+/* Class = "UILabel"; text = "Tap on the '+' icon to add a new medicine"; ObjectID = "jZH-4w-AhA"; */
+"jZH-4w-AhA.text" = "Toca el icono de '+' para agregar una medicina";
+
+/* Class = "UILabel"; text = "NEXT INTAKE IN"; ObjectID = "n8A-eQ-GcJ"; */
+"n8A-eQ-GcJ.text" = "SIGUIENTE TOMA EN";
+
+/* Class = "UILabel"; text = "My Meds Plan"; ObjectID = "nnY-mb-x0r"; */
+"nnY-mb-x0r.text" = "My Meds Plan";
+
+/* Class = "UILabel"; text = "OTHER INFORMATION"; ObjectID = "pFQ-wQ-RFY"; */
+"pFQ-wQ-RFY.text" = "OTRA INFORMACION";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "qFd-vX-puJ"; */
+"qFd-vX-puJ.normalTitle" = "Guardar";
+
+/* Class = "UITextField"; placeholder = "Kind"; ObjectID = "vD1-ue-1wE"; */
+"vD1-ue-1wE.placeholder" = "Tipo";
+
+/* Class = "UITextField"; placeholder = "Units per dose"; ObjectID = "zlp-F9-ND9"; */
+"zlp-F9-ND9.placeholder" = "Unidades por dosis";

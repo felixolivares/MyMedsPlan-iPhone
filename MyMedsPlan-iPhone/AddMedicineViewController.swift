@@ -21,11 +21,14 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var unitsUnderline: UIView!
     @IBOutlet weak var kindTextField: UITextField!
     @IBOutlet weak var kindUnderline: UIView!
+    @IBOutlet weak var durationTextField: UITextField!
+    @IBOutlet weak var durationUnderline: UIView!
     
     @IBOutlet weak var otherInformationTextView: UITextView!
     
     let periodicityArray:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12","24"]
     let unitsPerDoseArray:[String] = ["1","2","3","4","5","10","15","20","30"]
+    let durationDaysArray:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12", "13", "14", "15", "30"]
     let medicineKindArray:[String] = [MedicineType.Pill, MedicineType.Dropplet, MedicineType.Tablet, MedicineType.TeaSpoon, MedicineType.Shot]
     
     var editPlan:Plan?
@@ -77,11 +80,12 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             plan.medicineKind = kindTextField.text
             plan.periodicity = Int16(periodicityTextField.text!)!
             plan.unitsPerDose = Int16(unitsTextField.text!)!
-            plan.startDate = Date()
+//            plan.startDate = Date()
             //plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
             plan.additionalInfo = otherInformationTextView.text
             identifier = "MyMedsPlan." + String(describing:(plan.medicineName)!).trimmingCharacters(in: .whitespaces) + "." + (plan.medicineKind)! + "." + String(describing: (plan.periodicity)) + "." + String(describing: (plan.unitsPerDose))
             plan.notificationId = identifier
+            plan.durationDays = Int16(durationTextField.text!)!
         }
         
         do{
@@ -151,6 +155,19 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             )
             .appear(originView: kindUnderline, baseViewController: self)
     }
+    
+    @IBAction func durationTextFieldPressed(_ sender: Any) {
+        
+        StringPickerPopover(title: "Days", choices: durationDaysArray)
+            .setSelectedRow(0)
+            .setDoneButton(action: { (popover, selectedRow, selectedString) in
+                self.durationTextField.text = selectedString
+            })
+            .setCancelButton(action: { v in print("cancel")}
+            )
+            .appear(originView: kindUnderline, baseViewController: self)
+    }
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField.tag{

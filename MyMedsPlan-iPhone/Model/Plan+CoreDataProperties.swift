@@ -15,6 +15,7 @@ import CoreData
 extension Plan {
 
     @NSManaged var additionalInfo: String?
+    @NSManaged var durationDays: Int16 // cannot mark as optional because Objective-C compatibility issues
     @NSManaged var endDate: Date?
     @NSManaged var fireDate: Date?
     @NSManaged var inProgress: Bool // cannot mark as optional because Objective-C compatibility issues

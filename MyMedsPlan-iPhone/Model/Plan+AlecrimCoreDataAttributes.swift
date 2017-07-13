@@ -18,6 +18,7 @@ import AlecrimCoreData
 extension Plan {
 
     static let additionalInfo = AlecrimCoreData.NullableAttribute<String>("additionalInfo")
+    static let durationDays = AlecrimCoreData.NullableAttribute<Int16>("durationDays")
     static let endDate = AlecrimCoreData.NullableAttribute<Date>("endDate")
     static let fireDate = AlecrimCoreData.NullableAttribute<Date>("fireDate")
     static let inProgress = AlecrimCoreData.NullableAttribute<Bool>("inProgress")
@@ -38,6 +39,7 @@ extension Plan {
 extension AlecrimCoreData.AttributeProtocol where Self.ValueType: Plan {
 
     var additionalInfo: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("additionalInfo", self) }
+    var durationDays: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("durationDays", self) }
     var endDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("endDate", self) }
     var fireDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("fireDate", self) }
     var inProgress: AlecrimCoreData.NullableAttribute<Bool> { return AlecrimCoreData.NullableAttribute<Bool>("inProgress", self) }

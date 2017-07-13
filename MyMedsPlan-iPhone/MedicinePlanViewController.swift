@@ -213,6 +213,10 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     @IBAction func startButtonPressed(_ sender: Any) {
         
+        let event = persistentContainer.viewContext.events.create()
+        event.eventDate = Date()
+        event.plan = self.plan
+        event.taken = true
         updateFireDate()
     }
     
@@ -222,19 +226,23 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     func updateFireDate(){
         
+        if self.plan?.startDate == nil {
+            self.plan?.startDate = Date()
+        }
+        
         self.plan?.fireDate = MMPDateUtils.calculateFireDate(hours: (self.plan?.periodicity)!)
         counterLabel.cancel()
         counterLabel.setCountDownDate(fromDate: Date() as NSDate, targetDate: (plan?.fireDate)! as NSDate)
         counterLabel.start()
         self.saveToCoreData()
         
-        let date = Date(timeIntervalSinceNow: 10)
+        //let date = Date(timeIntervalSinceNow: 10)
         MMPNotificationCenter.sharedInstance.registerLocalNotification(
             title: "My Meds Plan",
             subtitle: "You need to take your medicine:",
             body: "\((self.plan?.medicineName)!) \(String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!))",
             identifier: (self.plan?.notificationId!)!,
-            dateTrigger: date ) //(self.plan?.fireDate!)!
+            dateTrigger: (self.plan?.fireDate!)! ) //(self.plan?.fireDate!)!
         
         UIView.animate(withDuration: 0.2) {
             self.startButton.alpha = 0
