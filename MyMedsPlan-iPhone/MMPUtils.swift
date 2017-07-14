@@ -11,11 +11,11 @@ import PopupDialog
 import Async
 
 struct MedicineType{
-    public static let Tablet = "Tablets"
-    public static let Shot = "Shots"
-    public static let TeaSpoon = "Tea Spoons"
-    public static let Pill = "Pills"
-    public static let Dropplet = "Dropplets"
+    public static let Tablet = NSLocalizedString("Tablets", comment: "")
+    public static let Shot = NSLocalizedString("Shots", comment: "")
+    public static let TeaSpoon = NSLocalizedString("Tea_Spoons", comment: "")
+    public static let Pill = NSLocalizedString("Pills", comment: "")
+    public static let Dropplet = NSLocalizedString("Dropplets", comment: "")
 }
 
 struct MedicineIcon{

@@ -45,7 +45,7 @@
 "gfy-MN-b9B.placeholder" = "Por cuantos dias (opcional)";
 
 /* Class = "UILabel"; text = "Other Information"; ObjectID = "giH-V6-lp9"; */
-"giH-V6-lp9.text" = "Otra Informacion";
+"giH-V6-lp9.text" = "Otra Información";
 
 /* Class = "UIButton"; normalTitle = "Start"; ObjectID = "jQc-Vr-Oe4"; */
 "jQc-Vr-Oe4.normalTitle" = "Empezar";

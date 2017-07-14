@@ -5,3 +5,26 @@
   Created by Félix Olivares on 12/07/17.
   Copyright © 2017 Félix Olivares. All rights reserved.
 */
+
+Tablets = "Tabletas";
+Shots = "Injecciones";
+Tea_Spoons = "Cucharadas";
+Pills = "Pildoras";
+Dropplets = "Gotas";
+Dose = "Dosis";
+Next_intake_in = "Siguiente toma en";
+Hit_start_button = "Presiona Iniciar";
+Start = "Iniciar";
+View = "Ver";
+You_need_to_take_your_medicine = "Necesitas tomar tu medicina";
+Please_select_one_of_the_options_below = "Por favor selecciona una opción";
+OPTIONS = "OPCIONES";
+EDIT = "EDITAR";
+DELETE = "BORRAR";
+CANCEL = "CANCELAR";
+TAKEN = "LA TOME";
+SKIPPED = "LA SALTE";
+RESET = "REINICIAR";
+STOP = "DETENER";
+takeMessage = "¡GRANDIOSO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";
+skipMessage = "¡OH NO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";

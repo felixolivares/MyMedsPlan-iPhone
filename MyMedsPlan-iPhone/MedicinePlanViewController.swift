@@ -27,8 +27,8 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     public var comingFromNotification:Bool = false
     public var isTaken:Bool? = false
     
-    let takeMessage = "AWESOME!\nWould you like to reset the countdown so it could be ready for your next intake?"
-    let skipMessage = "OH NO!\nWould you like to reset the countdown to be ready for a next intake?"
+    let takeMessage = NSLocalizedString("takeMessage", comment: "")
+    let skipMessage = NSLocalizedString("skipMessage", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +125,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             
         }
         
-        let buttonOne = DefaultButton(title: "RESET") {
+        let buttonOne = DefaultButton(title: NSLocalizedString("RESET", comment: "")) {
             
             let event = persistentContainer.viewContext.events.create()
             event.eventDate = Date()
@@ -145,7 +145,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             
         }
         
-        let buttonTwo = CancelButton(title: "STOP"){
+        let buttonTwo = CancelButton(title: NSLocalizedString("STOP", comment: "")){
             print("Cancel")
             self.updateCounterRemoveFireDate()
         }
@@ -161,20 +161,20 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         // Create the dialog
         let image = UIImage(named: "gearBannerBlue")
         
-        let popup = PopupDialog(title: "OPTIONS", message: message, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
+        let popup = PopupDialog(title: NSLocalizedString(NSLocalizedString("OPTIONS", comment: ""), comment: ""), message: message, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
             
         }
         
-        let editButton = SolidBlueButton(title: "EDIT") {
+        let editButton = SolidBlueButton(title: NSLocalizedString(NSLocalizedString("EDIT", comment: ""), comment: "")) {
             self.editPlan()
         }
         
-        let deleteButton = DestructiveButton(title: "DELETE") {
+        let deleteButton = DestructiveButton(title: NSLocalizedString(NSLocalizedString("DELETE", comment: ""), comment: "")) {
             
             self.deletePlan()
         }
         
-        let cancelButton = SolidBlueButton(title: "CANCEL"){}
+        let cancelButton = SolidBlueButton(title: NSLocalizedString(NSLocalizedString("CANCEL", comment: ""), comment: "")){}
         
         popup.addButtons([editButton, cancelButton, deleteButton])
         
@@ -203,12 +203,12 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     //MARK: - Buttons
     @IBAction func takeItButtonPressed(_ sender: Any) {
         
-        showConfirmationPopup(title: "TAKEN", message: takeMessage, vc: self, take: true)
+        showConfirmationPopup(title: NSLocalizedString("TAKEN", comment: ""), message: takeMessage, vc: self, take: true)
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {
         
-        showConfirmationPopup(title: "SKIPPED", message: skipMessage, vc: self, take: false)
+        showConfirmationPopup(title: NSLocalizedString("SKIPPED", comment: ""), message: skipMessage, vc: self, take: false)
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
@@ -221,7 +221,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     }
     
     @IBAction func optionsButtonPressed(_ sender: Any) {
-        showOptionsPopup(message: "Please select one of the options below", vc: self)
+        showOptionsPopup(message: NSLocalizedString("Please_select_one_of_the_options_below", comment: ""), vc: self)
     }
     
     func updateFireDate(){
@@ -239,7 +239,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         //let date = Date(timeIntervalSinceNow: 10)
         MMPNotificationCenter.sharedInstance.registerLocalNotification(
             title: "My Meds Plan",
-            subtitle: "You need to take your medicine:",
+            subtitle: NSLocalizedString("You_need_to_take_your_medicine", comment: "") + ":",
             body: "\((self.plan?.medicineName)!) \(String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!))",
             identifier: (self.plan?.notificationId!)!,
             dateTrigger: (self.plan?.fireDate!)! ) //(self.plan?.fireDate!)!

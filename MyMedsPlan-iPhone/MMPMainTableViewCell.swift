@@ -24,20 +24,20 @@ class MMPMainTableViewCell: SwipeTableViewCell {
         didSet{
             guard plan != nil else {return}
             nameLabel.text = plan?.medicineName
-            dosisLabel.text = "Dose: " + String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!)
+            dosisLabel.text = NSLocalizedString("Dose", comment: "") + ": " + String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!)
             
 //            let isValid = productExpiryDate?.compare(today_date) == .orderedDescending ? true:false
             let isValid = plan?.fireDate?.compare(Date()) == .orderedDescending ? true : false
             plan?.inProgress = isValid
 
             if (plan?.inProgress)!{
-                nextIntakeLabel.text = "Next intake in \(MMPDateUtils.remainingTimeForNextIntake(date:(plan?.fireDate)!))"
+                nextIntakeLabel.text = NSLocalizedString("Next_intake_in", comment: "") + "\(MMPDateUtils.remainingTimeForNextIntake(date:(plan?.fireDate)!))"
                 startButton.setViewButton()
-                startButton.setTitle("View", for: .normal)
+                startButton.setTitle(NSLocalizedString("View", comment: ""), for: .normal)
             }else{
-                nextIntakeLabel.text = "Hit start button"
+                nextIntakeLabel.text = NSLocalizedString("Hit_start_button", comment: "")
                 startButton.setStartButton()
-                startButton.setTitle("Start", for: .normal)
+                startButton.setTitle(NSLocalizedString("Start", comment: ""), for: .normal)
             }
             if let kind = plan?.medicineKind{
                 
