@@ -28,3 +28,6 @@ RESET = "REINICIAR";
 STOP = "DETENER";
 takeMessage = "¡GRANDIOSO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";
 skipMessage = "¡OH NO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";
+Saved_succesfully = "Guardado Exitosamente";
+There_has_been_an_error = "Ha ocurrido un error, por favor intenta de nuevo.";
+Please_complete_all_fields = "Por favor completa todos los campos";

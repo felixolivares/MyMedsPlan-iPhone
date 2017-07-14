@@ -58,7 +58,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveButtonPressed(_ sender: Any) {
         
-        guard nameTextField.text != "", kindTextField.text != "", periodicityTextField.text != "", unitsTextField.text != "" else {MMPUtils.showPopupWithOK(message: "Please complete all fields", vc: self); return}
+        guard nameTextField.text != "", kindTextField.text != "", periodicityTextField.text != "", unitsTextField.text != "" else {MMPUtils.showPopupWithOK(message: NSLocalizedString("Please_complete_all_fields", comment: ""), vc: self); return}
         
         
         let context = persistentContainer.viewContext
@@ -90,9 +90,9 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         
         do{
             try context.save()
-            showPopup(message: "Saved succesfully", vc: self)
+            showPopup(message: NSLocalizedString("Saved_succesfully", comment: ""), vc: self)
         }catch {
-            showPopup(message: "There has been an error, please try again.", vc: self)
+            showPopup(message: NSLocalizedString("There_has_been_an_error", comment: ""), vc: self)
         }
     }
     
