@@ -18,6 +18,13 @@ struct MedicineType{
     public static let Dropplet = NSLocalizedString("Dropplets", comment: "")
 }
 
+struct PlanStatus{
+    public static let StatusNotStarted = NSLocalizedString("Status_not_started", comment: "")
+    public static let StatusInProgress = NSLocalizedString("Status_in_progress", comment: "")
+    public static let StatusPaused = NSLocalizedString("Status_paused", comment: "")
+    public static let StatusFinished = NSLocalizedString("Status_finished", comment: "")
+}
+
 struct MedicineIcon{
     public static let Dropplet = "droppletsIcon"
     public static let Pill = "pillIcon"

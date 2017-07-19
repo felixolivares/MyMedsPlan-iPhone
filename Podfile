@@ -12,6 +12,7 @@ target 'MyMedsPlan-iPhone' do
   pod 'SwiftyPickerPopover'
   pod ‘AsyncSwift’
   pod 'SwipeCellKit', :git => 'https://github.com/jerkoch/SwipeCellKit.git', :branch => 'develop'
+  pod 'UICircularProgressRing'
 
   target 'MyMedsPlan-iPhoneTests' do
     inherit! :search_paths

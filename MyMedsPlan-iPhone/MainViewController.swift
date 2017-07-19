@@ -103,12 +103,21 @@ class MainViewController: UIViewController {
             print("plan in progress now")
             plan.fireDate = MMPDateUtils.calculateFireDate(hours: plan.periodicity)
             plan.inProgress = true
+            if plan.startDate == nil {
+                plan.startDate = Date()
+            }
+            
+            let event = persistentContainer.viewContext.events.create()
+            event.eventDate = Date()
+            event.plan = plan
+            event.taken = true
+            
             try! persistentContainer.viewContext.save()
         }
         
         MMPNotificationCenter.sharedInstance.registerLocalNotification(title: "My Meds Plan",
-                                                                       subtitle: "You need to take your medicine:",
-                                                                       body: "\((plan.medicineName)!) \(String(describing: (plan.unitsPerDose)) + " " + String(describing: (plan.medicineKind)))",
+                                                                       subtitle: NSLocalizedString("You_need_to_take_your_medicine", comment: "") + ":",
+                                                                       body: "\((plan.medicineName)!) \(String(describing: (plan.unitsPerDose)) + " " + String(describing: (plan.medicineKind)!))",
                                                                        identifier: plan.notificationId!,
                                                                        dateTrigger: plan.fireDate!)
         

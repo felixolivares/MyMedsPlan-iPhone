@@ -96,7 +96,8 @@
 		300FC4F41EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyMedsPlan-iPhoneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsPlan_iPhoneUITests.swift; sourceTree = "<group>"; };
 		300FC4FA1EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		301BF1E51F1731EC001E7E40 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
+		301AC7B21F1EE519007D8007 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
+		301AC7B31F1EF07C007D8007 /* MyMedsPlanModel-B7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MyMedsPlanModel-B7.xcdatamodel"; sourceTree = "<group>"; };
 		301BF1E61F1731EC001E7E40 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		301BF1EA1F173227001E7E40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		301BF1EC1F173233001E7E40 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -775,7 +776,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				300FC4DD1EE37E0F00D93A6D /* Base */,
-				301BF1E51F1731EC001E7E40 /* es-MX */,
+				301AC7B21F1EE519007D8007 /* es-MX */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1041,10 +1042,11 @@
 		30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				301AC7B31F1EF07C007D8007 /* MyMedsPlanModel-B7.xcdatamodel */,
 				301BF1ED1F1735A5001E7E40 /* MyMedsPlanModel-B6.xcdatamodel */,
 				30F7A2731EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodel */,
 			);
-			currentVersion = 301BF1ED1F1735A5001E7E40 /* MyMedsPlanModel-B6.xcdatamodel */;
+			currentVersion = 301AC7B31F1EF07C007D8007 /* MyMedsPlanModel-B7.xcdatamodel */;
 			path = MyMedsPlanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

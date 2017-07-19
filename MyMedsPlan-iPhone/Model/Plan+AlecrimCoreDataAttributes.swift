@@ -28,6 +28,7 @@ extension Plan {
     static let otherUser = AlecrimCoreData.NullableAttribute<String>("otherUser")
     static let periodicity = AlecrimCoreData.NullableAttribute<Int16>("periodicity")
     static let startDate = AlecrimCoreData.NullableAttribute<Date>("startDate")
+    static let totalIntakes = AlecrimCoreData.NullableAttribute<Int16>("totalIntakes")
     static let unitsPerDose = AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose")
 
     static let event = AlecrimCoreData.Attribute<Set<Event>>("event")
@@ -49,6 +50,7 @@ extension AlecrimCoreData.AttributeProtocol where Self.ValueType: Plan {
     var otherUser: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("otherUser", self) }
     var periodicity: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("periodicity", self) }
     var startDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("startDate", self) }
+    var totalIntakes: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("totalIntakes", self) }
     var unitsPerDose: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose", self) }
 
     var event: AlecrimCoreData.Attribute<Set<Event>> { return AlecrimCoreData.Attribute<Set<Event>>("event", self) }

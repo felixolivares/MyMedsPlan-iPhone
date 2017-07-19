@@ -25,6 +25,7 @@ extension Plan {
     @NSManaged var otherUser: String?
     @NSManaged var periodicity: Int16 // cannot mark as optional because Objective-C compatibility issues
     @NSManaged var startDate: Date?
+    @NSManaged var totalIntakes: Int16 // cannot mark as optional because Objective-C compatibility issues
     @NSManaged var unitsPerDose: Int16 // cannot mark as optional because Objective-C compatibility issues
 
     @NSManaged var event: Set<Event>

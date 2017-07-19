@@ -11,7 +11,6 @@ import Foundation
 class MMPDateUtils {
 
     public static func calculateFireDate(hours:Int16) -> Date{
-        
         let date = Calendar.current.date(byAdding: .hour, value: Int(hours), to: Date())
         return date!
     }
@@ -69,5 +68,10 @@ extension Date {
         if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
         if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
         return ""
+    }
+    
+    func daysBetweenDate(toDate: Date) -> Int {
+        let components = Calendar.current.dateComponents([.day], from: self, to: toDate)
+        return components.day ?? 0
     }
 }

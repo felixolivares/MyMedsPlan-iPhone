@@ -31,7 +31,7 @@ class MMPMainTableViewCell: SwipeTableViewCell {
             plan?.inProgress = isValid
 
             if (plan?.inProgress)!{
-                nextIntakeLabel.text = NSLocalizedString("Next_intake_in", comment: "") + "\(MMPDateUtils.remainingTimeForNextIntake(date:(plan?.fireDate)!))"
+                nextIntakeLabel.text = NSLocalizedString("Next_intake_in", comment: "") + " \(MMPDateUtils.remainingTimeForNextIntake(date:(plan?.fireDate)!))"
                 startButton.setViewButton()
                 startButton.setTitle(NSLocalizedString("View", comment: ""), for: .normal)
             }else{

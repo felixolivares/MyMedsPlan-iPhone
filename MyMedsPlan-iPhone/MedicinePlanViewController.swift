@@ -9,6 +9,8 @@
 import UIKit
 import PopupDialog
 import UserNotifications
+import UICircularProgressRing
+import Async
 
 class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDelegate {
     
@@ -21,6 +23,15 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     @IBOutlet weak var counterLabel: CountdownLabel!
     @IBOutlet weak var startButton: MMPButton!
+    
+    @IBOutlet weak var totalDaysLabel: UILabel!
+    @IBOutlet weak var pendingDaysLabel: UILabel!
+    @IBOutlet weak var progressRin: UICircularProgressRingView!
+    
+    @IBOutlet weak var treatmentTotalDaysTextLabel: UILabel!
+    @IBOutlet weak var pendingDaysTextLabel: UILabel!
+    
+    @IBOutlet weak var statusTextLabel: UILabel!
     
     var plan:Plan?
     var notificatinID:String?
@@ -56,6 +67,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        Async.main(after: 0){
+            self.setProgresRin()
+        }
+    }
+    
     @IBAction func goBack(_ sender: Any) {
         
         if !comingFromNotification{
@@ -65,6 +84,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         }
     }
     
+    //MARK: - Configure
     func configure(){
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted:Bool, error:Error?) in
@@ -84,6 +104,12 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         medicineNameLabel.text = plan?.medicineName
         periodicityLabel.text = String(describing: (plan?.periodicity)!) + " hrs."
         unitsPerDoseLabel.text = String(describing: (plan?.unitsPerDose)!) + " " + String(describing: (plan?.medicineKind)!)
+        totalDaysLabel.text = String(describing: (plan?.durationDays)!)
+        
+        
+        updateRemainingDays()
+        updatePlanStatus()
+        
         if let additionalInfo = plan?.additionalInfo {
             otherInfoTextView.text = additionalInfo
         }else{
@@ -114,7 +140,51 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         
         startButton.alpha = (plan?.inProgress)! ? 0 : 1
     }
-
+    
+    
+    func updateRemainingDays(){
+        
+        print("Days total: \(String(describing: (plan?.durationDays)!))")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        let date = dateFormatter.date(from: "19-07-2017")
+        
+        if let startDate = plan?.startDate{
+            print(String(describing: startDate))
+            let numOfDays = startDate.daysBetweenDate(toDate: date!)
+            print("Days difference: \(numOfDays)")
+            let remainingDays = Int((plan?.durationDays)!) - numOfDays
+            pendingDaysLabel.text = remainingDays >= 0 ? String(describing: remainingDays) : "-"
+        }
+    }
+    
+    
+    func updatePlanStatus(){
+        let intakes = plan?.event.filter{$0.taken == true}.count
+        let progress = (Double((intakes)!) / Double((plan?.totalIntakes)!)) * 100
+        guard progress <= 100 else{statusTextLabel.text = PlanStatus.StatusFinished;return}
+        guard self.plan?.startDate != nil else{statusTextLabel.text = PlanStatus.StatusNotStarted;return}
+        statusTextLabel.text = self.plan?.fireDate == nil ? PlanStatus.StatusPaused : PlanStatus.StatusInProgress
+    }
+    
+    
+    func setProgresRin(){
+        print("Total intakes: \(Int((plan?.totalIntakes)!))")
+        print("Events count: \((plan?.event.count)!)")
+        let intakes = plan?.event.filter{$0.taken == true}.count
+        
+        var progress = (Double((intakes)!) / Double((plan?.totalIntakes)!)) * 100
+        if progress > 100{
+            progress = 100
+        }
+        progressRin.setProgress(value: CGFloat(progress), animationDuration: 0.5){
+            if progress == 100{
+                self.statusTextLabel.text = PlanStatus.StatusFinished
+            }
+        }
+    }
     
     //MARK: - Popups
     func showConfirmationPopup(title:String?, message:String?, vc : UIViewController, take:Bool){
@@ -224,6 +294,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         showOptionsPopup(message: NSLocalizedString("Please_select_one_of_the_options_below", comment: ""), vc: self)
     }
     
+    //MARK: - Update Fire Date
     func updateFireDate(){
         
         if self.plan?.startDate == nil {
@@ -247,6 +318,12 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         UIView.animate(withDuration: 0.2) {
             self.startButton.alpha = 0
         }
+        
+        updatePlanStatus()
+        Async.main(after: 0.5){
+            self.setProgresRin()
+            self.updateRemainingDays()
+        }
     }
     
     func updateCounterRemoveFireDate(){
@@ -257,6 +334,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         counterLabel.setCountDownDate(fromDate: Date() as NSDate, targetDate: Date() as NSDate)
         counterLabel.start()
         self.saveToCoreData()
+        self.updatePlanStatus()
         
         UIView.animate(withDuration: 0.2) {
             self.startButton.alpha = 1

@@ -8,6 +8,7 @@ PODS:
   - PopupDialog (0.5.4)
   - SwiftyPickerPopover (4.0.1)
   - SwipeCellKit (1.8.0)
+  - UICircularProgressRing (1.5.0)
 
 DEPENDENCIES:
   - AlecrimCoreData (~> 5.0)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - PopupDialog (~> 0.5)
   - SwiftyPickerPopover
   - SwipeCellKit (from `https://github.com/jerkoch/SwipeCellKit.git`, branch `develop`)
+  - UICircularProgressRing
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -41,7 +43,8 @@ SPEC CHECKSUMS:
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   SwiftyPickerPopover: 0c86bf20937763b2059f031b5ca332f8823aa610
   SwipeCellKit: 048e2035809b7a4bc71b86bcb76c7b85d28d6620
+  UICircularProgressRing: 606b533dec71202ec508dbba35a175a073cd9aaf
 
-PODFILE CHECKSUM: e6f7dcf9c87dbf84cd5cad5ae06d2296ea31f409
+PODFILE CHECKSUM: 21868f710690481bb5630ae8e3342ebe96d149ef
 
 COCOAPODS: 1.1.1

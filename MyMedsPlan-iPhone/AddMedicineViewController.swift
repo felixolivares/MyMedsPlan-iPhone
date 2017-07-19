@@ -58,7 +58,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveButtonPressed(_ sender: Any) {
         
-        guard nameTextField.text != "", kindTextField.text != "", periodicityTextField.text != "", unitsTextField.text != "" else {MMPUtils.showPopupWithOK(message: NSLocalizedString("Please_complete_all_fields", comment: ""), vc: self); return}
+        guard nameTextField.text != "", kindTextField.text != "", periodicityTextField.text != "", unitsTextField.text != "", durationTextField.text != "" else {MMPUtils.showPopupWithOK(message: NSLocalizedString("Please_complete_all_fields", comment: ""), vc: self); return}
         
         
         let context = persistentContainer.viewContext
@@ -73,6 +73,9 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             //plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
             editPlan?.additionalInfo = otherInformationTextView.text
             editPlan?.inProgress = false
+            editPlan?.durationDays = Int16(durationTextField.text!)!
+            editPlan?.totalIntakes = (Int16(durationTextField.text!)! * 24) / Int16(periodicityTextField.text!)!
+            print("Total intakes: \((Int16(durationTextField.text!)! * 24) / Int16(periodicityTextField.text!)!)")
         }else{
             
             let plan = context.plans.create()
@@ -86,6 +89,8 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             identifier = "MyMedsPlan." + String(describing:(plan.medicineName)!).trimmingCharacters(in: .whitespaces) + "." + (plan.medicineKind)! + "." + String(describing: (plan.periodicity)) + "." + String(describing: (plan.unitsPerDose))
             plan.notificationId = identifier
             plan.durationDays = Int16(durationTextField.text!)!
+            plan.totalIntakes = (Int16(durationTextField.text!)! * 24) / Int16(periodicityTextField.text!)!
+            print("Total intakes: \((Int16(durationTextField.text!)! * 24) / Int16(periodicityTextField.text!)!)")
         }
         
         do{
@@ -105,6 +110,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         periodicityTextField.text = String(describing: (editPlan?.periodicity)!)
         unitsTextField.text = String(describing: (editPlan?.unitsPerDose)!)
         kindTextField.text = String(describing: (editPlan?.medicineKind)!)
+        durationTextField.text = String(describing: (editPlan?.durationDays)!)
     }
     
     
@@ -120,7 +126,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func periodicityTextFieldPressed(_ sender: Any) {
         
-        StringPickerPopover(title: "Hours", choices: periodicityArray)
+        StringPickerPopover(title: NSLocalizedString("Hours", comment: ""), choices: periodicityArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 print("done row \(selectedRow) \(selectedString)")
@@ -134,7 +140,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func doseTextFieldPressed(_ sender: Any) {
         
-        StringPickerPopover(title: "Dose", choices: unitsPerDoseArray)
+        StringPickerPopover(title: NSLocalizedString("Dose", comment: ""), choices: unitsPerDoseArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 self.unitsTextField.text = selectedString
@@ -146,7 +152,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func kindTextFieldPressed(_ sender: Any) {
         
-        StringPickerPopover(title: "Kind", choices: medicineKindArray)
+        StringPickerPopover(title: NSLocalizedString("Kind", comment: ""), choices: medicineKindArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 self.kindTextField.text = selectedString
@@ -158,7 +164,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func durationTextFieldPressed(_ sender: Any) {
         
-        StringPickerPopover(title: "Days", choices: durationDaysArray)
+        StringPickerPopover(title: NSLocalizedString("Days", comment: ""), choices: durationDaysArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 self.durationTextField.text = selectedString
