@@ -32,6 +32,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     @IBOutlet weak var pendingDaysTextLabel: UILabel!
     
     @IBOutlet weak var statusTextLabel: UILabel!
+    @IBOutlet weak var restartPlanContainerView: UIView!
     
     var plan:Plan?
     var notificatinID:String?
@@ -40,6 +41,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     let takeMessage = NSLocalizedString("takeMessage", comment: "")
     let skipMessage = NSLocalizedString("skipMessage", comment: "")
+    let expiredPlanMessage = NSLocalizedString("planExpiredMessage", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +62,9 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             
             guard isTaken != nil else {return}
             if isTaken!{
-                showConfirmationPopup(title: "TAKEN", message: takeMessage, vc: self, take: true)
+                showConfirmationPopup(title: NSLocalizedString("TAKEN", comment: ""), message: takeMessage, vc: self, take: true)
             }else{
-                showConfirmationPopup(title: "SKIPPED", message: skipMessage, vc: self, take: false)
+                showConfirmationPopup(title: NSLocalizedString("SKIPPED", comment: ""), message: skipMessage, vc: self, take: false)
             }
         }
     }
@@ -70,9 +72,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        Async.main(after: 0){
-            self.setProgresRin()
-        }
+        self.setProgresRin()
     }
     
     @IBAction func goBack(_ sender: Any) {
@@ -107,8 +107,8 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         totalDaysLabel.text = String(describing: (plan?.durationDays)!)
         
         
-        updateRemainingDays()
         updatePlanStatus()
+        updateRemainingDays()
         
         if let additionalInfo = plan?.additionalInfo {
             otherInfoTextView.text = additionalInfo
@@ -153,10 +153,19 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         
         if let startDate = plan?.startDate{
             print(String(describing: startDate))
-            let numOfDays = startDate.daysBetweenDate(toDate: date!)
+            let numOfDays = startDate.daysBetweenDate(toDate: Date())
             print("Days difference: \(numOfDays)")
             let remainingDays = Int((plan?.durationDays)!) - numOfDays
-            pendingDaysLabel.text = remainingDays >= 0 ? String(describing: remainingDays) : "-"
+            if remainingDays >= 0{
+                
+                pendingDaysLabel.text = String(describing: remainingDays)
+            }else{
+                
+                pendingDaysLabel.text = "-"
+                showPlanExpiredPopup(title: NSLocalizedString("ATTENTION", comment: ""), message: expiredPlanMessage, vc: self, take: true)
+            }
+            
+//            pendingDaysLabel.text = remainingDays >= 0 ? String(describing: remainingDays) : "-"
         }
     }
     
@@ -176,8 +185,11 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         let intakes = plan?.event.filter{$0.taken == true}.count
         
         var progress = (Double((intakes)!) / Double((plan?.totalIntakes)!)) * 100
-        if progress > 100{
+        if progress >= 100{
             progress = 100
+            UIView.animate(withDuration: 0.5, animations: {
+                self.restartPlanContainerView.alpha = 1
+            })
         }
         progressRin.setProgress(value: CGFloat(progress), animationDuration: 0.5){
             if progress == 100{
@@ -218,6 +230,32 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         let buttonTwo = CancelButton(title: NSLocalizedString("STOP", comment: "")){
             print("Cancel")
             self.updateCounterRemoveFireDate()
+        }
+        
+        popup.addButtons([buttonTwo, buttonOne])
+        
+        // Present dialog
+        vc.present(popup, animated: true, completion: nil)
+        
+    }
+    
+    func showPlanExpiredPopup(title:String?, message:String?, vc : UIViewController, take:Bool){
+        // Create the dialog
+        let image = UIImage(named: "questionMarkBannerBlue")
+        
+        let popup = PopupDialog(title: title, message: message, image: image, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
+            
+        }
+        
+        let buttonOne = DefaultButton(title: NSLocalizedString("RESET", comment: "")) {
+            
+            self.startOverPlan()
+            
+        }
+        
+        let buttonTwo = CancelButton(title: NSLocalizedString("NO", comment: "")){
+            print("Cancel")
+            //self.updateCounterRemoveFireDate()
         }
         
         popup.addButtons([buttonTwo, buttonOne])
@@ -294,6 +332,10 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         showOptionsPopup(message: NSLocalizedString("Please_select_one_of_the_options_below", comment: ""), vc: self)
     }
     
+    @IBAction func startOverButtonPressed(_ sender: Any) {
+        startOverPlan()
+    }
+    
     //MARK: - Update Fire Date
     func updateFireDate(){
         
@@ -339,6 +381,26 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         UIView.animate(withDuration: 0.2) {
             self.startButton.alpha = 1
         }
+    }
+    
+    func restartPlanRemoveEvents(){
+        for eachEvent in (self.plan?.event)!{
+            eachEvent.delete()
+        }
+        self.plan?.startDate = nil
+        updateCounterRemoveFireDate()
+        saveToCoreData()
+    }
+    
+    func startOverPlan(){
+        
+        progressRin.setProgress(value: CGFloat(0), animationDuration: 0.5)
+        UIView.animate(withDuration: 0.5) {
+            self.restartPlanContainerView.alpha = 0
+        }
+        restartPlanRemoveEvents()
+        updatePlanStatus()
+        updateRemainingDays()
     }
     
     func saveToCoreData(){

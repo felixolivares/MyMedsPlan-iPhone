@@ -91,3 +91,7 @@
 
 /* Class = "UITextField"; placeholder = "Unidades por dosis"; ObjectID = "zlp-F9-ND9"; */
 "zlp-F9-ND9.placeholder" = "Unidades por dosis";
+
+"qfa-bb-l7g.text" = "Has terminado tu tratamiento exitosamente. Te gustaria volverlo a empezar? ";
+
+"6qZ-B8-kDC.normalTitle" = "Empezar";

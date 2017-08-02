@@ -28,7 +28,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="jpg-VS-rI3" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TFm-vS-1Ov">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TFm-vS-1Ov">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -62,7 +62,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgX-5b-JIJ">
-                                        <rect key="frame" x="372" y="37.666666666666664" width="22" height="22"/>
+                                        <rect key="frame" x="372" y="37.333333333333336" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="qH6-FK-aYw"/>
                                             <constraint firstAttribute="height" constant="22" id="wfj-kU-dez"/>
@@ -106,7 +106,7 @@
                                         <size key="shadowOffset" width="-1" height="-1"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the '+' icon to add a new medicine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZH-4w-AhA">
-                                        <rect key="frame" x="51" y="119.00000000000001" width="313.66666666666669" height="24.333333333333357"/>
+                                        <rect key="frame" x="50.666666666666657" y="119.00000000000001" width="313.66666666666663" height="24.333333333333357"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
                                         <color key="textColor" red="0.24313725489999999" green="0.76470588240000004" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -210,7 +210,7 @@
                                         <rect key="frame" x="25" y="15" width="364" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="pgV-Wd-ed9" id="HQB-SW-mYN"/>
                                         </connections>
@@ -273,7 +273,7 @@
                                             <constraint firstAttribute="height" constant="1" id="UFy-vl-CBm"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="For how many days (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-MN-b9B">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="For how many days" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-MN-b9B">
                                         <rect key="frame" x="25" y="215.00000000000003" width="364" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
@@ -345,7 +345,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DYX-Qa-mc0">
-                                        <rect key="frame" x="30" y="25" width="354" height="159.66666666666669"/>
+                                        <rect key="frame" x="30" y="10" width="354" height="189.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -354,13 +354,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="lLO-11-F0a" firstAttribute="leading" secondItem="laM-7N-VfA" secondAttribute="leading" constant="25" id="4U0-G3-HGf"/>
-                                    <constraint firstItem="DYX-Qa-mc0" firstAttribute="top" secondItem="laM-7N-VfA" secondAttribute="top" constant="25" id="8BZ-a9-7ds"/>
+                                    <constraint firstItem="DYX-Qa-mc0" firstAttribute="top" secondItem="laM-7N-VfA" secondAttribute="top" constant="10" id="8BZ-a9-7ds"/>
                                     <constraint firstAttribute="trailing" secondItem="DYX-Qa-mc0" secondAttribute="trailing" constant="30" id="8pN-p5-chv"/>
                                     <constraint firstAttribute="trailing" secondItem="lLO-11-F0a" secondAttribute="trailing" constant="25" id="H3z-1U-LK8"/>
                                     <constraint firstItem="lLO-11-F0a" firstAttribute="top" secondItem="laM-7N-VfA" secondAttribute="top" constant="20" id="RTi-JV-r6C"/>
                                     <constraint firstAttribute="bottom" secondItem="lLO-11-F0a" secondAttribute="bottom" constant="20" id="VrX-5B-Mb1"/>
                                     <constraint firstItem="DYX-Qa-mc0" firstAttribute="leading" secondItem="laM-7N-VfA" secondAttribute="leading" constant="30" id="Yv6-7X-QMM"/>
-                                    <constraint firstAttribute="bottom" secondItem="DYX-Qa-mc0" secondAttribute="bottom" constant="25" id="lBz-83-qhA"/>
+                                    <constraint firstAttribute="bottom" secondItem="DYX-Qa-mc0" secondAttribute="bottom" constant="10" id="lBz-83-qhA"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFd-vX-puJ" customClass="MMPButton" customModule="My_Meds_Plan" customModuleProvider="target">
@@ -587,8 +587,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lk4-ky-RO6">
-                                                <rect key="frame" x="68.666666666666671" y="320.33333333333331" width="5" height="14"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <rect key="frame" x="68.666666666666671" y="319" width="5" height="16.666666666666686"/>
+                                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
                                                 <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -780,6 +780,48 @@
                                                     <constraint firstItem="IFn-V5-4JB" firstAttribute="centerY" secondItem="xR9-xx-XPt" secondAttribute="centerY" id="pbq-yz-J02"/>
                                                 </constraints>
                                             </view>
+                                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSS-vb-tIX">
+                                                <rect key="frame" x="0.0" y="334" width="273" height="70"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have succesfully finished this treatment. Would you like to restart it again? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfa-bb-l7g">
+                                                        <rect key="frame" x="10" y="5" width="253" height="33"/>
+                                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="12"/>
+                                                        <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qZ-B8-kDC" customClass="MMPButton" customModule="My_Meds_Plan" customModuleProvider="target">
+                                                        <rect key="frame" x="94" y="48" width="85" height="25"/>
+                                                        <color key="backgroundColor" red="0.9882352941176471" green="0.6705882352941176" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="JTm-36-rMe"/>
+                                                            <constraint firstAttribute="width" constant="85" id="w8k-Jy-SyO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                                        <state key="normal" title="Start Over">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="startOverButtonPressed:" destination="r12-nw-wKz" eventType="touchUpInside" id="G3K-EV-bvv"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="qfa-bb-l7g" secondAttribute="trailing" constant="10" id="MX7-02-1zq"/>
+                                                    <constraint firstItem="qfa-bb-l7g" firstAttribute="leading" secondItem="SSS-vb-tIX" secondAttribute="leading" constant="10" id="OrH-fb-xDj"/>
+                                                    <constraint firstItem="qfa-bb-l7g" firstAttribute="top" secondItem="SSS-vb-tIX" secondAttribute="top" constant="5" id="bGA-TE-ddn"/>
+                                                    <constraint firstItem="6qZ-B8-kDC" firstAttribute="top" secondItem="qfa-bb-l7g" secondAttribute="bottom" constant="10" id="dX5-gq-yyg"/>
+                                                    <constraint firstItem="6qZ-B8-kDC" firstAttribute="centerX" secondItem="SSS-vb-tIX" secondAttribute="centerX" id="ln8-qI-Bmf"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerGray">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerBlue">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -803,11 +845,14 @@
                                             <constraint firstItem="Lr7-0U-UB1" firstAttribute="centerX" secondItem="QQK-jB-WjQ" secondAttribute="centerX" id="N1z-64-iSE"/>
                                             <constraint firstItem="n8A-eQ-GcJ" firstAttribute="top" secondItem="znq-2K-GvA" secondAttribute="bottom" constant="30" id="Nfp-Mg-c4v"/>
                                             <constraint firstItem="cCG-Pl-KRw" firstAttribute="centerX" secondItem="QQK-jB-WjQ" secondAttribute="centerX" id="ORb-ZS-lou"/>
+                                            <constraint firstItem="SSS-vb-tIX" firstAttribute="leading" secondItem="5gR-E4-bIv" secondAttribute="leading" id="OZF-jC-E2v"/>
                                             <constraint firstAttribute="trailing" secondItem="k3v-1P-KSc" secondAttribute="trailing" constant="15" id="PHQ-Sr-Wx1"/>
                                             <constraint firstItem="bwm-OZ-C7v" firstAttribute="centerX" secondItem="QQK-jB-WjQ" secondAttribute="centerX" id="PXs-Yr-DGL"/>
                                             <constraint firstItem="DdX-kc-y9L" firstAttribute="centerY" secondItem="5gR-E4-bIv" secondAttribute="centerY" id="Paf-sl-ihs"/>
                                             <constraint firstItem="jQc-Vr-Oe4" firstAttribute="leading" secondItem="QQK-jB-WjQ" secondAttribute="leading" constant="15" id="Pcl-r8-Ohp"/>
+                                            <constraint firstItem="SSS-vb-tIX" firstAttribute="height" secondItem="5gR-E4-bIv" secondAttribute="height" id="SZe-yF-GdJ"/>
                                             <constraint firstAttribute="trailing" secondItem="znq-2K-GvA" secondAttribute="trailing" id="UTp-L4-7np"/>
+                                            <constraint firstItem="SSS-vb-tIX" firstAttribute="trailing" secondItem="DdX-kc-y9L" secondAttribute="trailing" id="XQb-p8-G79"/>
                                             <constraint firstItem="cCG-Pl-KRw" firstAttribute="top" secondItem="n8A-eQ-GcJ" secondAttribute="bottom" constant="10" id="Xc2-UT-yLc"/>
                                             <constraint firstItem="znq-2K-GvA" firstAttribute="width" secondItem="kH3-7n-R1Z" secondAttribute="width" id="agL-FY-gDl"/>
                                             <constraint firstItem="5gR-E4-bIv" firstAttribute="leading" secondItem="QQK-jB-WjQ" secondAttribute="leading" id="bTg-ww-Ga9"/>
@@ -832,6 +877,7 @@
                                             <constraint firstItem="xR9-xx-XPt" firstAttribute="height" secondItem="DdX-kc-y9L" secondAttribute="height" id="sAK-31-dav"/>
                                             <constraint firstItem="WBx-r8-IOB" firstAttribute="centerX" secondItem="QQK-jB-WjQ" secondAttribute="centerX" id="tTw-wT-CJS"/>
                                             <constraint firstItem="baH-OV-hxB" firstAttribute="top" secondItem="jQc-Vr-Oe4" secondAttribute="bottom" constant="10" id="uai-G6-AUN"/>
+                                            <constraint firstItem="SSS-vb-tIX" firstAttribute="top" secondItem="5gR-E4-bIv" secondAttribute="top" id="v9l-Zb-KVd"/>
                                             <constraint firstItem="znq-2K-GvA" firstAttribute="height" secondItem="kH3-7n-R1Z" secondAttribute="height" id="voJ-3j-doD"/>
                                         </constraints>
                                     </view>
@@ -870,6 +916,7 @@
                         <outlet property="pendingDaysTextLabel" destination="iIS-Fk-ydV" id="s8H-EC-HF9"/>
                         <outlet property="periodicityLabel" destination="bfR-P1-EwM" id="aCb-Ru-Qwc"/>
                         <outlet property="progressRin" destination="IFn-V5-4JB" id="itp-iy-nwl"/>
+                        <outlet property="restartPlanContainerView" destination="SSS-vb-tIX" id="hLi-Yw-3cu"/>
                         <outlet property="startButton" destination="jQc-Vr-Oe4" id="z8X-fs-w4K"/>
                         <outlet property="statusTextLabel" destination="lk4-ky-RO6" id="h3B-Rs-c15"/>
                         <outlet property="totalDaysLabel" destination="Jwz-O1-yYN" id="eSC-Jz-akC"/>
