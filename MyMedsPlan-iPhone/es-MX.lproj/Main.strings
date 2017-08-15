@@ -63,7 +63,7 @@
 "jQc-Vr-Oe4.normalTitle" = "Iniciar";
 
 /* Class = "UILabel"; text = "Toca el icono de '+' para agregar una medicina"; ObjectID = "jZH-4w-AhA"; */
-"jZH-4w-AhA.text" = "Toca el icono de '+' para agregar una medicina";
+"jZH-4w-AhA.text" = "Parece que no tienes medicinas que monitorear";
 
 /* Class = "UILabel"; text = "SIGUIENTE TOMA EN"; ObjectID = "n8A-eQ-GcJ"; */
 "n8A-eQ-GcJ.text" = "SIGUIENTE TOMA EN";
@@ -95,3 +95,5 @@
 "qfa-bb-l7g.text" = "Has terminado tu tratamiento exitosamente. Te gustaria volverlo a empezar? ";
 
 "6qZ-B8-kDC.normalTitle" = "Empezar";
+
+"nE8-52-jrt.normalTitle" = "Agregar Medicina";

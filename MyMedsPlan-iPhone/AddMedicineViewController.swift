@@ -10,6 +10,7 @@ import UIKit
 import SwiftyPickerPopover
 import Async
 import PopupDialog
+import XLActionController
 
 class AddMedicineViewController: UIViewController, UITextFieldDelegate {
 
@@ -125,7 +126,18 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         }
     }
     @IBAction func periodicityTextFieldPressed(_ sender: Any) {
+       
+        let actionController = PeriscopeActionController()
+        actionController.headerData = "Need to take medicine every?"
+        actionController.addAction(Action("Block user", style: .destructive, handler: { action in
+        }))
+        actionController.addSection(PeriscopeSection())
+        actionController.addAction(Action("Cancel", style: .cancel, handler: { action in
+        }))
+        present(actionController, animated: true, completion: nil)
         
+        
+        /*
         StringPickerPopover(title: NSLocalizedString("Hours", comment: ""), choices: periodicityArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
@@ -135,7 +147,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             .setCancelButton(action: { v in print("cancel")}
             )
             .appear(originView: periodicityUnderline, baseViewController: self)
-        
+     */
     }
     
     @IBAction func doseTextFieldPressed(_ sender: Any) {
