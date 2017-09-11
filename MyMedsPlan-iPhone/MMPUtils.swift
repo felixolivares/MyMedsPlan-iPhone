@@ -10,6 +10,8 @@ import Foundation
 import PopupDialog
 import Async
 
+
+//Structs
 struct MedicineType{
     public static let Tablet = NSLocalizedString("Tablets", comment: "")
     public static let Shot = NSLocalizedString("Shots", comment: "")
@@ -32,6 +34,23 @@ struct MedicineIcon{
     public static let Tablet = "tabletsIcon"
     public static let Spoon = "spoonIcon"
 }
+
+struct CalendarDate{
+    var date:Date?
+    var medicineId:[String]?
+}
+
+struct SelectedPlan{
+    var plan:Plan?
+    var date:Date?
+}
+
+//Enums
+
+enum CalendarType:Int{
+    case General
+    case Specific
+};
 
 class MMPUtils{
     

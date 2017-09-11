@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     var isSwipeRightEnabled = true
     var buttonDisplayMode: ButtonDisplayMode = .titleAndImage
     var buttonStyle: ButtonStyle = .backgroundColor
+    let cal = Calendar(identifier: .gregorian)
     
     @IBOutlet weak var emptyMessageContainer: UIView!
     let kPlanTableViewCellIdentifier = "PlanTableViewCellIdentifier"
@@ -106,7 +107,9 @@ class MainViewController: UIViewController {
             if plan.startDate == nil {
                 plan.startDate = Date()
             }
-            
+            if plan.endDate == nil{
+                plan.endDate = Calendar.current.date(byAdding: .day, value: Int(plan.durationDays) - 1, to: plan.startDate!)
+            }
             let event = persistentContainer.viewContext.events.create()
             event.eventDate = Date()
             event.plan = plan
@@ -129,6 +132,11 @@ class MainViewController: UIViewController {
         if segue.identifier == "toMedicinePlan"{
             let vc:MedicinePlanViewController = segue.destination as! MedicinePlanViewController
             vc.plan = sender as? Plan
+        }else{
+            if segue.identifier == "toCalendarFromMain"{
+                let vc:CalendarViewController = segue.destination as! CalendarViewController
+                vc.calendarType = .General
+            }
         }
     }
     

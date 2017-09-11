@@ -13,12 +13,18 @@
 
 public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewController {
 
+    // MARK: Types
+    
+    /// Popover type
     typealias PopoverType = ColumnStringPickerPopover
+
+    // MARK: Properties
+    
+    /// Popover
+    var popover: PopoverType? { return anyPopover as? PopoverType }
 
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    var popover: PopoverType? { return anyPopover as? PopoverType }
-    
     @IBOutlet weak var picker: UIPickerView!
 
     override public func viewDidLoad() {
@@ -26,17 +32,29 @@ public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewC
         picker.delegate = popover
     }
     
+    /// Make the popover properties reflect on this view controller
     override func refrectPopoverProperties(){
-        title = popover?.title
+        super.refrectPopoverProperties()
         
-        navigationItem.leftBarButtonItem = nil
+        // Set up cancel button
+        if #available(iOS 11.0, *) { }
+        else {
+            navigationItem.leftBarButtonItem = nil
+        }
         cancelButton.title = popover?.cancelButton_.title
-        navigationItem.leftBarButtonItem = cancelButton
+        cancelButton.tintColor = popover?.cancelButton_.color ?? popover?.tintColor
+        navigationItem.setLeftBarButton(cancelButton, animated: false)
         
-        navigationItem.rightBarButtonItem = nil
+        // Set up done button
+        if #available(iOS 11.0, *) { }
+        else {
+            navigationItem.rightBarButtonItem = nil
+        }
         doneButton.title = popover?.doneButton_.title
-        navigationItem.rightBarButtonItem = doneButton
+        doneButton.tintColor = popover?.doneButton_.color ?? popover?.tintColor
+        navigationItem.setRightBarButton(doneButton, animated: false)
 
+        // Select row if needed
         if let selected = popover?.selectedRows_ {
             for x in 0..<selected.count {
                 picker.selectRow(selected[x], inComponent: x, animated: true)
@@ -44,6 +62,9 @@ public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewC
         }
     }
     
+    /// Action when tapping done button
+    ///
+    /// - Parameter sender: Done button
     @IBAction func tappedDone(_ sender: AnyObject? = nil) {
         if let popover = popover {
             let selectedRows = popover.selectedRows_
@@ -54,6 +75,9 @@ public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewC
         }
     }
     
+    /// Action when tapping cancel button
+    ///
+    /// - Parameter sender: Cancel button
     @IBAction func tappedCancel(_ sender: AnyObject? = nil) {
         if let popover = popover {
             let selectedRows = popover.selectedRows_
@@ -64,6 +88,9 @@ public class ColumnStringPickerPopoverViewController: AbstractPickerPopoverViewC
         }
     }
     
+    /// Action to be executed after the popover disappears
+    ///
+    /// - Parameter popoverPresentationController: UIPopoverPresentationController
     public func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         tappedCancel()
     }

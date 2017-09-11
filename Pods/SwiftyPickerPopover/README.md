@@ -1,4 +1,4 @@
-# SwiftyPickerPopover
+ # SwiftyPickerPopover
 A more convenient way to display a popover with a built-in picker, on iPhone/iPad of iOS9+.
 
 [![Version](https://img.shields.io/cocoapods/v/SwiftyPickerPopover.svg?style=flat)](http://cocoadocs.org/docsets/SwiftyPickerPopover) 
@@ -10,9 +10,17 @@ A more convenient way to display a popover with a built-in picker, on iPhone/iPa
 - By simple code, you can display a popover that contains a built-in picker, on iPhone or iPad.
 - Swift 3, iOS9+. UIPopoverController free. 
 - Callback
-
+- Swift 4 version is available [here](https://github.com/hsylife/SwiftyPickerPopover/tree/swift4).
 ## Screenshots
-<img src="README_resources/SwiftyPickerPopover_movie.gif" width="362">
+<img src="README_resources/SwiftyPickerPopover_movie.gif" width="308">
+
+## Basic
+
+```swift
+DatePickerPopover(title: "DatePicker")
+            .setDoneButton(action: { _, selectedDate in print(selectedDate)})
+            .appear(originView: sender, baseViewController: self)
+```
 
 ## Required
 - Swift 3, Xcode 8.
@@ -20,109 +28,90 @@ A more convenient way to display a popover with a built-in picker, on iPhone/iPa
 - CocoaPods 1.1.0.rc.2+ or Carthage 0.12.0+
 
 ## License
-MIT.
+MIT
 
-## Usage
-For installing it with CocoaPods, specify it in your 'Podfile':
+## Install
+### CocoaPods
+Specify it in your 'Podfile', after replacing ‘YourProjectTargetName’ with your own target name:
 ```ruby
 platform :ios, '9.0'
 use_frameworks!
+target ‘YourProjectTargetName’ do
 pod 'SwiftyPickerPopover'
+end
 ```
 Run 'pod install'.
 
-Instead, for installing it with Carthage, add it to your Cartfile:
+### Carthage
+- Add it to your Cartfile:
 ```
 github "hsylife/SwiftyPickerPopover"
 ```
-Run 'carthage update --platform iOS'.
+- Run `carthage update --platform iOS`
+- Add 'SwiftyPickerPopover.framework' to 'Linked Frameworks and Library' on your project.
+- Add `/usr/local/bin/carthage copy-frameworks` to 'New Run Script Phase'.
+- Add `$(SRCROOT)/Carthage/Build/iOS/SwiftyPickerPopover.framework` to 'Input Files'.
 
-On Xcode, import the module:
+### import
+On your .swift file, import the module:
 ```swift
 import SwiftyPickerPopover
 ```
-### Basic
-To display a popover with an UIDatePicker, the code looks like this:
-```swift
-DatePickerPopover(title: "DatePicker")
-            .appear(originView: sender, baseViewController: self)
-```
+### Popover types
+SwiftyPickerPopover offers you the following popovers:
+- **StringPickerPopover**: has an UIPickerView that allows user to choose a String type choice.
+- **ColumnStringPickerPopover**: has an UIPickerView of multiple columns.
+- **DatePickerPopover**: has an UIDatePicker that allows user to choose a Date type choice.
+- **CountdownPickerPopover**: has an UIDatePicker specializing in countDownTimer style.
 
-To specify more arguments:
-```swift
-DatePickerPopover(title: "DatePicker")
-            .setDateMode(.date)
-            .setSelectedDate(Date())
-            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")})
-            .setCancelButton({action: v in print("cancel")})
-            .appear(originView: sender, baseViewController: self)
-```
+### APIs and examples
+#### Common
+All popovers have the following APIs.
 
-To display a popover with an UIPickerView that allows users to choose a String type choice:
+* setPermittedArrowDirections()
+* setArrowColor()
+* setSize(width:,height:)
+
+* appear(originView:, baseViewWhenOriginViewHasNoSuperview:, baseViewController:, completion:)
+* disappear()
+* disappearAutomatically(after seconds:, completion:)
+* reload()
+
+#### StringPickerPopover
+* init(title:, choices:)
+
+* setImageNames()
+* setImages()
+* setSelectedRow()
+* setRowHeight()
+* setDisplayStringFor()
+* setDoneButton(title:, color:, action:)
+* setCancelButton(title:, color:, action:)
+
+##### You can use StringPickerPopover like this:
 ```swift
 StringPickerPopover(title: "StringPicker", choices: ["value 1","value 2","value 3"])
         .setSelectedRow(0)
         .setDoneButton(action: { (popover, selectedRow, selectedString) in
             print("done row \(selectedRow) \(selectedString)")
         })
-        .setCancelButton(action:  { v in print("cancel")}
+        .setCancelButton(action: { v in print("cancel")}
         )
         .appear(originView: button, baseViewController: self)
 ```
 
-To display a popover with an UIPickerView of multiple columns:
+##### StringPickerPopover can have images. 
+
+<img src="README_resources/StringWithImage.jpeg" width="362">
+
+After adding image files to your target's Assets.xcassets:
 ```swift
-ColumnStringPickerPopover(title: "Columns Strings",
-                                  choices: [["Breakfast", "Lunch", "Dinner"],["Tacos", "Sushi", "Steak", "Waffles", "Burgers"]],
-                                  selectedRows: [0,0], columnPercents: [0.5, 0.5])
-        .setDoneButton(action: { popover, selectedRows, selectedStrings in print("selected rows \(selectedRows) strings \(selectedStrings)")})
-        .setCancelButton({v in print("cancel")})
-        .setFontSize(14)
-        .appear(originView: sender, baseViewController: self)
-)
+StringPickerPopover(title: "StringPicker", choices: ["value 1","value2",""])
+        .setImageNames(["Icon1",nil,"Icon3"])
+        .appear(originView: button, baseViewController: self)
 ```
 
-To display a popover with an UIDatePicker of countDownTimer style:
-```swift
- CountdownPickerPopover(title: "CountdownPicker")
-            .setSelectedTimeInterval(TimeInterval())
-            .setDoneButton(action: { popover, timeInterval in print("timeInterval \(timeInterval)")} )
-            .setCancelButton(action: { popover in print("cancel")})
-            .setClearButton({action:  popover in print("Clear")
-                popover.setSelectedTimeInterval(TimeInterval()).reload()
-            })
-            .appear(originView: sender, baseViewController: self)
-```
-
-### Advanced
-To display a DatePickerPopover has a clear button, which rewinds itself by tapping the button, and.which disappers automatically after a certain number of seconds:
-```swift
-let p = DatePickerPopover(title: "Clearable DatePicker")
-            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")} )
-            .setCancelButton({ v in print("cancel")})
-            .setClearButton({ popover, selectedDate in
-                print("clear")
-                //Rewind
-                popover.setSelectedDate(Date()).reload()
-            })
-            
-        p.appear(originView: sender, baseViewController: self)
-        p.disappearAutomatically(after: 3.0)
-```
-
-To display a DatePickerPopover of .time style with a time interval of 5 mins and the arrow only to .down direction permitted:
-```swift
-DatePickerPopover(title: "DatePicker .time 5minInt.")
-            .setDateMode(.time)
-            .setMinuteInterval(5)
-            .setPermittedArrowDirections(.down)
-            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")} )
-            .setCancelButton(action: { v in print("cancel")})
-            .appear(originView: sender, baseViewController: self)
-)
-```
-
-To display a StringPickerPopover which can prepare a choice string for display on picker separately from a source string:
+##### It can separate the screen values from the raw values:
 ```swift
 let displayStringFor:((String?)->String?)? = { string in
    if let s = string {
@@ -154,7 +143,17 @@ let p = StringPickerPopover(title: "StringPicker", choices: ["value 1","value 2"
         p.disappearAutomatically(after: 3.0, completion: { print("automatically hidden")} )
 ```
 
-A StringPickerPopover appears from the collectionView's cell:
+##### To specify the size:
+```swift
+StringPickerPopover(title: "Narrow StringPicker", choices: ["value 1","value 2","value 3"])
+            .setSize(width: 250.0)
+            .appear(originView: sender, baseViewController: self)
+```
+The default width and height of popover are both 300.0.
+By using setSize(width:, height:), you can override it or them.
+When you set nil to the parameter or don't specify it, the default will be used.
+
+##### It appears from the collectionView's cell:
 ```swift
 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -165,13 +164,114 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
                         .setDoneButton(title:"👌", action: { (popover, selectedRow, selectedString) in print("done row \(selectedRow) \(selectedString)") })
                         .setCancelButton(title:"🗑", action: { v in print("cancel")} )
         
-        p.appear(originView: theCell, baseView: collectionView, baseViewController: self)
+        p.appear(originView: theCell, baseViewWhenOriginViewHasNoSuperview collectionView, baseViewController: self)
         
     }
 ```
 
+If originView has no superView, then then you need to set baseViewWhenOriginViewHasNoSuperview as above to specify sourceView for the position for the arrow.
+If it has the superview, then SwiftyPickerPopover automatically use it for the sourceView.
+
+##### It appears from an UIBarButtonItem:
+```swift
+let item: UIBarButtonItem = sender
+let originView = item.value(forKey: "view") as! UIView
+p.appear(originView: originView, baseViewController: self)
+```
+
+#### ColumnStringPickerPopover
+* init(title:, choices:, selectedRows:, columnPercents:)
+
+* setSelectedRows()
+* setFontSize()
+* setDisplayStringFor()
+* setDoneButton(title:, color:, action:)
+* setCancelButton(title:, color:, action:)
+
+##### ColumnStringPickerPopover can have multiple String values:
+```swift
+ColumnStringPickerPopover(title: "Columns Strings",
+                                  choices: [["Breakfast", "Lunch", "Dinner"],["Tacos", "Sushi", "Steak", "Waffles", "Burgers"]],
+                                  selectedRows: [0,0], columnPercents: [0.5, 0.5])
+        .setDoneButton(action: { popover, selectedRows, selectedStrings in print("selected rows \(selectedRows) strings \(selectedStrings)")})
+        .setCancelButton(action: {v in print("cancel")})
+        .setFontSize(14)
+        .appear(originView: sender, baseViewController: self)
+)
+```
+
+#### DatePickerPopover
+* init(title:)
+
+* setSelectedDate()
+* setDateMode()
+* setMinimumDate()
+* setMaximumDate()
+* setMinuteInterval()
+* setLocale()
+* setDoneButton(title:, color:, action:)
+* setCancelButton(title:, color:, action:)
+* setClearButton(title:, color:, action:)
+
+##### DatePickerPopover can be used like this:
+```swift
+DatePickerPopover(title: "DatePicker")
+            .setDateMode(.date)
+            .setSelectedDate(Date())
+            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")})
+            .setCancelButton(action: { v in print("cancel")})
+            .appear(originView: sender, baseViewController: self)
+```
+
+##### The clear button rewinds the picker. And it disappers automatically after a specified seconds:
+```swift
+let p = DatePickerPopover(title: "Clearable DatePicker")
+            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")} )
+            .setCancelButton(action: { v in print("cancel")})
+            .setClearButton(action: { popover, selectedDate in
+                print("clear")
+                //Rewind
+                popover.setSelectedDate(Date()).reload()
+            })
+            
+        p.appear(originView: sender, baseViewController: self)
+        p.disappearAutomatically(after: 3.0)
+```
+
+##### The time interval is 5 mins. The arrow is permitted only to .down direction.:
+```swift
+DatePickerPopover(title: "DatePicker .time 5minInt.")
+            .setDateMode(.time)
+            .setMinuteInterval(5)
+            .setPermittedArrowDirections(.down)
+            .setDoneButton(action: { popover, selectedDate in print("selectedDate \(selectedDate)")} )
+            .setCancelButton(action: { v in print("cancel")})
+            .appear(originView: sender, baseViewController: self)
+)
+```
+
+#### CountdownPickerPopover
+* init(title:)
+
+* setSelectedTimeInterval
+* setDoneButton(title:, color:, action:)
+* setCancelButton(title:, color:, action:)
+* setClearButton(title:, color:, action:)
+
+##### CountdownPickerPopover can be used like this:
+```swift
+ CountdownPickerPopover(title: "CountdownPicker")
+            .setSelectedTimeInterval(TimeInterval())
+            .setDoneButton(action: { popover, timeInterval in print("timeInterval \(timeInterval)")} )
+            .setCancelButton(action: { v in print("cancel")})
+            .setClearButton(action: { popover, timeInterval in print("Clear")
+                popover.setSelectedTimeInterval(TimeInterval()).reload()
+            })
+            .appear(originView: sender, baseViewController: self)
+```
+
 ## Customize
-### How do I customize or localize a popover's storyboard?
+### How do I customize a popover's storyboard?
 When you prepare your customized Storyboard, it will be applied automatically.
 
 1. Find the original file of the popover's Storyboard, which you want to change. For example, 'CountdownPickerPopover.storyboard'.
@@ -181,7 +281,7 @@ When you prepare your customized Storyboard, it will be applied automatically.
 
 ## Contributors
 - Ken Torimaru [GitHub](https://github.com/ktorimaru) for CountdownPickerPopover and ColumnStringPickerPopover.
-- BalestraPatrick [GitHub](https://github.com/BalestraPatrick) for correcting README.md.
+- BalestraPatrick [GitHub](https://github.com/BalestraPatrick) for README.md typo.
 - andersonlucasg3 [GitHub](https://github.com/andersonlucasg3) for adding possibility to override the storyboards with custom localizations in the app project.
 
 ## Author

@@ -8,20 +8,25 @@
 public class CountdownPickerPopover: AbstractPopover {
     
     // MARK: Types
+    /// Type of choice value
     public typealias ItemType = TimeInterval
+    /// Popover type
     public typealias PopoverType = CountdownPickerPopover
-    public typealias PickerPopoverViewControllerType = CountdownPickerPopoverViewController
+    /// Action type for buttons
+    public typealias ActionHandlerType = (PopoverType, ItemType)->Void
+    /// Button parameters type
+    public typealias ButtonParameterType = (title: String, color:UIColor?, action:ActionHandlerType?)
 
     // MARK: - Properties
 
-    var doneButton_: (title: String, action:((PopoverType, ItemType)->Void)?) =
-        (NSLocalizedString("Done", tableName: nil, bundle: Bundle(for: PopoverType.self), value: "", comment: ""), nil)
-    var cancelButton_: (title: String, action:((PopoverType, ItemType)->Void)?) =
-        (NSLocalizedString("Cancel", tableName: nil, bundle: Bundle(for: PopoverType.self), value: "", comment: ""), nil)
-    var clearButton_: (title: String, action:((PopoverType, ItemType)->Void)?) =
-        (NSLocalizedString("Clear", tableName: nil, bundle: Bundle(for: PopoverType.self), value: "", comment: ""), nil)
+    /// Done button parameters
+    var doneButton_: ButtonParameterType = ("Done".localized, nil, nil)
+    /// Cancel button parameters
+    var cancelButton_: ButtonParameterType = ("Cancel".localized, nil, nil)
+    /// Clear button parameters
+    var clearButton_: ButtonParameterType = ("Clear".localized, nil, nil)
 
-    // selected value
+    // Selected value
     var selectedTimeInterval_:ItemType = ItemType()
 
     // MARK: - Initializer
@@ -38,7 +43,7 @@ public class CountdownPickerPopover: AbstractPopover {
 
     // MARK: - Propery setter
     
-    /// Set property
+    /// Set selected time interval
     ///
     /// - Parameter interval: Value for picker.
     /// - Returns: self
@@ -47,40 +52,53 @@ public class CountdownPickerPopover: AbstractPopover {
         return self
     }
 
+    /// Set Done button properties.
+    ///
     /// - Parameters:
-    ///   - title: Title for the bar button item
+    ///   - title: Title for the bar button item. Omissble. If it is nil or not specified, then localized "Done" will be used.
+    ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
     ///   - action: Action to be performed before the popover disappeared.
     /// - Returns: Self
-    public func setDoneButton(title:String? = nil, action:((PopoverType, ItemType)->Void)?)->Self{
-        if let t = title{
-            self.doneButton_.title = t
-        }
-        self.doneButton_.action = action
-        return self
+    public func setDoneButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
+        return setButton(button: &doneButton_, title:title, color:color, action: action)
+    }
+    
+    /// Set Cancel button properties.
+    ///
+    /// - Parameters:
+    ///   - title: Title for the bar button item. Omissble. If it is nil or not specified, then localized "Cancel" will be used.
+    ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
+    ///   - action: Action to be performed before the popover disappeared.
+    /// - Returns: Self
+    public func setCancelButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
+        return setButton(button: &cancelButton_, title:title, color:color, action: action)
     }
     
     /// - Parameters:
-    ///   - title: Title for the bar button item
-    ///   - action: Action to be performed before the popover disappeared.
-    /// - Returns: Self
-    public func setCancelButton(title:String? = nil, action:((PopoverType, ItemType)->Void)?)->Self{
-        if let t = title{
-            self.cancelButton_.title = t
-        }
-        self.cancelButton_.action = action
-        return self
-    }
-    
-    /// - Parameters:
-    ///   - title: Title for the bar button item
+    ///   - title: Title for the button
+    ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
     ///   - completion: Action to be performed before the popover disappeared.
     /// - Returns: Self
-    public func setClearButton(title:String? = nil, action:((PopoverType, ItemType)->Void)?)->Self{
-        if let t = title{
-            self.clearButton_.title = t
-        }
-        self.clearButton_.action = action
-        return self
+    public func setClearButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
+        return setButton(button: &clearButton_, title:title, color:color, action: action)
     }
 
+    /// Set button arguments to the targeted button propertoes
+    ///
+    /// - Parameters:
+    ///   - button: Target button properties
+    ///   - title: Button title
+    ///   - color: Button tintcolor
+    ///   - action: Action to be performed before the popover disappeared.
+    /// - Returns: Self
+    func setButton( button: inout ButtonParameterType, title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
+        if let t = title{
+            button.title = t
+        }
+        if let c = color{
+            button.color = c
+        }
+        button.action = action
+        return self
+    }
 }

@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTAppleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MyMedsPlan-iPhone.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,27 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>042E007FF256A1D4F9E7700B4E883BF1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0479A70896A2A7654C0F7F1199741808</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>054D86CB9AC40F949B9B9B396D73FF8B</key>
+		<key>3363626FBA30EA51C1E44AACD702EDB8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48CF931A4B6E9C9330338F5D17659ED0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>542C253BD9360BD36163686A2E723003</key>
+		<key>4D5CCCDB58817EDF070C88151CF8A121</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>701E9524316D81577C34CEF45A083BF8</key>
+		<key>644B914CBAC02A6D5AD1BC3E8F4A3D71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67A606B3CDCDDCE3D0B005050FED5C70</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>88D09A5177BAE25B1577470B1ACB83FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFED2E29E95E065400F8846E0231A970</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C235F77E101E742652CCF98FFDFA5182</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE2F21DFD327C3CEA91C5BB69EB9F619</key>
+		<key>E4EC9B575DDE433CC62DC619C7F7B70A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF8879C10F4553816ABF0BF496FFAE59</key>
+		<key>EE2F21DFD327C3CEA91C5BB69EB9F619</key>
 		<dict>
 			<key>primary</key>
 			<true/>

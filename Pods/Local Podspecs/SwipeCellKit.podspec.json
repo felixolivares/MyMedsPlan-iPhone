@@ -1,15 +1,15 @@
 {
   "name": "SwipeCellKit",
-  "version": "1.8.0",
+  "version": "1.9.1",
   "license": "MIT",
   "summary": "Swipeable UITableViewCell based on the stock Mail.app, implemented in Swift.",
   "homepage": "https://github.com/jerkoch/SwipeCellKit",
   "documentation_url": "http://www.jerkoch.com/SwipeCellKit/",
-  "social_media_url": "https://twitter.com/jerkoch",
+  "social_media_url": "https://twitter.com/mkurabi",
   "authors": "Jeremy Koch",
   "source": {
-    "git": "https://github.com/jerkoch/SwipeCellKit.git",
-    "tag": "1.8.0"
+    "git": "https://github.com/SwipeCellKit/SwipeCellKit.git",
+    "tag": "1.9.1"
   },
   "source_files": "Source/*.swift",
   "platforms": {

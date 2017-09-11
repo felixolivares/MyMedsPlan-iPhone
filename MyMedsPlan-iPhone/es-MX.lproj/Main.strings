@@ -26,8 +26,8 @@
 /* Class = "UILabel"; text = "TOMAR MEDICINA CADA"; ObjectID = "N4P-3b-iLe"; */
 "N4P-3b-iLe.text" = "TOMAR MEDICINA CADA";
 
-/* Class = "UITextField"; placeholder = "Nobmre"; ObjectID = "P0F-gK-Kas"; */
-"P0F-gK-Kas.placeholder" = "Nobmre";
+/* Class = "UITextField"; placeholder = "Nombre"; ObjectID = "P0F-gK-Kas"; */
+"P0F-gK-Kas.placeholder" = "Nombre";
 
 /* Class = "UILabel"; text = "No hay medicinas"; ObjectID = "S4Q-OC-qFR"; */
 "S4Q-OC-qFR.text" = "No hay medicinas";

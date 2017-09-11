@@ -25,18 +25,27 @@ public class CountdownPickerPopoverViewController: AbstractPickerPopoverViewCont
     var hideClearButton: Bool = false
     
     override func refrectPopoverProperties(){
-        title = popover?.title
+        super.refrectPopoverProperties()
 
-        navigationItem.leftBarButtonItem = nil
+        if #available(iOS 11.0, *) { }
+        else {
+            navigationItem.leftBarButtonItem = nil
+        }
         cancelButton.title = popover?.cancelButton_.title
-        navigationItem.leftBarButtonItem = cancelButton
+        cancelButton.tintColor = popover?.cancelButton_.color ?? popover?.tintColor
+        navigationItem.setLeftBarButton(cancelButton, animated: false)
         
-        navigationItem.rightBarButtonItem = nil
+        if #available(iOS 11.0, *) { }
+        else {
+            navigationItem.rightBarButtonItem = nil
+        }
         doneButton.title = popover?.doneButton_.title
-        navigationItem.rightBarButtonItem = doneButton
+        doneButton.tintColor = popover?.doneButton_.color ?? popover?.tintColor
+        navigationItem.setRightBarButton(doneButton, animated: false)
 
         clearButton.setTitle(popover?.clearButton_.title, for: .normal)
-
+        clearButton.tintColor = popover?.clearButton_.color ?? popover?.tintColor
+        
         if let pp = popover {
             if let _ = pp.clearButton_.action { }
             else {

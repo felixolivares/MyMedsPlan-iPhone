@@ -54,7 +54,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     func dismissView(){
         
         guard editPlan == nil else {self.dismiss(animated: true, completion: {});return}
-        _ = navigationController?.popToRootViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 
     @IBAction func saveButtonPressed(_ sender: Any) {
@@ -70,7 +70,9 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             editPlan?.medicineKind = kindTextField.text
             editPlan?.periodicity = Int16(periodicityTextField.text!)!
             editPlan?.unitsPerDose = Int16(unitsTextField.text!)!
-            editPlan?.startDate = Date()
+            if editPlan?.startDate == nil{
+                editPlan?.startDate = Date()
+            }
             //plan.fireDate = MMPDateUtils.calculateFireDate(hours: Int16(periodicityTextField.text!)!)
             editPlan?.additionalInfo = otherInformationTextView.text
             editPlan?.inProgress = false
@@ -126,18 +128,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         }
     }
     @IBAction func periodicityTextFieldPressed(_ sender: Any) {
-       
-        let actionController = PeriscopeActionController()
-        actionController.headerData = "Need to take medicine every?"
-        actionController.addAction(Action("Block user", style: .destructive, handler: { action in
-        }))
-        actionController.addSection(PeriscopeSection())
-        actionController.addAction(Action("Cancel", style: .cancel, handler: { action in
-        }))
-        present(actionController, animated: true, completion: nil)
         
-        
-        /*
         StringPickerPopover(title: NSLocalizedString("Hours", comment: ""), choices: periodicityArray)
             .setSelectedRow(0)
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
@@ -147,7 +138,6 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             .setCancelButton(action: { v in print("cancel")}
             )
             .appear(originView: periodicityUnderline, baseViewController: self)
-     */
     }
     
     @IBAction func doseTextFieldPressed(_ sender: Any) {

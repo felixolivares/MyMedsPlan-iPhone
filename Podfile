@@ -14,6 +14,7 @@ target 'MyMedsPlan-iPhone' do
   pod 'SwipeCellKit', :git => 'https://github.com/jerkoch/SwipeCellKit.git', :branch => 'develop'
   pod 'UICircularProgressRing'
   pod 'XLActionController/Periscope'
+  pod 'JTAppleCalendar', '~> 7.0'
 
   target 'MyMedsPlan-iPhoneTests' do
     inherit! :search_paths

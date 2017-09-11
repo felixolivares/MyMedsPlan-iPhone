@@ -13,6 +13,8 @@
 		300FC4E31EE37E0F00D93A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300FC4E11EE37E0F00D93A6D /* LaunchScreen.storyboard */; };
 		300FC4EE1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4ED1EE37E0F00D93A6D /* MyMedsPlan_iPhoneTests.swift */; };
 		300FC4F91EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */; };
+		3015397E1F4C9B91007F4EC9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015397D1F4C9B91007F4EC9 /* CustomCell.swift */; };
+		301539811F4C9C66007F4EC9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301539801F4C9C66007F4EC9 /* CalendarViewController.swift */; };
 		301BF1E91F173227001E7E40 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 301BF1EB1F173227001E7E40 /* Localizable.strings */; };
 		30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */; };
 		30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */; };
@@ -59,6 +61,9 @@
 		30F7A2941EE63776002A0981 /* MMPUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2931EE63776002A0981 /* MMPUtils.swift */; };
 		30F7A2971EE653AD002A0981 /* MMPMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2951EE653AD002A0981 /* MMPMainTableViewCell.swift */; };
 		30F7A2981EE653AD002A0981 /* MMPMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F7A2961EE653AD002A0981 /* MMPMainTableViewCell.xib */; };
+		30FC17C01F514691009A9117 /* MMPCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC17BE1F514691009A9117 /* MMPCalendarTableViewCell.swift */; };
+		30FC17C11F514691009A9117 /* MMPCalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FC17BF1F514691009A9117 /* MMPCalendarTableViewCell.xib */; };
+		30FC17C31F533229009A9117 /* MMPCalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC17C21F533229009A9117 /* MMPCalendarDate.swift */; };
 		9EBAE816D85427AD62911D39 /* Pods_MyMedsPlan_iPhoneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1620978D6E5A562D554594 /* Pods_MyMedsPlan_iPhoneTests.framework */; };
 		CF2FAED1C50892FB9A017BCC /* Pods_MyMedsPlan_iPhoneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9FAEA0F98FB3E690A48459D /* Pods_MyMedsPlan_iPhoneUITests.framework */; };
 		D76969B110A59842FC9AA4FD /* Pods_MyMedsPlan_iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6F5FF7931858701EA87048 /* Pods_MyMedsPlan_iPhone.framework */; };
@@ -96,6 +101,8 @@
 		300FC4F41EE37E0F00D93A6D /* MyMedsPlan-iPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyMedsPlan-iPhoneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		300FC4F81EE37E0F00D93A6D /* MyMedsPlan_iPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsPlan_iPhoneUITests.swift; sourceTree = "<group>"; };
 		300FC4FA1EE37E0F00D93A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3015397D1F4C9B91007F4EC9 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		301539801F4C9C66007F4EC9 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		301AC7B21F1EE519007D8007 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		301AC7B31F1EF07C007D8007 /* MyMedsPlanModel-B7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MyMedsPlanModel-B7.xcdatamodel"; sourceTree = "<group>"; };
 		301BF1E61F1731EC001E7E40 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -149,6 +156,10 @@
 		30F7A2931EE63776002A0981 /* MMPUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPUtils.swift; sourceTree = "<group>"; };
 		30F7A2951EE653AD002A0981 /* MMPMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPMainTableViewCell.swift; sourceTree = "<group>"; };
 		30F7A2961EE653AD002A0981 /* MMPMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPMainTableViewCell.xib; sourceTree = "<group>"; };
+		30FC17BD1F512CEE009A9117 /* MyMedsPlanModel-B9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MyMedsPlanModel-B9.xcdatamodel"; sourceTree = "<group>"; };
+		30FC17BE1F514691009A9117 /* MMPCalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPCalendarTableViewCell.swift; sourceTree = "<group>"; };
+		30FC17BF1F514691009A9117 /* MMPCalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMPCalendarTableViewCell.xib; sourceTree = "<group>"; };
+		30FC17C21F533229009A9117 /* MMPCalendarDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPCalendarDate.swift; sourceTree = "<group>"; };
 		509DFCD74F97EAADB793F1AC /* Pods-MyMedsPlan-iPhoneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B6F5FF7931858701EA87048 /* Pods_MyMedsPlan_iPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMedsPlan_iPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73D2E1EE9D54CF9ECF529E2 /* Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -241,10 +252,20 @@
 			path = "MyMedsPlan-iPhoneUITests";
 			sourceTree = "<group>";
 		};
+		3015397F1F4C9C43007F4EC9 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				301539801F4C9C66007F4EC9 /* CalendarViewController.swift */,
+				3015397D1F4C9B91007F4EC9 /* CustomCell.swift */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
 		30891EC51EE9E21500E84F93 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				30F7A2961EE653AD002A0981 /* MMPMainTableViewCell.xib */,
+				30FC17BF1F514691009A9117 /* MMPCalendarTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -262,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				30F7A2951EE653AD002A0981 /* MMPMainTableViewCell.swift */,
+				30FC17BE1F514691009A9117 /* MMPCalendarTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -351,6 +373,7 @@
 		30F7A2861EE50B10002A0981 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3015397F1F4C9C43007F4EC9 /* Calendar */,
 				30BE9ECF1EE7584600808FDB /* Cell */,
 				30F7A2881EE50EE5002A0981 /* MainViewController.swift */,
 				30F7A28A1EE50F0E002A0981 /* AddMedicineViewController.swift */,
@@ -378,6 +401,7 @@
 				30F7A2911EE51AD5002A0981 /* MMPRoundedCornersView.swift */,
 				30F7A2931EE63776002A0981 /* MMPUtils.swift */,
 				30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */,
+				30FC17C21F533229009A9117 /* MMPCalendarDate.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -532,6 +556,7 @@
 				30BE9ED91EE78BAE00808FDB /* Info.plist in Resources */,
 				30F7A2841EE4FF86002A0981 /* Nunito-Light.ttf in Resources */,
 				30BE9EFD1EE78BD900808FDB /* Sparkle.png in Resources */,
+				30FC17C11F514691009A9117 /* MMPCalendarTableViewCell.xib in Resources */,
 				30F7A2981EE653AD002A0981 /* MMPMainTableViewCell.xib in Resources */,
 				300FC4E01EE37E0F00D93A6D /* Assets.xcassets in Resources */,
 				30F7A2851EE4FF86002A0981 /* Nunito-Regular.ttf in Resources */,
@@ -704,12 +729,14 @@
 				30BE9EEA1EE78BC100808FDB /* LTEasing.swift in Sources */,
 				30BE9EED1EE78BC100808FDB /* LTMorphingLabel.swift in Sources */,
 				30F7A28B1EE50F0E002A0981 /* AddMedicineViewController.swift in Sources */,
+				3015397E1F4C9B91007F4EC9 /* CustomCell.swift in Sources */,
 				30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */,
 				30BE9EF31EE78BC100808FDB /* LTMorphingLabel+Sparkle.swift in Sources */,
 				30F7A2891EE50EE5002A0981 /* MainViewController.swift in Sources */,
 				30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */,
 				30BE9EF21EE78BC100808FDB /* LTMorphingLabel+Pixelate.swift in Sources */,
 				30BE9EF41EE78BC100808FDB /* LTStringDiffResult.swift in Sources */,
+				301539811F4C9C66007F4EC9 /* CalendarViewController.swift in Sources */,
 				30BE9EE91EE78BC100808FDB /* LTCharacterLimbo.swift in Sources */,
 				30F7A27B1EE4F02E002A0981 /* Plan+CoreDataProperties.swift in Sources */,
 				30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */,
@@ -724,6 +751,7 @@
 				308D94BD1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift in Sources */,
 				30F7A2741EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld in Sources */,
 				30BE9EE81EE78BC100808FDB /* LTCharacterDiffResult.swift in Sources */,
+				30FC17C01F514691009A9117 /* MMPCalendarTableViewCell.swift in Sources */,
 				30BE9EEB1EE78BC100808FDB /* LTEmitterView.swift in Sources */,
 				308D94C41EEB746800929C7C /* Entity+CoreDataClass.swift in Sources */,
 				30BE9EF11EE78BC100808FDB /* LTMorphingLabel+Fall.swift in Sources */,
@@ -732,6 +760,7 @@
 				30BE9EEC1EE78BC100808FDB /* LTMorphingEffect.swift in Sources */,
 				30BE9EEF1EE78BC100808FDB /* LTMorphingLabel+Burn.swift in Sources */,
 				30F7A27A1EE4F02E002A0981 /* Plan+CoreDataClass.swift in Sources */,
+				30FC17C31F533229009A9117 /* MMPCalendarDate.swift in Sources */,
 				30F7A2971EE653AD002A0981 /* MMPMainTableViewCell.swift in Sources */,
 				308D94CB1EF1B58000929C7C /* MMPNotificationCenter.swift in Sources */,
 				30F7A2921EE51AD5002A0981 /* MMPRoundedCornersView.swift in Sources */,
@@ -1042,11 +1071,12 @@
 		30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				30FC17BD1F512CEE009A9117 /* MyMedsPlanModel-B9.xcdatamodel */,
 				301AC7B31F1EF07C007D8007 /* MyMedsPlanModel-B7.xcdatamodel */,
 				301BF1ED1F1735A5001E7E40 /* MyMedsPlanModel-B6.xcdatamodel */,
 				30F7A2731EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodel */,
 			);
-			currentVersion = 301AC7B31F1EF07C007D8007 /* MyMedsPlanModel-B7.xcdatamodel */;
+			currentVersion = 30FC17BD1F512CEE009A9117 /* MyMedsPlanModel-B9.xcdatamodel */;
 			path = MyMedsPlanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

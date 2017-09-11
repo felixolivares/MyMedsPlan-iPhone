@@ -20,18 +20,27 @@ public class DatePickerPopoverViewController: AbstractPickerPopoverViewControlle
     var hideClearButton: Bool = false
     
     override func refrectPopoverProperties(){
-        title = popover?.title
-        
-        navigationItem.leftBarButtonItem = nil
+        super.refrectPopoverProperties()
+
+        if #available(iOS 11.0, *) { }
+        else {
+            navigationItem.leftBarButtonItem = nil
+        }
         cancelButton.title = popover?.cancelButton_.title
-        navigationItem.leftBarButtonItem = cancelButton
+        cancelButton.tintColor = popover?.cancelButton_.color ?? popover?.tintColor
+        navigationItem.setLeftBarButton(cancelButton, animated: false)
         
-        navigationItem.rightBarButtonItem = nil
+        if #available(iOS 11.0, *) { }
+        else {
+            navigationItem.rightBarButtonItem = nil
+        }
         doneButton.title = popover?.doneButton_.title
-        navigationItem.rightBarButtonItem = doneButton
+        doneButton.tintColor = popover?.doneButton_.color ?? popover?.tintColor
+        navigationItem.setRightBarButton(doneButton, animated: false)
 
         clearButton.setTitle(popover?.clearButton_.title, for: .normal)
-        
+        clearButton.tintColor = popover?.clearButton_.color ?? popover?.tintColor
+
         if let _ = popover?.clearButton_.action { }
         else {
             clearButton.removeFromSuperview()
@@ -43,6 +52,7 @@ public class DatePickerPopoverViewController: AbstractPickerPopoverViewControlle
             picker.minimumDate = pp.minimumDate_
             picker.maximumDate = pp.maximumDate_
             picker.datePickerMode = pp.dateMode_
+            picker.locale = pp.locale_
             if picker.datePickerMode != .date {
                 picker.minuteInterval = pp.minuteInterval_
             }

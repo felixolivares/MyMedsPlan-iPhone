@@ -78,7 +78,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     @IBAction func goBack(_ sender: Any) {
         
         if !comingFromNotification{
-            _ = navigationController?.popToRootViewController(animated: true)
+            _ = navigationController?.popViewController(animated: true)
         }else{
             self.dismiss(animated: true, completion: nil)
         }
@@ -173,9 +173,29 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     func updatePlanStatus(){
         let intakes = plan?.event.filter{$0.taken == true}.count
         let progress = (Double((intakes)!) / Double((plan?.totalIntakes)!)) * 100
-        guard progress <= 100 else{statusTextLabel.text = PlanStatus.StatusFinished;return}
-        guard self.plan?.startDate != nil else{statusTextLabel.text = PlanStatus.StatusNotStarted;return}
-        statusTextLabel.text = self.plan?.fireDate == nil ? PlanStatus.StatusPaused : PlanStatus.StatusInProgress
+        guard progress <= 100 else{
+            statusTextLabel.text = PlanStatus.StatusFinished
+            plan?.status = PlanStatus.StatusFinished
+            saveToCoreData()
+            return
+        }
+        
+        guard self.plan?.startDate != nil else{
+            statusTextLabel.text = PlanStatus.StatusNotStarted
+            plan?.status = PlanStatus.StatusNotStarted
+            saveToCoreData()
+            return
+        }
+        
+        if self.plan?.fireDate == nil{
+            statusTextLabel.text = PlanStatus.StatusPaused
+            plan?.status = PlanStatus.StatusPaused
+        }else{
+            statusTextLabel.text = PlanStatus.StatusInProgress
+            plan?.status = PlanStatus.StatusInProgress
+        }
+        saveToCoreData()
+//        statusTextLabel.text = self.plan?.fireDate == nil ? PlanStatus.StatusPaused : PlanStatus.StatusInProgress
     }
     
     
@@ -304,8 +324,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! AddMedicineViewController
-        vc.editPlan = sender as? Plan
+        if segue.identifier == "toAddFromDetail"{
+            let vc = segue.destination as! AddMedicineViewController
+            vc.editPlan = sender as? Plan
+        }else{
+            let vc = segue.destination as! CalendarViewController
+            vc.calendarType = .Specific
+            vc.singlePlan = sender as? Plan
+        }
     }
     
     //MARK: - Buttons
@@ -335,6 +361,12 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     @IBAction func startOverButtonPressed(_ sender: Any) {
         startOverPlan()
     }
+    
+    
+    @IBAction func goToCalendarPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toCalendarFromPlan", sender: plan)
+    }
+    
     
     //MARK: - Update Fire Date
     func updateFireDate(){

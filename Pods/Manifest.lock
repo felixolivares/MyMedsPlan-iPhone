@@ -4,11 +4,12 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - IQKeyboardManagerSwift (4.0.10)
+  - IQKeyboardManagerSwift (4.0.11)
+  - JTAppleCalendar (7.0.6)
   - PopupDialog (0.5.4)
-  - SwiftyPickerPopover (4.0.1)
-  - SwipeCellKit (1.8.0)
-  - UICircularProgressRing (1.5.0)
+  - SwiftyPickerPopover (5.3.0)
+  - SwipeCellKit (1.9.1)
+  - UICircularProgressRing (1.7.0)
   - XLActionController/Core (3.0.1)
   - XLActionController/Periscope (3.0.1):
     - XLActionController/Core
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - AsyncSwift
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - IQKeyboardManagerSwift
+  - JTAppleCalendar (~> 7.0)
   - PopupDialog (~> 0.5)
   - SwiftyPickerPopover
   - SwipeCellKit (from `https://github.com/jerkoch/SwipeCellKit.git`, branch `develop`)
@@ -33,23 +35,24 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
-    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
     :git: https://github.com/ViccAlexander/Chameleon.git
   SwipeCellKit:
-    :commit: 73ff931fb2cf543b5511648f437e9a79ec4b4ae5
+    :commit: 3027fae41159585d18c0392df9a76a79b33a3673
     :git: https://github.com/jerkoch/SwipeCellKit.git
 
 SPEC CHECKSUMS:
   AlecrimCoreData: f1251de3630f4d4d3a212e405298084c229cef29
   AsyncSwift: 632138e42ead868b53c745fcde9bf733ce1527ad
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
+  IQKeyboardManagerSwift: 10f0a6b8ea2904c8943c0e1a116c99f5b8ad83af
+  JTAppleCalendar: 6a942475e33b9ad4dee0a0e14aa4c63adcf4f543
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
-  SwiftyPickerPopover: 0c86bf20937763b2059f031b5ca332f8823aa610
-  SwipeCellKit: 048e2035809b7a4bc71b86bcb76c7b85d28d6620
-  UICircularProgressRing: 606b533dec71202ec508dbba35a175a073cd9aaf
+  SwiftyPickerPopover: c5d2d3dfeab310612e8ce63356c33149f8fc9a8e
+  SwipeCellKit: 9fa65dd73e52e8fd139fec4d8f7d7cb44fa00559
+  UICircularProgressRing: 35c3d291b679161ea27fb6216fee58c40a4bb597
   XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
 
-PODFILE CHECKSUM: 777076a74f43fd01bc73686e4520ae3b8b446797
+PODFILE CHECKSUM: a60596f3f3c2ef38305529f335f2e2e9796e3726
 
 COCOAPODS: 1.1.1
