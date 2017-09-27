@@ -375,6 +375,12 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             self.plan?.startDate = Date()
         }
         
+        if self.plan?.endDate == nil {
+            if let durationDays = self.plan?.durationDays{
+                self.plan?.endDate = Calendar.current.date(byAdding: .day, value: Int(durationDays), to: (self.plan?.startDate!)!)
+            }
+        }
+        
         self.plan?.fireDate = MMPDateUtils.calculateFireDate(hours: (self.plan?.periodicity)!)
         counterLabel.cancel()
         counterLabel.setCountDownDate(fromDate: Date() as NSDate, targetDate: (plan?.fireDate)! as NSDate)

@@ -361,8 +361,10 @@ class CalendarViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc:MedicinePlanViewController = segue.destination as! MedicinePlanViewController
-        vc.plan = sender as? Plan
+        if segue.identifier == "toMedicinePlanFromCalendar" {
+            let vc:MedicinePlanViewController = segue.destination as! MedicinePlanViewController
+            vc.plan = sender as? Plan
+        }
     }
 }
 
