@@ -337,7 +337,7 @@ class CalendarViewController: UIViewController {
     func highlightCurrentTreatmentsDay(){
         print("highlightn current treamtne days")
         calendarView.selectDates(selectedDates, triggerSelectionDelegate: true, keepSelectionIfMultiSelectionAllowed: false)
-        calendarView.allowsSelection = false
+        //calendarView.allowsSelection = false
     }
     func populateDataSourceWithPlans(cellState:CellState){
         

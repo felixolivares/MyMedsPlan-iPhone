@@ -149,7 +149,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-        let date = dateFormatter.date(from: "19-07-2017")
+//        let date = dateFormatter.date(from: "19-07-2017")
         
         if let startDate = plan?.startDate{
             print(String(describing: startDate))
