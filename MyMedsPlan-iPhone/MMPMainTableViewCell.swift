@@ -39,21 +39,33 @@ class MMPMainTableViewCell: SwipeTableViewCell {
                 startButton.setStartButton()
                 startButton.setTitle(NSLocalizedString("Start", comment: ""), for: .normal)
             }
-            if let kind = plan?.medicineKind{
-                
-                switch kind {
-                case MedicineType.Dropplet:
-                    medicineImageView.image = UIImage(named: MedicineIcon.Dropplet)
-                case MedicineType.Pill:
-                    medicineImageView.image = UIImage(named: MedicineIcon.Pill)
-                case MedicineType.Shot:
-                    medicineImageView.image = UIImage(named: MedicineIcon.Shot)
-                case MedicineType.Tablet:
-                    medicineImageView.image = UIImage(named: MedicineIcon.Tablet)
-                case MedicineType.TeaSpoon:
-                    medicineImageView.image = UIImage(named: MedicineIcon.Spoon)
-                default:
-                    medicineImageView.image = UIImage(named: MedicineIcon.Pill)
+            
+//            if let image = MMPUtils.getImageFromFile(imageName: (self.plan?.notificationId)! + ".png") {
+//                medicineImageView.image = image
+//            } else {
+//                
+//            }
+            
+            if let image = MMPUtils.loadImageFromDirectory(fileName: (self.plan?.notificationId)! + ".png"){
+                medicineImageView.image = image
+                medicineImageView.setRounded()
+            } else {
+                if let kind = plan?.medicineKind{
+                    
+                    switch kind {
+                    case MedicineType.Dropplet:
+                        medicineImageView.image = UIImage(named: MedicineIcon.Dropplet)
+                    case MedicineType.Pill:
+                        medicineImageView.image = UIImage(named: MedicineIcon.Pill)
+                    case MedicineType.Shot:
+                        medicineImageView.image = UIImage(named: MedicineIcon.Shot)
+                    case MedicineType.Tablet:
+                        medicineImageView.image = UIImage(named: MedicineIcon.Tablet)
+                    case MedicineType.TeaSpoon:
+                        medicineImageView.image = UIImage(named: MedicineIcon.Spoon)
+                    default:
+                        medicineImageView.image = UIImage(named: MedicineIcon.Pill)
+                    }
                 }
             }
             if (plan?.inProgress)! {

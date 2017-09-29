@@ -223,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				308D94C71EF070CA00929C7C /* SDK */,
-				30F7A28C1EE51534002A0981 /* Utilities */,
+				30F7A28C1EE51534002A0981 /* Helpers */,
 				30F7A2751EE4ED4E002A0981 /* Model */,
 				30F7A27C1EE4FEB8002A0981 /* Common */,
 				30F7A2871EE50B1C002A0981 /* Views */,
@@ -392,7 +392,7 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		30F7A28C1EE51534002A0981 /* Utilities */ = {
+		30F7A28C1EE51534002A0981 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				30BE9ED31EE78B8E00808FDB /* CountdownLabel */,
@@ -403,7 +403,7 @@
 				30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */,
 				30FC17C21F533229009A9117 /* MMPCalendarDate.swift */,
 			);
-			name = Utilities;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		A4AC5A13574C1746FA688E21 /* Frameworks */ = {
@@ -720,6 +720,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlecrimCoreData/AlecrimCoreData.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
@@ -733,6 +736,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlecrimCoreData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",

@@ -15,6 +15,8 @@ target 'MyMedsPlan-iPhone' do
   pod 'UICircularProgressRing'
   pod 'XLActionController/Periscope'
   pod 'JTAppleCalendar', '~> 7.0'
+  pod 'ALCameraViewController'
+  pod 'AlamofireImage', '~> 3.3'
 
   target 'MyMedsPlan-iPhoneTests' do
     inherit! :search_paths

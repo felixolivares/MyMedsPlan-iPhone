@@ -884,6 +884,16 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="237-E4-4QQ">
+                                                <rect key="frame" x="241.66666666666669" y="88" width="23.666666666666686" height="17.333333333333343"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="237-E4-4QQ" secondAttribute="height" multiplier="23:17" id="iNe-LZ-mxq"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="cameraIcon"/>
+                                                <connections>
+                                                    <action selector="cameraButtonPressed:" destination="r12-nw-wKz" eventType="touchUpInside" id="OTJ-1Q-pIV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -912,7 +922,10 @@
                                             <constraint firstItem="bwm-OZ-C7v" firstAttribute="centerX" secondItem="QQK-jB-WjQ" secondAttribute="centerX" id="PXs-Yr-DGL"/>
                                             <constraint firstItem="DdX-kc-y9L" firstAttribute="centerY" secondItem="5gR-E4-bIv" secondAttribute="centerY" id="Paf-sl-ihs"/>
                                             <constraint firstItem="jQc-Vr-Oe4" firstAttribute="leading" secondItem="QQK-jB-WjQ" secondAttribute="leading" constant="15" id="Pcl-r8-Ohp"/>
+                                            <constraint firstItem="237-E4-4QQ" firstAttribute="trailing" secondItem="EsX-9U-VeQ" secondAttribute="trailing" constant="10" id="Quq-Zs-6g8"/>
+                                            <constraint firstItem="237-E4-4QQ" firstAttribute="width" secondItem="EsX-9U-VeQ" secondAttribute="width" multiplier="0.25" id="S3R-4l-gss"/>
                                             <constraint firstItem="SSS-vb-tIX" firstAttribute="height" secondItem="5gR-E4-bIv" secondAttribute="height" id="SZe-yF-GdJ"/>
+                                            <constraint firstItem="237-E4-4QQ" firstAttribute="bottom" secondItem="EsX-9U-VeQ" secondAttribute="bottom" id="U2G-MJ-e2D"/>
                                             <constraint firstAttribute="trailing" secondItem="znq-2K-GvA" secondAttribute="trailing" id="UTp-L4-7np"/>
                                             <constraint firstItem="SSS-vb-tIX" firstAttribute="trailing" secondItem="DdX-kc-y9L" secondAttribute="trailing" id="XQb-p8-G79"/>
                                             <constraint firstItem="cCG-Pl-KRw" firstAttribute="top" secondItem="n8A-eQ-GcJ" secondAttribute="bottom" constant="10" id="Xc2-UT-yLc"/>
@@ -990,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs2-NX-II2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1171" y="540"/>
+            <point key="canvasLocation" x="1169.5652173913045" y="538.85869565217399"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="QkS-a0-aYc">
@@ -1449,6 +1462,7 @@
         <image name="backArrowGray" width="233" height="233"/>
         <image name="calendarIcon" width="233" height="233"/>
         <image name="calendarIconGray" width="233" height="233"/>
+        <image name="cameraIcon" width="233" height="178"/>
         <image name="emptyState" width="302" height="302"/>
         <image name="optionsIcon" width="233" height="233"/>
         <image name="pillIcon" width="233" height="233"/>
