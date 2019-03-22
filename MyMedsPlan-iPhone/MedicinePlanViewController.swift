@@ -26,12 +26,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     @IBOutlet weak var otherInfoTextView: UITextView!
     
     @IBOutlet weak var counterLabel: CountdownLabel!
+    
     @IBOutlet weak var startButton: MMPButton!
     
     @IBOutlet weak var totalDaysLabel: UILabel!
     @IBOutlet weak var pendingDaysLabel: UILabel!
-    @IBOutlet weak var progressRin: UICircularProgressRing!
     
+
+    @IBOutlet weak var progressRin: UICircularProgressRing!
     @IBOutlet weak var treatmentTotalDaysTextLabel: UILabel!
     @IBOutlet weak var pendingDaysTextLabel: UILabel!
     
