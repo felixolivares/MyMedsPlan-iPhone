@@ -103,7 +103,7 @@ class CalendarViewController: UIViewController {
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     //MARK: - Calendar views selection objects
@@ -385,6 +385,10 @@ extension CalendarViewController: JTAppleCalendarViewDataSource{
 }
 
 extension CalendarViewController: JTAppleCalendarViewDelegate{
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        print("Will display")
+    }
+    
     
     // Display cell
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
@@ -477,7 +481,7 @@ extension UIView{
                        delay: 0,
                        usingSpringWithDamping: 0.3,
                        initialSpringVelocity: 0.1,
-                       options: UIViewAnimationOptions.beginFromCurrentState,
+                       options: UIView.AnimationOptions.beginFromCurrentState,
                        animations: {
                         self.transform = CGAffineTransform(scaleX: 1, y: 1)
                        })

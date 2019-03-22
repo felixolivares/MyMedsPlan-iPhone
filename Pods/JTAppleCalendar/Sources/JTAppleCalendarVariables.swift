@@ -54,7 +54,11 @@ extension JTAppleCalendarView {
     
     /// Returns all selected dates
     open var selectedDates: [Date] {
-        return Array(Set(theSelectedDates)).sorted()
+        return selectedDatesSet.sorted()
+    }
+    
+    var selectedDatesSet: Set<Date> {
+        return Set(selectedCellData.values.map { $0.date })
     }
     
     var monthInfo: [Month] {
@@ -83,9 +87,9 @@ extension JTAppleCalendarView {
     }
     
     var isCalendarLayoutLoaded: Bool { return calendarViewLayout.isCalendarLayoutLoaded }
-    var startDateCache: Date         { return cachedConfiguration.startDate }
-    var endDateCache: Date           { return cachedConfiguration.endDate }
-    var calendar: Calendar           { return cachedConfiguration.calendar }
+    var startDateCache: Date         { return _cachedConfiguration.startDate }
+    var endDateCache: Date           { return _cachedConfiguration.endDate }
+    var calendar: Calendar           { return _cachedConfiguration.calendar }
 
     
 

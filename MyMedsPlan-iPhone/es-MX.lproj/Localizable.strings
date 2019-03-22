@@ -26,6 +26,7 @@ TAKEN = "LA TOME";
 SKIPPED = "LA SALTE";
 RESET = "REINICIAR";
 STOP = "DETENER";
+REMOVE_IMAGE = "BORRAR IMAGEN";
 ATTENTION = "ATENCIÓN";
 takeMessage = "¡GRANDIOSO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";
 skipMessage = "¡OH NO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";

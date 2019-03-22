@@ -15,30 +15,31 @@ public class DatePickerPopover: AbstractPopover {
     /// Popover type
     public typealias PopoverType = DatePickerPopover
     /// Action type for buttons
-    public typealias ActionHandlerType = (PopoverType, ItemType)->Void
+    public typealias ActionHandlerType = (PopoverType, ItemType) -> Void
     /// Button parameters type
-    public typealias ButtonParameterType = (title: String, color:UIColor?, action:ActionHandlerType?)
+    public typealias ButtonParameterType = (title: String, font: UIFont?, color: UIColor?, action: ActionHandlerType?)
 
     // MARK: - Properties
 
     /// Done button parameters
-    var doneButton_: ButtonParameterType = ("Done".localized, nil, nil)
+    private(set) var doneButton: ButtonParameterType = (title: "Done".localized, font: nil, color: nil, action: nil)
     /// Cancel button parameters
-    var cancelButton_: ButtonParameterType = ("Cancel".localized, nil, nil)
+    private(set) var cancelButton: ButtonParameterType = (title: "Cancel".localized, font: nil, color: nil, action: nil)
     /// Clear button parameters
-    var clearButton_: ButtonParameterType = ("Clear".localized, nil, nil)
-    
-    /// Date mode
-    var dateMode_:UIDatePickerMode = .date
-    /// Limit of range
-    var minimumDate_: ItemType?
-    var maximumDate_: ItemType?
-    /// Date picker interval. Mins
-    var minuteInterval_: Int = 0
-    /// Selected date
-    var selectedDate_: ItemType = ItemType()
+    private(set) var clearButton: ButtonParameterType = (title: "Clear".localized, font: nil, color: nil, action: nil)
+    /// Action for picker value change
+    private(set) var valueChangeAction: ActionHandlerType?
 
-    var locale_: Locale = Locale.current
+    /// Date mode
+    private(set) var dateMode_: UIDatePicker.Mode = .date
+    /// Limit of range
+    private(set) var minimumDate: ItemType?
+    private(set) var maximumDate: ItemType?
+    /// Date picker interval. Mins
+    private(set) var minuteInterval: Int = 0
+    /// Selected date
+    private(set) var selectedDate: ItemType = ItemType()
+    private(set) var locale: Locale = Locale.current
     
     // MARK: - Initializer
     
@@ -47,11 +48,7 @@ public class DatePickerPopover: AbstractPopover {
     /// - Parameter title: Title for navigation bar.
     public init(title: String?){
         super.init()
-        
-        // set parameters
         self.title = title
-        
-        
     }
     
     // MARK: - Propery setter
@@ -61,7 +58,7 @@ public class DatePickerPopover: AbstractPopover {
     /// - Parameter row: The default value of picker.
     /// - Returns: self
     public func setSelectedDate(_ date:ItemType)->Self{
-        self.selectedDate_ = date
+        self.selectedDate = date
         return self
     }
     
@@ -69,7 +66,7 @@ public class DatePickerPopover: AbstractPopover {
     ///
     /// - Parameter dateMode: UIDatePickerMode of picker.
     /// - Returns: self
-    public func setDateMode(_ dateMode:UIDatePickerMode)->Self{
+    public func setDateMode(_ dateMode: UIDatePicker.Mode)->Self{
         self.dateMode_ = dateMode
         return self
     }
@@ -79,7 +76,7 @@ public class DatePickerPopover: AbstractPopover {
     /// - Parameter minimumDate: Minimum value
     /// - Returns: self
     public func setMinimumDate(_ minimumDate:Date)->Self{
-        self.minimumDate_ = minimumDate
+        self.minimumDate = minimumDate
         return self
     }
 
@@ -88,7 +85,7 @@ public class DatePickerPopover: AbstractPopover {
     /// - Parameter minimumDate: Minimum value
     /// - Returns: self
     public func setMaximumDate(_ maximumDate:Date)->Self{
-        self.maximumDate_ = maximumDate
+        self.maximumDate = maximumDate
         return self
     }
     
@@ -97,7 +94,7 @@ public class DatePickerPopover: AbstractPopover {
     /// - Parameter minimumDate: Minimum value
     /// - Returns: self
     public func setMinuteInterval(_ minuteInterval:Int)->Self{
-        self.minuteInterval_ = minuteInterval
+        self.minuteInterval = minuteInterval
         return self
     }
     
@@ -115,41 +112,44 @@ public class DatePickerPopover: AbstractPopover {
     /// - Parameter locale: Locale which is used for display date picker
     /// - Returns: Self
     public func setLocale(_ locale:Locale)->Self{
-        self.locale_ = locale
+        self.locale = locale
         return self
     }
 
     /// Set Done button properties
     ///
     /// - Parameters:
-    ///   - title: Title for the bar button item. Omissble. If it is nil or not specified, then localized "Done" will be used.
+    ///   - title: Title for the bar button item. Omissible. If it is nil or not specified, then localized "Done" will be used. Omissible.
+    ///   - font: Button title font. Omissible.
     ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
     ///   - action: Action to be performed before the popover disappeared.
     /// - Returns: Self
-    public func setDoneButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
-        return setButton(button: &doneButton_, title:title, color:color, action: action)
+    public func setDoneButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
+        return setButton(button: &doneButton, title: title, font: font, color: color, action: action)
     }
     
     /// Set Cancel button properties
     ///
     /// - Parameters:
-    ///   - title: Title for the bar button item. Omissble. If it is nil or not specified, then localized "Cancel" will be used.
+    ///   - title: Title for the bar button item. Omissible. If it is nil or not specified, then localized "Cancel" will be used. Omissible.
+    ///   - font: Button title font. Omissible.
     ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
     ///   - action: Action to be performed before the popover disappeared.
     /// - Returns: Self
-    public func setCancelButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
-        return setButton(button: &cancelButton_, title:title, color:color, action: action)
+    public func setCancelButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
+        return setButton(button: &cancelButton, title: title, font: font, color: color, action: action)
     }
     
     /// Set Clear button properties
     ///
     /// - Parameters:
-    ///   - title: Title for the button
+    ///   - title: Title for the button. Omissible.
+    ///   - font: Button title font. Omissible.
     ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
     ///   - completion: Action to be performed before the popover disappeared.
     /// - Returns: Self
-    public func setClearButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
-        return setButton(button: &clearButton_, title:title, color:color, action: action)
+    public func setClearButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
+        return setButton(button: &clearButton, title: title, font: font, color: color, action: action)
     }
     
     /// Set button arguments to the targeted button propertoes
@@ -157,26 +157,31 @@ public class DatePickerPopover: AbstractPopover {
     /// - Parameters:
     ///   - button: Target button properties
     ///   - title: Button title
+    ///   - font. Button title font
     ///   - color: Button tintcolor
     ///   - action: Action to be performed before the popover disappeared.
     /// - Returns: Self
-    func setButton( button: inout ButtonParameterType, title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
-        if let t = title{
+    func setButton( button: inout ButtonParameterType, title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
+        if let t = title {
             button.title = t
         }
-        if let c = color{
+        if let font = font {
+            button.font = font
+        }
+        if let c = color {
             button.color = c
         }
         button.action = action
         return self
     }
     
-    // MARK: - Popover display
-    
-    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //Redo disapperAutomatically()
-        if let seconds = disappearAutomaticallyItems.seconds {
-            disappearAutomatically(after: seconds, completion: disappearAutomaticallyItems.completion)
-        }
-    }
+    /// Set an action for each value change done by user
+    ///
+    /// - Parameters:
+    ///   -action: Action to be performed each time the picker is moved to a new value.
+    /// - Returns: Self
+    public func setValueChange(action: ActionHandlerType?)->Self{
+        valueChangeAction = action
+        return self
+    }    
 }

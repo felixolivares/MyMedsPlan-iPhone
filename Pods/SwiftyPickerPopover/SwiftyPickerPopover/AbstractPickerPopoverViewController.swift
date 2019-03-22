@@ -13,24 +13,23 @@ import UIKit
 open class AbstractPickerPopoverViewController: UIViewController {
     
     /// AbstractPopover
-    var anyPopover: AnyObject?
+    var anyPopover: AbstractPopover!
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refrectPopoverProperties()
     }
-
+    
     /// Make the popover property reflect on the popover
-    func refrectPopoverProperties(){
-        title = (anyPopover as? AbstractPopover)?.title
+    func refrectPopoverProperties() {
+        title = anyPopover.title
         
         // Change size if needed
-        if let w = (anyPopover as? AbstractPopover)?.size?.width {
-            navigationController?.preferredContentSize.width = w
+        if let width = anyPopover.size?.width {
+            navigationController?.preferredContentSize.width = width
         }
-
-        if let h = (anyPopover as? AbstractPopover)?.size?.height {
-            navigationController?.preferredContentSize.height = h
+        if let height = anyPopover.size?.height {
+            navigationController?.preferredContentSize.height = height
         }
     }
 }
@@ -39,5 +38,12 @@ extension AbstractPickerPopoverViewController: UIPopoverPresentationControllerDe
     /// Popover appears on iPhone
     open func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
+    }
+    
+    open func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        guard let allowed = anyPopover.isAllowedOutsideTappingDismissing else {
+            return true
+        }
+        return allowed
     }
 }

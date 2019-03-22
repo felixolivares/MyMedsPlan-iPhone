@@ -47,7 +47,7 @@ class MMPButton: UIButton {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.mmpFadedRedTwo.cgColor;
         self.backgroundColor = UIColor.mmpFadedRedTwo
-        self.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.setTitleColor(UIColor.white, for: UIControl.State.normal)
         self.tintColor = UIColor.mmpFadedRedTwo;
     }
     
@@ -56,7 +56,7 @@ class MMPButton: UIButton {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.mmpCoolGreen.cgColor;
         self.backgroundColor = UIColor.mmpCoolGreen
-        self.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.setTitleColor(UIColor.white, for: UIControl.State.normal)
         self.tintColor = UIColor.mmpCoolGreen;
     }
     

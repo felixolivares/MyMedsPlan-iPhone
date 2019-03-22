@@ -11,6 +11,10 @@ import PopupDialog
 import UserNotifications
 import UICircularProgressRing
 import Async
+import ALCameraViewController
+import AlamofireImage
+import CountdownLabel
+
 
 class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDelegate {
     
@@ -26,7 +30,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     @IBOutlet weak var totalDaysLabel: UILabel!
     @IBOutlet weak var pendingDaysLabel: UILabel!
-    @IBOutlet weak var progressRin: UICircularProgressRingView!
+    @IBOutlet weak var progressRin: UICircularProgressRing!
     
     @IBOutlet weak var treatmentTotalDaysTextLabel: UILabel!
     @IBOutlet weak var pendingDaysTextLabel: UILabel!
@@ -42,6 +46,11 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     let takeMessage = NSLocalizedString("takeMessage", comment: "")
     let skipMessage = NSLocalizedString("skipMessage", comment: "")
     let expiredPlanMessage = NSLocalizedString("planExpiredMessage", comment: "")
+    let fileManager = FileManager.default
+    var croppingParameters: CroppingParameters {
+        return CroppingParameters(isEnabled: true, allowResizing: true, allowMoving: true, minimumSize: CGSize(width: 30, height: 30))
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,27 +129,38 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             counterLabel.setCountDownDate(fromDate: Date() as NSDate, targetDate: fireDate as NSDate)
         }
         counterLabel.start()
-        if let kind = plan?.medicineKind{
-            
-            switch kind {
-            case MedicineType.Dropplet:
-                medicineIconImageView.image = UIImage(named: MedicineIcon.Dropplet)
-            case MedicineType.Pill:
-                medicineIconImageView.image = UIImage(named: MedicineIcon.Pill)
-            case MedicineType.Shot:
-                medicineIconImageView.image = UIImage(named: MedicineIcon.Shot)
-            case MedicineType.Tablet:
-                medicineIconImageView.image = UIImage(named: MedicineIcon.Tablet)
-            case MedicineType.TeaSpoon:
-                medicineIconImageView.image = UIImage(named: MedicineIcon.Spoon)
-            default:
-                medicineIconImageView.image = UIImage(named: MedicineIcon.Pill)
-            }
-        }
-        
+        updateMedicineImageView()
         startButton.alpha = (plan?.inProgress)! ? 0 : 1
     }
     
+    func updateMedicineImageView(){
+//        let imagePAth = MMPUtils.getDocumentsDirectory().appendingPathComponent((self.plan?.notificationId)!)
+//        let imagePathString = imagePAth.absoluteString + ".png"
+        
+//        (self.plan?.notificationId)! + ".png")
+        
+        if let image = MMPUtils.loadImageFromDirectory(fileName: (self.plan?.notificationId)! + ".png") {
+            medicineIconImageView.image = image
+            medicineIconImageView.setRounded()
+        } else {
+            if let kind = plan?.medicineKind{
+                switch kind {
+                case MedicineType.Dropplet:
+                    medicineIconImageView.image = UIImage(named: MedicineIcon.Dropplet)
+                case MedicineType.Pill:
+                    medicineIconImageView.image = UIImage(named: MedicineIcon.Pill)
+                case MedicineType.Shot:
+                    medicineIconImageView.image = UIImage(named: MedicineIcon.Shot)
+                case MedicineType.Tablet:
+                    medicineIconImageView.image = UIImage(named: MedicineIcon.Tablet)
+                case MedicineType.TeaSpoon:
+                    medicineIconImageView.image = UIImage(named: MedicineIcon.Spoon)
+                default:
+                    medicineIconImageView.image = UIImage(named: MedicineIcon.Pill)
+                }
+            }
+        }
+    }
     
     func updateRemainingDays(){
         
@@ -157,10 +177,8 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
             print("Days difference: \(numOfDays)")
             let remainingDays = Int((plan?.durationDays)!) - numOfDays
             if remainingDays >= 0{
-                
                 pendingDaysLabel.text = String(describing: remainingDays)
             }else{
-                
                 pendingDaysLabel.text = "-"
                 showPlanExpiredPopup(title: NSLocalizedString("ATTENTION", comment: ""), message: expiredPlanMessage, vc: self, take: true)
             }
@@ -211,7 +229,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
                 self.restartPlanContainerView.alpha = 1
             })
         }
-        progressRin.setProgress(value: CGFloat(progress), animationDuration: 0.5){
+        progressRin.startProgress(to: CGFloat(progress), duration: 0.5){
             if progress == 100{
                 self.statusTextLabel.text = PlanStatus.StatusFinished
             }
@@ -222,9 +240,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     func showConfirmationPopup(title:String?, message:String?, vc : UIViewController, take:Bool){
         // Create the dialog
         let image = UIImage(named: "questionMarkBannerBlue")
-        
-        let popup = PopupDialog(title: title, message: message, image: image, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
-            
+        let popup = PopupDialog(title: title,
+                                message: message,
+                                image: image,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         let buttonOne = DefaultButton(title: NSLocalizedString("RESET", comment: "")) {
@@ -262,9 +285,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     func showPlanExpiredPopup(title:String?, message:String?, vc : UIViewController, take:Bool){
         // Create the dialog
         let image = UIImage(named: "questionMarkBannerBlue")
-        
-        let popup = PopupDialog(title: title, message: message, image: image, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
-            
+        let popup = PopupDialog(title: title,
+                                message: message,
+                                image: image,
+                                buttonAlignment: .vertical,
+                                transitionStyle: .bounceUp,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         let buttonOne = DefaultButton(title: NSLocalizedString("RESET", comment: "")) {
@@ -288,23 +316,39 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     func showOptionsPopup(message:String?, vc : UIViewController){
         // Create the dialog
         let image = UIImage(named: "gearBannerBlue")
+        var optionsArray: [PopupDialogButton] = []
         
-        let popup = PopupDialog(title: NSLocalizedString(NSLocalizedString("OPTIONS", comment: ""), comment: ""), message: message, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
-            
+        let popup = PopupDialog(title: NSLocalizedString(NSLocalizedString("OPTIONS", comment: ""), comment: ""),
+                                message: message,
+                                image: image,
+                                buttonAlignment: .vertical,
+                                transitionStyle: .bounceUp,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         let editButton = SolidBlueButton(title: NSLocalizedString(NSLocalizedString("EDIT", comment: ""), comment: "")) {
             self.editPlan()
         }
-        
-        let deleteButton = DestructiveButton(title: NSLocalizedString(NSLocalizedString("DELETE", comment: ""), comment: "")) {
-            
-            self.deletePlan()
-        }
+        optionsArray.append(editButton)
         
         let cancelButton = SolidBlueButton(title: NSLocalizedString(NSLocalizedString("CANCEL", comment: ""), comment: "")){}
+        optionsArray.append(cancelButton)
         
-        popup.addButtons([editButton, cancelButton, deleteButton])
+        let removeButton = SolidBlueButton(title: NSLocalizedString(NSLocalizedString("REMOVE_IMAGE", comment: ""), comment: "")) {
+            self.removeImage()
+        }
+        if MMPUtils.imageExistsInDirectory(fileName: (self.plan?.notificationId)! + ".png"){
+            optionsArray.append(removeButton)
+        }
+        
+        let deleteButton = DestructiveButton(title: NSLocalizedString(NSLocalizedString("DELETE", comment: ""), comment: "")) {
+            self.deletePlan()
+        }
+        optionsArray.append(deleteButton)
+        
+        popup.addButtons(optionsArray)
         
         // Present dialog
         vc.present(popup, animated: true, completion: nil)
@@ -312,15 +356,23 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     }
     
     func deletePlan(){
-        
         persistentContainer.viewContext.plans.delete(plan!)
         try! persistentContainer.viewContext.save()
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
     func editPlan(){
-        
         performSegue(withIdentifier: "toAddFromDetail", sender: plan)
+    }
+    
+    func removeImage(){
+        MMPUtils.deleteImageFromDirectory(fileName: (self.plan?.notificationId)! + ".png") { success, error in
+            if success{
+                self.configure()
+            }else{
+                debugPrint(error?.localizedDescription)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -367,6 +419,26 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         performSegue(withIdentifier: "toCalendarFromPlan", sender: plan)
     }
     
+    @IBAction func cameraButtonPressed(_ sender: Any) {
+        print("camera button pressed")
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: true) { [weak self] image, asset in
+            // Do something with your image here.
+            if image != nil {
+                let fileNameWithExtension = (self?.plan?.notificationId)! + ".png"
+                let filename = MMPUtils.getDocumentsDirectory().appendingPathComponent(fileNameWithExtension)
+                print("-----> Filename: \(filename.absoluteString)")
+                MMPUtils.saveImageInDirectory(image: image!, fileName: fileNameWithExtension)
+                
+//                if let data = UIImagePNGRepresentation(image!) {
+//                    MMPUtils.saveImageDocumentDirectory(imageData: data, fileName: fileNameWithExtension)
+////                    try? data.write(to: filename)
+//                }
+            }
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        present(cameraViewController, animated: true, completion: nil)
+    }
     
     //MARK: - Update Fire Date
     func updateFireDate(){
@@ -432,7 +504,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     func startOverPlan(){
         
-        progressRin.setProgress(value: CGFloat(0), animationDuration: 0.5)
+        progressRin.startProgress(to: CGFloat(0), duration: 0.5)
         UIView.animate(withDuration: 0.5) {
             self.restartPlanContainerView.alpha = 0
         }

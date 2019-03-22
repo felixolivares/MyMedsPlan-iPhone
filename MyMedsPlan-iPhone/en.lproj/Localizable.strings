@@ -26,6 +26,7 @@ TAKEN = "TAKEN";
 SKIPPED = "SKIPPED";
 RESET = "RESET";
 STOP = "STOP";
+REMOVE_IMAGE = "DELETE IMAGE";
 ATTENTION = "ATTENTION";
 takeMessage = "AWESOME!\nWould you like to reset the countdown so it could be ready for your next intake?";
 skipMessage = "OH NO!\nWould you like to reset the countdown to be ready for a next intake?";
