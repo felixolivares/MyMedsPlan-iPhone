@@ -56,9 +56,12 @@ public struct CellState {
     public let dateSection: () -> (range: (start: Date, end: Date), month: Int, rowCount: Int)
     /// returns the position of a selection in the event you wish to do range selection
     public let selectedPosition: () -> SelectionRangePosition
-    /// returns the cell frame.
+    /// returns the cell.
     /// Useful if you wish to display something at the cell's frame/position
     public var cell: () -> JTAppleCell?
+    /// Shows if a cell's selection/deselection was done either programatically or by the user
+    /// This variable is guranteed to be non-nil inside of a didSelect/didDeselect function
+    public var selectionType: SelectionType? = nil
 }
 
 /// Defines the parameters which configures the calendar.
@@ -85,33 +88,30 @@ public struct ConfigurationParameters {
     /// init-function
     public init(startDate: Date,
                 endDate: Date,
-                numberOfRows: Int? = nil,
-                calendar: Calendar? = nil,
-                generateInDates: InDateCellGeneration? = nil,
-                generateOutDates: OutDateCellGeneration? = nil,
-                firstDayOfWeek: DaysOfWeek? = nil,
+                numberOfRows: Int = 6,
+                calendar: Calendar = Calendar.current,
+                generateInDates: InDateCellGeneration = .forAllMonths,
+                generateOutDates: OutDateCellGeneration = .tillEndOfGrid,
+                firstDayOfWeek: DaysOfWeek = .sunday,
                 hasStrictBoundaries: Bool? = nil) {
         self.startDate = startDate
         self.endDate = endDate
-        self.numberOfRows = 6
-        
-        if let validNumberOfRows = numberOfRows {
-            switch validNumberOfRows {
-            case 1, 2, 3:
-                self.numberOfRows = validNumberOfRows
-            default:
-                break
-            }
+
+        if numberOfRows > 0 && numberOfRows < 7 {
+            self.numberOfRows = numberOfRows
+        } else {
+            self.numberOfRows = 6
         }
+
         if let nonNilHasStrictBoundaries = hasStrictBoundaries {
             self.hasStrictBoundaries = nonNilHasStrictBoundaries
         } else {
             self.hasStrictBoundaries = self.numberOfRows > 1 ? true : false
         }
-        self.calendar = calendar ?? Calendar.current
-        self.generateInDates = generateInDates ?? .forAllMonths
-        self.generateOutDates = generateOutDates ?? .tillEndOfGrid
-        self.firstDayOfWeek = firstDayOfWeek ?? .sunday
+        self.calendar = calendar
+        self.generateInDates = generateInDates
+        self.generateOutDates = generateOutDates
+        self.firstDayOfWeek = firstDayOfWeek
     }
 }
 
@@ -241,27 +241,6 @@ public struct Month {
         }
         return (startIndex: startIndex, endIndex: endIndex)
     }
-    
-//    func startDayFor(section: Int) -> Int? {
-//        var retval: Int?
-//        
-//        if !(0..<sections.count ~= section)  {
-//            return nil
-//        }
-//        if section == 0 {
-//            retval = 1
-//        } else {
-//            var diff: Int = 0
-//            for (index, _) in sections.enumerated() {
-//                guard let bounds = boundaryIndicesFor(section: index), index < section else {
-//                    break
-//                }
-//                diff += bounds.endIndex - bounds.startIndex + 1
-//            }
-//            retval = diff + 1
-//        }
-//        return retval
-//    }
 }
 
 struct JTAppleDateConfigGenerator {
@@ -387,4 +366,30 @@ public struct DateSegmentInfo {
     public let monthDates: [(date: Date, indexPath: IndexPath)]
     /// Visible post-dates
     public let outdates: [(date: Date, indexPath: IndexPath)]
+}
+
+struct SelectedCellData {
+    let indexPath: IndexPath
+    let date: Date
+    var counterIndexPath: IndexPath?
+    let cellState: CellState
+    
+    enum DateOwnerCategory {
+        case inDate, outDate, monthDate
+    }
+    
+    var dateBelongsTo: DateOwnerCategory {
+        switch cellState.dateBelongsTo {
+        case .thisMonth: return .monthDate
+        case .previousMonthOutsideBoundary, .previousMonthWithinBoundary: return .inDate
+        case .followingMonthWithinBoundary, .followingMonthOutsideBoundary: return .outDate
+        }
+    }
+    
+    init(indexPath: IndexPath, counterIndexPath: IndexPath? = nil, date: Date, cellState: CellState) {
+        self.indexPath        = indexPath
+        self.date             = date
+        self.cellState        = cellState
+        self.counterIndexPath = counterIndexPath
+    }
 }

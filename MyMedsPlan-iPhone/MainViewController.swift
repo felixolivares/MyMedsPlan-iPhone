@@ -75,7 +75,7 @@ class MainViewController: UIViewController {
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func loadData(){
@@ -93,7 +93,7 @@ class MainViewController: UIViewController {
         tableView.reloadData()
     }
     
-    func startButtonPressed(button:UIButton){
+    @objc func startButtonPressed(button:UIButton){
         print("Row start button pressed: \(button.tag)")
         
         let indexPath = NSIndexPath.init(row: button.tag, section: 0)

@@ -1,24 +1,46 @@
+<p align="center">
+	<img src="https://img.shields.io/github/license/luispadron/UICircularProgressRing.svg">
+	<img src="https://travis-ci.org/luispadron/UICircularProgressRing.svg?branch=master">
+	<img src="https://img.shields.io/github/issues/luispadron/UICircularProgressRing.svg">
+</p>
+
 ![Banner](https://raw.githubusercontent.com/luispadron/UICircularProgressRing/master/.github/banner.png)
 
 <h3 align="center">A circular progress bar for iOS written in Swift</h3>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/luispadron/UICircularProgressRing/master/.github/demo.gif"/>  
+<img src="https://raw.githubusercontent.com/luispadron/UICircularProgressRing/master/.github/demo.gif"/>
 </p>
 
 ![Styles](https://raw.githubusercontent.com/luispadron/UICircularProgressRing/master/.github/styles-banner.png)
 
-### _Looking for awesome people to help maintain and contribute_
-
 ## Features
 
+* 2 views, progress or timer
 * Interface builder designable
 * Highly customizable and flexible
 * Easy to use
-* Sleek animations
+* Fluid and interruptible animations
 * Written in Swift
+* RTL language support
 
-## Installation 
+## Apps Using UICircularProgressRing
+
+- [GradePoint](http://gradepoint.luispadron.com) by Luis Padron.
+
+- [UVI Mate](https://itunes.apple.com/us/app/uvi-mate-global-uv-index-now/id1207745216?mt=8) by Alexander Ershov.
+
+- [HotelTonight](https://itunes.apple.com/app/id407690035?mt=8) by Hotel Tonight Inc.
+
+- [הנתיב המהיר](https://itunes.apple.com/us/app/הנתיב-המהיר/id1320456872?mt=8) by Elad Hayun
+
+- [Nyx Nightclub Management](https://itunes.apple.com/dk/app/nyx-nightclub-management-ipad/id954874082?mt=8) by Nyx Systems IVS
+
+- [Barstool Sports](https://itunes.apple.com/us/app/barstool-sports/id456805313) by Barstool Sports
+
+## Installation
+
+*NOTE: Objective-C support: Support for Objective-C has been dropped in version 5.0.0, use version 4 or lower if you are using Objective-C.*
 
 ### CocoaPods (Recommended)
 
@@ -27,10 +49,10 @@
 
 	```ruby
 	target 'Example' do
-		# IMPORTANT: Make sure use_frameworks! is included at the top of the file
-		use_frameworks!
+	    # IMPORTANT: Make sure use_frameworks! is included at the top of the file
+	    use_frameworks!
 
-		pod 'UICircularProgressRing'
+	    pod 'UICircularProgressRing'
 	end
 	```
 3. Run `pod install`
@@ -39,43 +61,39 @@
 
 ### Carthage
 
-**_Important note_: Carthage support for IBDesignable and IBInspectable is broken due to how frameworks work.
-So if you decide on using Carthage, you will not be able to use IB to design this view.
-Take a look [here](https://github.com/Carthage/Carthage/issues/335) for the issue.**
+#### Important: Interface builder support with Carthage is either broken or extremely limted
 
 To use with [Carthage](https://github.com/Carthage/Carthage)
 
-1. Make sure Carthage is installed 
-	
+1. Make sure Carthage is installed
+
 	`brew install carthage`
 2. Add this repo to your Cartfile
 
-	`github "luispadron/UICircularProgressRing"` 
-3. Drag the `UICircularProgressRing.framework` from `MyProjDir/Carthage/Builds/iOS/UICircularProgressRing` into the `General -> Embeded Binaries` section of your Xcode project.
-
-### Manually
-
-1. Simply download the `UICircularProgressRingView.swift`, `UICircularProgressRingLayer.swift` and `UICiruclarProgressRingDelegate.swift` files from [here](https://github.com/luispadron/UICircularProgressRing/tree/master/UICircularProgressRing) into your project, make sure you point to your projects target
+	`github "luispadron/UICircularProgressRing"`
+3. Install dependencies
+	`carthage update --platform iOS`
 
 ## Usage
 
+
 ### Interface Builder
 
-Simply drag a `UIView` into your storyboard. Make sure to subclass `UICircularProgressRingView` and that the module points `UICircularProgressRing`. 
+Simply drag a `UIView` into your storyboard. Make sure to subclass `UICircularProgressRing` and that the module points to `UICircularProgressRing`.
 
 Design your heart out
 
 ![ib-demo.gif](https://raw.githubusercontent.com/luispadron/UICircularProgressRing/master/.github/ib-demo.gif)
 
-### Usage
+### UICircularProgressRing Example
 
 ```swift
 override func viewDidLoad() {
   // Create the view
-  let progressRing = UICircularProgressRingView(frame: CGRect(x: 0, y: 0, width: 240, height: 240))
+  let progressRing = UICircularProgressRing()
   // Change any of the properties you'd like
   progressRing.maxValue = 50
-  progressRing.innerRingColor = UIColor.blue
+  progressRing.style = .dashed(pattern: [7.0, 7.0])
   // etc ...
 }
 ```
@@ -84,36 +102,56 @@ To set a value and animate the view
 
 ```swift
 // Somewhere not in viewDidLoad (since the views have not set yet, thus cannot be animated)
-// Remember to use unowned or weak self if refrencing self to avoid retain cycle
-progressRing.setProgress(value: 49, animationDuration: 2.0) {
+// Remember to use unowned or weak self if referencing self to avoid retain cycle
+progressRing.startProgress(to: 49, duration: 2.0) {
   print("Done animating!")
   // Do anything your heart desires...
 }
+
+// Pause at any time during a running animation
+progressRing.pauseProgress()
+
+// Continue where you left off after a pause
+progressRing.continueProgress()
+```
+
+### UICircularTimerRing Example
+
+```swift
+override func viewDidLoad() {
+	// create the view
+	let timerRing = UICircularTimerRing()
+}
+```
+
+Animate and set time
+
+```swift
+						// seconds
+timerRing.startTimer(to: 60) { state in
+    switch state {
+    case .finished:
+        print("finished")
+    case .continued(let time):
+        print("continued: \(time)")
+    case .paused(let time):
+        print("paused: \(time)")
+    }
+}
+
+timerRing.pauseTimer() // pauses the timer
+
+timerRing.continueTimer() // continues from where we paused
+
+timerRing.resetTimer() // resets and cancels animations previously running
 ```
 
 ## Documentation
 
-Please read this before creating an issue about how to use the package:
+Please **read** this before creating an issue about how to use the library:
 
-[DOCUMENTATION](https://htmlpreview.github.io/?https://raw.githubusercontent.com/luispadron/UICircularProgressRing/master/docs/Classes/UICircularProgressRingView.html)
+[DOCUMENTATION](https://htmlpreview.github.io/?https://raw.githubusercontent.com/luispadron/UICircularProgressRing/master/docs/Classes/UICircularProgressRing.html)
 
-## Example project
+## Misc.
 
-Take a look at the example project over [here](Example/)
-
-1. Download it
-2. Open the `Example.xcworkspace` in Xcode
-3. Mess around and experiment!
-
-
-## License
-
-```
-Copyright (c) 2016 Luis Padron
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
+Do you use this library? Want to be featured? Go [here.](https://github.com/luispadron/UICircularProgressRing/issues/54)

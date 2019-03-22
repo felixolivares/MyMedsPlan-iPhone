@@ -30,7 +30,7 @@ open class DynamicCollectionViewFlowLayout: UICollectionViewFlowLayout {
     // MARK: - Properties definition 
     
     open var dynamicAnimator: UIDynamicAnimator?
-    open var itemsAligment = UIControlContentHorizontalAlignment.center
+    open var itemsAligment = UIControl.ContentHorizontalAlignment.center
 
     open lazy var collisionBehavior: UICollisionBehavior? = {
         let collision = UICollisionBehavior(items: [])
@@ -82,15 +82,16 @@ open class DynamicCollectionViewFlowLayout: UICollectionViewFlowLayout {
         minimumInteritemSpacing = 0
         minimumLineSpacing = 0
     }
-    
+
     // MARK: - UICollectionViewFlowLayout overrides
     
     override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let animator = dynamicAnimator else {
             return super.layoutAttributesForElements(in: rect)
         }
-        
-        return animator.items(in: rect) as? [UICollectionViewLayoutAttributes]
+
+        let items = animator.items(in: rect) as NSArray
+        return items.compactMap { $0 as? UICollectionViewLayoutAttributes }
     }
     
     override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -112,7 +113,7 @@ open class DynamicCollectionViewFlowLayout: UICollectionViewFlowLayout {
     }
 
     // MARK: - Helpers
-    
+
     fileprivate func topForItemAt(indexPath: IndexPath) -> CGFloat {
         guard let unwrappedCollectionView = collectionView else {
             return CGFloat(0.0)
@@ -120,16 +121,21 @@ open class DynamicCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         // Top within item's section
         var top = CGFloat((indexPath as NSIndexPath).item) * itemSize.height
-        
+
         if (indexPath as NSIndexPath).section > 0 {
             let lastItemOfPrevSection = unwrappedCollectionView.numberOfItems(inSection: (indexPath as NSIndexPath).section - 1)
             // Add previous sections height recursively. We have to add the sectionInsets and the last section's item height
             let inset = (unwrappedCollectionView.delegate as? UICollectionViewDelegateFlowLayout)?.collectionView?(unwrappedCollectionView, layout: self, insetForSectionAt: (indexPath as NSIndexPath).section) ?? sectionInset
             top += topForItemAt(indexPath: IndexPath(item: lastItemOfPrevSection - 1, section: (indexPath as NSIndexPath).section - 1)) + inset.bottom + inset.top + itemSize.height
         }
-        
+
         return top
     }
+
+    private func isRTL(for view: UIView) -> Bool {
+        return UIView.userInterfaceLayoutDirection(for: view.semanticContentAttribute) == .rightToLeft
+    }
+
     @discardableResult
     func setupAttributesForIndexPath(_ indexPath: IndexPath?) -> UICollectionViewLayoutAttributes? {
         guard let indexPath = indexPath, let animator = dynamicAnimator, let collectionView = collectionView else {
@@ -148,18 +154,27 @@ open class DynamicCollectionViewFlowLayout: UICollectionViewFlowLayout {
         var initialFrame = CGRect(x: 0, y: originY + frame.origin.y, width: collectionItemSize.width, height: collectionItemSize.height)
 
         // Calculate x position depending on alignment value
-        var translationX: CGFloat
+
         let collectionViewContentWidth = collectionView.bounds.size.width - collectionView.contentInset.left - collectionView.contentInset.right
+        let rightMargin = (collectionViewContentWidth - frame.size.width)
+        let leftMargin = CGFloat(0.0)
+
+        var translationX: CGFloat
         switch itemsAligment {
         case .center:
             translationX = (collectionViewContentWidth - frame.size.width) * 0.5
         case .fill, .left:
-            translationX = 0.0
+            translationX = leftMargin
         case .right:
-            translationX = (collectionViewContentWidth - frame.size.width)
+            translationX = rightMargin
+        case .leading:
+            translationX = isRTL(for: collectionView) ? rightMargin : leftMargin
+        case .trailing:
+            translationX = isRTL(for: collectionView) ? leftMargin : rightMargin
         }
 
         frame.origin.x = translationX
+        frame.origin.y -= collectionView.contentInset.bottom
         initialFrame.origin.x = translationX
 
         let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)

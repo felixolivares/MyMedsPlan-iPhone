@@ -56,8 +56,16 @@ class MMPUtils{
     
     public static func showPopup(error : NSError, vc : UIViewController){
         // Create the dialog
-        let popup = PopupDialog(title: error.localizedFailureReason, message: error.localizedDescription, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
+        let popup = PopupDialog(title: error.localizedFailureReason,
+                                message: error.localizedDescription,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
+
+//        let popup = PopupDialog(title: error.localizedFailureReason, message: error.localizedDescription, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
         
         // Create first button
         let buttonOne = DefaultButton(title: "OK") {
@@ -71,8 +79,13 @@ class MMPUtils{
     
     public static func showPopup(message:String?, vc : UIViewController){
         // Create the dialog
-        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
-            print("Completed")
+        let popup = PopupDialog(title: "",
+                                message: message,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         // Present dialog
@@ -85,8 +98,13 @@ class MMPUtils{
     
     public static func showPopupWithOK(message:String?, vc : UIViewController){
         // Create the dialog
-        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
-            print("Completed")
+        let popup = PopupDialog(title: "",
+                                message: message,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         let buttonOne = DefaultButton(title: "OK") {
@@ -133,7 +151,7 @@ class MMPUtils{
     
     public static func saveImageInDirectory(image: UIImage, fileName: String) {
         let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(fileName)
-        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+        if let imageData = image.jpegData(compressionQuality: 1.0) {
             try? imageData.write(to: fileURL, options: .atomic)
             return
         }

@@ -13,6 +13,7 @@ import UICircularProgressRing
 import Async
 import ALCameraViewController
 import AlamofireImage
+import CountdownLabel
 
 
 class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDelegate {
@@ -29,7 +30,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     @IBOutlet weak var totalDaysLabel: UILabel!
     @IBOutlet weak var pendingDaysLabel: UILabel!
-    @IBOutlet weak var progressRin: UICircularProgressRingView!
+    @IBOutlet weak var progressRin: UICircularProgressRing!
     
     @IBOutlet weak var treatmentTotalDaysTextLabel: UILabel!
     @IBOutlet weak var pendingDaysTextLabel: UILabel!
@@ -228,7 +229,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
                 self.restartPlanContainerView.alpha = 1
             })
         }
-        progressRin.setProgress(value: CGFloat(progress), animationDuration: 0.5){
+        progressRin.startProgress(to: CGFloat(progress), duration: 0.5){
             if progress == 100{
                 self.statusTextLabel.text = PlanStatus.StatusFinished
             }
@@ -239,9 +240,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     func showConfirmationPopup(title:String?, message:String?, vc : UIViewController, take:Bool){
         // Create the dialog
         let image = UIImage(named: "questionMarkBannerBlue")
-        
-        let popup = PopupDialog(title: title, message: message, image: image, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
-            
+        let popup = PopupDialog(title: title,
+                                message: message,
+                                image: image,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         let buttonOne = DefaultButton(title: NSLocalizedString("RESET", comment: "")) {
@@ -279,9 +285,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     func showPlanExpiredPopup(title:String?, message:String?, vc : UIViewController, take:Bool){
         // Create the dialog
         let image = UIImage(named: "questionMarkBannerBlue")
-        
-        let popup = PopupDialog(title: title, message: message, image: image, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
-            
+        let popup = PopupDialog(title: title,
+                                message: message,
+                                image: image,
+                                buttonAlignment: .vertical,
+                                transitionStyle: .bounceUp,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         let buttonOne = DefaultButton(title: NSLocalizedString("RESET", comment: "")) {
@@ -307,8 +318,14 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         let image = UIImage(named: "gearBannerBlue")
         var optionsArray: [PopupDialogButton] = []
         
-        let popup = PopupDialog(title: NSLocalizedString(NSLocalizedString("OPTIONS", comment: ""), comment: ""), message: message, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
-            
+        let popup = PopupDialog(title: NSLocalizedString(NSLocalizedString("OPTIONS", comment: ""), comment: ""),
+                                message: message,
+                                image: image,
+                                buttonAlignment: .vertical,
+                                transitionStyle: .bounceUp,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         let editButton = SolidBlueButton(title: NSLocalizedString(NSLocalizedString("EDIT", comment: ""), comment: "")) {
@@ -487,7 +504,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     func startOverPlan(){
         
-        progressRin.setProgress(value: CGFloat(0), animationDuration: 0.5)
+        progressRin.startProgress(to: CGFloat(0), duration: 0.5)
         UIView.animate(withDuration: 0.5) {
             self.restartPlanContainerView.alpha = 0
         }

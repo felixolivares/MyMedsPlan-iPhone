@@ -135,8 +135,6 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
                 print("done row \(selectedRow) \(selectedString)")
                 self.periodicityTextField.text = selectedString
             })
-            .setCancelButton(action: { v in print("cancel")}
-            )
             .appear(originView: periodicityUnderline, baseViewController: self)
     }
     
@@ -147,8 +145,6 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 self.unitsTextField.text = selectedString
             })
-            .setCancelButton(action: { v in print("cancel")}
-            )
             .appear(originView: unitsUnderline, baseViewController: self)
     }
     
@@ -159,8 +155,6 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 self.kindTextField.text = selectedString
             })
-            .setCancelButton(action: { v in print("cancel")}
-            )
             .appear(originView: kindUnderline, baseViewController: self)
     }
     
@@ -171,8 +165,6 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
             .setDoneButton(action: { (popover, selectedRow, selectedString) in
                 self.durationTextField.text = selectedString
             })
-            .setCancelButton(action: { v in print("cancel")}
-            )
             .appear(originView: kindUnderline, baseViewController: self)
     }
     
@@ -199,9 +191,13 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     
     func showPopup(message:String?, vc : UIViewController){
         // Create the dialog
-        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {
-            print("Completed")
-            self.dismissView()
+        let popup = PopupDialog(title: "",
+                                message: message,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
         }
         
         // Present dialog

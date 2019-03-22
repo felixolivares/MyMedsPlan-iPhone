@@ -1,21 +1,25 @@
 PODS:
-  - Alamofire (4.5.1)
-  - AlamofireImage (3.3.0):
-    - Alamofire (~> 4.5)
-  - ALCameraViewController (2.0.3)
-  - AlecrimCoreData (5.0)
-  - AsyncSwift (2.0.1)
+  - Alamofire (4.8.1)
+  - AlamofireImage (3.5.0):
+    - Alamofire (~> 4.8)
+  - ALCameraViewController (3.0.3)
+  - AlecrimCoreData (5.2)
+  - AsyncSwift (2.0.4)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - IQKeyboardManagerSwift (5.0.2)
-  - JTAppleCalendar (7.0.6)
-  - PopupDialog (0.5.4)
-  - SwiftyPickerPopover (5.3.0)
-  - SwipeCellKit (1.9.1)
-  - UICircularProgressRing (1.7.0)
-  - XLActionController/Core (3.0.1)
-  - XLActionController/Periscope (3.0.1):
+  - CountdownLabel (4.0.1)
+  - DynamicBlurView (3.0.1)
+  - IQKeyboardManagerSwift (6.2.0)
+  - JTAppleCalendar (7.1.7)
+  - LTMorphingLabel (0.6.0)
+  - PopupDialog (0.9.2):
+    - DynamicBlurView (~> 3.0.1)
+  - SwiftyPickerPopover (6.6.5)
+  - SwipeCellKit (2.5.1)
+  - UICircularProgressRing (6.0.2)
+  - XLActionController/Core (4.1.1)
+  - XLActionController/Periscope (4.1.1):
     - XLActionController/Core
 
 DEPENDENCIES:
@@ -24,13 +28,32 @@ DEPENDENCIES:
   - AlecrimCoreData (~> 5.0)
   - AsyncSwift
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - CountdownLabel
   - IQKeyboardManagerSwift
   - JTAppleCalendar (~> 7.0)
-  - PopupDialog (~> 0.5)
+  - LTMorphingLabel
+  - PopupDialog (~> 0.9)
   - SwiftyPickerPopover
   - SwipeCellKit (from `https://github.com/jerkoch/SwipeCellKit.git`, branch `develop`)
   - UICircularProgressRing
   - XLActionController/Periscope
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - ALCameraViewController
+    - AlecrimCoreData
+    - AsyncSwift
+    - CountdownLabel
+    - DynamicBlurView
+    - IQKeyboardManagerSwift
+    - JTAppleCalendar
+    - LTMorphingLabel
+    - PopupDialog
+    - SwiftyPickerPopover
+    - UICircularProgressRing
+    - XLActionController
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -44,24 +67,27 @@ CHECKOUT OPTIONS:
     :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
     :git: https://github.com/ViccAlexander/Chameleon.git
   SwipeCellKit:
-    :commit: 3027fae41159585d18c0392df9a76a79b33a3673
+    :commit: 9c291d2f3624fe45eac75f001deaef45fc7a3828
     :git: https://github.com/jerkoch/SwipeCellKit.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
-  ALCameraViewController: 7b86c2888df0e63f53a801e9d96fe194f51157ec
-  AlecrimCoreData: f1251de3630f4d4d3a212e405298084c229cef29
-  AsyncSwift: 632138e42ead868b53c745fcde9bf733ce1527ad
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
+  ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
+  AlecrimCoreData: 6bf4d91fcc82b66157004cb49f1b60aafb80787d
+  AsyncSwift: 65775a7b32e740609b24969ece3de58723b9dc3e
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  IQKeyboardManagerSwift: e580da046d804d2836ee84668cc17e43a850a35d
-  JTAppleCalendar: 6a942475e33b9ad4dee0a0e14aa4c63adcf4f543
-  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
-  SwiftyPickerPopover: c5d2d3dfeab310612e8ce63356c33149f8fc9a8e
-  SwipeCellKit: 9fa65dd73e52e8fd139fec4d8f7d7cb44fa00559
-  UICircularProgressRing: 35c3d291b679161ea27fb6216fee58c40a4bb597
-  XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
+  CountdownLabel: c9975e3f329140b5e7d1f45cd63b1300badd1712
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
+  LTMorphingLabel: c73ebfef9009c0a098546c29f566024442d1a91e
+  PopupDialog: f4bb461bf70ff422be0b56656566424ee9273080
+  SwiftyPickerPopover: f2975fd0233d04c0a8f8d52d09b6f24b882de6fb
+  SwipeCellKit: 593b8bc2c5612d68bfcd33b214576350de54fdbe
+  UICircularProgressRing: 2ef1293241b83d8020ede21a8fe3b3d859525730
+  XLActionController: d2ab12a967ae0fee0b4563b8d809c8fb13ebc636
 
-PODFILE CHECKSUM: 9f7bbaa2d74125e61fe95f2ff2220f8d7938ebdd
+PODFILE CHECKSUM: 229a2c5180b42972c9c7891da9abc6ed086e7ba2
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.7.0.beta.1

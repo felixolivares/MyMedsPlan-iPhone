@@ -55,6 +55,11 @@ public struct ActionControllerSettings {
          * items. Its default value is `false`
          */
         public var useDynamics = false
+        /**
+         * A Boolean value that determines whether the navigation bar will hide when action controller is being
+         * presented. Its default value is `true`
+         */
+        public var hideNavigationBarOnShow = true
     }
     
     /** Struct that contains properties to configure the cancel view */
@@ -76,6 +81,11 @@ public struct ActionControllerSettings {
          * The cancel view's background color. Its default value is `UIColor.blackColor().colorWithAlphaComponent(0.8)`.
          */
         public var backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        /**
+          * A Boolean value that determines whether the collection view can be partially covered by the 
+          * cancel view when it is pulled down. Its default value is `true`
+          */
+        public var hideCollectionViewBehindCancelView = false
     }
 
     /** Struct that contains properties to configure the collection view's style */
@@ -117,7 +127,7 @@ public struct ActionControllerSettings {
           * A mask of options indicating how you want to perform the animations. Its default value is `UIViewAnimationOptions.CurveEaseOut`.
           * @see: animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:
           */
-        public var options = UIViewAnimationOptions.curveEaseOut
+        public var options = UIView.AnimationOptions.curveEaseOut
     }
     
     /** Struct that contains properties to configure the animation when dismissing the action controller */
@@ -146,7 +156,7 @@ public struct ActionControllerSettings {
          * A mask of options indicating how you want to perform the animations. Its default value is `UIViewAnimationOptions.CurveEaseIn`.
          * @see: animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:
          */
-        public var options = UIViewAnimationOptions.curveEaseIn
+        public var options = UIView.AnimationOptions.curveEaseIn
         /**
          * A float value that makes the action controller's to be animated until the bottomof the screen plus this value.
          */
@@ -179,6 +189,14 @@ public struct ActionControllerSettings {
          * default value is `UIStatusBarStyle.LightContent`.
          */
         public var style = UIStatusBarStyle.lightContent
+        /**
+         * A boolean value that determines whether the action controller takes over control of status bar appearance from the presenting 
+         * view controller. Its default value is `true`.
+         *
+         * For more information refer to `UIViewController.modalPresentationCapturesStatusBarAppearance`, 
+         * https://developer.apple.com/reference/uikit/uiviewcontroller/1621453-modalpresentationcapturesstatusb
+         */
+        public var modalPresentationCapturesStatusBarAppearance = true
     }
     
     /** Stores the behavior's properties values */

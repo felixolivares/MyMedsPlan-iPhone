@@ -26,25 +26,6 @@
 		308D94C61EEB746800929C7C /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94C21EEB746800929C7C /* Event+CoreDataProperties.swift */; };
 		308D94C91EF0712600929C7C /* MMPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94C81EF0712600929C7C /* MMPManager.swift */; };
 		308D94CB1EF1B58000929C7C /* MMPNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94CA1EF1B58000929C7C /* MMPNotificationCenter.swift */; };
-		30BE9ED81EE78BAE00808FDB /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9ED61EE78BAE00808FDB /* CountdownLabel.swift */; };
-		30BE9ED91EE78BAE00808FDB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30BE9ED71EE78BAE00808FDB /* Info.plist */; };
-		30BE9EE81EE78BC100808FDB /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EDA1EE78BC100808FDB /* LTCharacterDiffResult.swift */; };
-		30BE9EE91EE78BC100808FDB /* LTCharacterLimbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EDB1EE78BC100808FDB /* LTCharacterLimbo.swift */; };
-		30BE9EEA1EE78BC100808FDB /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EDC1EE78BC100808FDB /* LTEasing.swift */; };
-		30BE9EEB1EE78BC100808FDB /* LTEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EDD1EE78BC100808FDB /* LTEmitterView.swift */; };
-		30BE9EEC1EE78BC100808FDB /* LTMorphingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EDE1EE78BC100808FDB /* LTMorphingEffect.swift */; };
-		30BE9EED1EE78BC100808FDB /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE01EE78BC100808FDB /* LTMorphingLabel.swift */; };
-		30BE9EEE1EE78BC100808FDB /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE11EE78BC100808FDB /* LTMorphingLabel+Anvil.swift */; };
-		30BE9EEF1EE78BC100808FDB /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE21EE78BC100808FDB /* LTMorphingLabel+Burn.swift */; };
-		30BE9EF01EE78BC100808FDB /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE31EE78BC100808FDB /* LTMorphingLabel+Evaporate.swift */; };
-		30BE9EF11EE78BC100808FDB /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE41EE78BC100808FDB /* LTMorphingLabel+Fall.swift */; };
-		30BE9EF21EE78BC100808FDB /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE51EE78BC100808FDB /* LTMorphingLabel+Pixelate.swift */; };
-		30BE9EF31EE78BC100808FDB /* LTMorphingLabel+Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE61EE78BC100808FDB /* LTMorphingLabel+Sparkle.swift */; };
-		30BE9EF41EE78BC100808FDB /* LTStringDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE9EE71EE78BC100808FDB /* LTStringDiffResult.swift */; };
-		30BE9EFA1EE78BD900808FDB /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BE9EF61EE78BD900808FDB /* Fire.png */; };
-		30BE9EFB1EE78BD900808FDB /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BE9EF71EE78BD900808FDB /* Fragment.png */; };
-		30BE9EFC1EE78BD900808FDB /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BE9EF81EE78BD900808FDB /* Smoke.png */; };
-		30BE9EFD1EE78BD900808FDB /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = 30BE9EF91EE78BD900808FDB /* Sparkle.png */; };
 		30F7A2741EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2721EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld */; };
 		30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */; };
 		30F7A27A1EE4F02E002A0981 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */; };
@@ -119,27 +100,6 @@
 		308D94C21EEB746800929C7C /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Event+CoreDataProperties.swift"; path = "Model/Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		308D94C81EF0712600929C7C /* MMPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPManager.swift; sourceTree = "<group>"; };
 		308D94CA1EF1B58000929C7C /* MMPNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPNotificationCenter.swift; sourceTree = "<group>"; };
-		30BE9ED51EE78BAE00808FDB /* CountdownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountdownLabel.h; path = CountdownLabel/CountdownLabel.h; sourceTree = "<group>"; };
-		30BE9ED61EE78BAE00808FDB /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountdownLabel.swift; path = CountdownLabel/CountdownLabel.swift; sourceTree = "<group>"; };
-		30BE9ED71EE78BAE00808FDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CountdownLabel/Info.plist; sourceTree = "<group>"; };
-		30BE9EDA1EE78BC100808FDB /* LTCharacterDiffResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LTCharacterDiffResult.swift; path = CountdownLabel/LTMorphingLabel/LTCharacterDiffResult.swift; sourceTree = "<group>"; };
-		30BE9EDB1EE78BC100808FDB /* LTCharacterLimbo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LTCharacterLimbo.swift; path = CountdownLabel/LTMorphingLabel/LTCharacterLimbo.swift; sourceTree = "<group>"; };
-		30BE9EDC1EE78BC100808FDB /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LTEasing.swift; path = CountdownLabel/LTMorphingLabel/LTEasing.swift; sourceTree = "<group>"; };
-		30BE9EDD1EE78BC100808FDB /* LTEmitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LTEmitterView.swift; path = CountdownLabel/LTMorphingLabel/LTEmitterView.swift; sourceTree = "<group>"; };
-		30BE9EDE1EE78BC100808FDB /* LTMorphingEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LTMorphingEffect.swift; path = CountdownLabel/LTMorphingLabel/LTMorphingEffect.swift; sourceTree = "<group>"; };
-		30BE9EDF1EE78BC100808FDB /* LTMorphingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTMorphingLabel.h; path = CountdownLabel/LTMorphingLabel/LTMorphingLabel.h; sourceTree = "<group>"; };
-		30BE9EE01EE78BC100808FDB /* LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LTMorphingLabel.swift; path = CountdownLabel/LTMorphingLabel/LTMorphingLabel.swift; sourceTree = "<group>"; };
-		30BE9EE11EE78BC100808FDB /* LTMorphingLabel+Anvil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Anvil.swift"; path = "CountdownLabel/LTMorphingLabel/LTMorphingLabel+Anvil.swift"; sourceTree = "<group>"; };
-		30BE9EE21EE78BC100808FDB /* LTMorphingLabel+Burn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Burn.swift"; path = "CountdownLabel/LTMorphingLabel/LTMorphingLabel+Burn.swift"; sourceTree = "<group>"; };
-		30BE9EE31EE78BC100808FDB /* LTMorphingLabel+Evaporate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Evaporate.swift"; path = "CountdownLabel/LTMorphingLabel/LTMorphingLabel+Evaporate.swift"; sourceTree = "<group>"; };
-		30BE9EE41EE78BC100808FDB /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Fall.swift"; path = "CountdownLabel/LTMorphingLabel/LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
-		30BE9EE51EE78BC100808FDB /* LTMorphingLabel+Pixelate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Pixelate.swift"; path = "CountdownLabel/LTMorphingLabel/LTMorphingLabel+Pixelate.swift"; sourceTree = "<group>"; };
-		30BE9EE61EE78BC100808FDB /* LTMorphingLabel+Sparkle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Sparkle.swift"; path = "CountdownLabel/LTMorphingLabel/LTMorphingLabel+Sparkle.swift"; sourceTree = "<group>"; };
-		30BE9EE71EE78BC100808FDB /* LTStringDiffResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LTStringDiffResult.swift; path = CountdownLabel/LTMorphingLabel/LTStringDiffResult.swift; sourceTree = "<group>"; };
-		30BE9EF61EE78BD900808FDB /* Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fire.png; path = CountdownLabel/LTMorphingLabel/Particles/Fire.png; sourceTree = "<group>"; };
-		30BE9EF71EE78BD900808FDB /* Fragment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fragment.png; path = CountdownLabel/LTMorphingLabel/Particles/Fragment.png; sourceTree = "<group>"; };
-		30BE9EF81EE78BD900808FDB /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Smoke.png; path = CountdownLabel/LTMorphingLabel/Particles/Smoke.png; sourceTree = "<group>"; };
-		30BE9EF91EE78BD900808FDB /* Sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sparkle.png; path = CountdownLabel/LTMorphingLabel/Particles/Sparkle.png; sourceTree = "<group>"; };
 		30F7A2731EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMedsPlanModel.xcdatamodel; sourceTree = "<group>"; };
 		30F7A2761EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+AlecrimCoreDataAttributes.swift"; path = "Model/Plan+AlecrimCoreDataAttributes.swift"; sourceTree = "<group>"; };
 		30F7A2771EE4F02E002A0981 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Plan+CoreDataClass.swift"; path = "Model/Plan+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -288,50 +248,6 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
-		30BE9ED31EE78B8E00808FDB /* CountdownLabel */ = {
-			isa = PBXGroup;
-			children = (
-				30BE9ED51EE78BAE00808FDB /* CountdownLabel.h */,
-				30BE9ED61EE78BAE00808FDB /* CountdownLabel.swift */,
-				30BE9ED71EE78BAE00808FDB /* Info.plist */,
-				30BE9ED41EE78BA000808FDB /* LTMorphingLabel */,
-			);
-			name = CountdownLabel;
-			sourceTree = "<group>";
-		};
-		30BE9ED41EE78BA000808FDB /* LTMorphingLabel */ = {
-			isa = PBXGroup;
-			children = (
-				30BE9EF51EE78BC500808FDB /* Particles */,
-				30BE9EDA1EE78BC100808FDB /* LTCharacterDiffResult.swift */,
-				30BE9EDB1EE78BC100808FDB /* LTCharacterLimbo.swift */,
-				30BE9EDC1EE78BC100808FDB /* LTEasing.swift */,
-				30BE9EDD1EE78BC100808FDB /* LTEmitterView.swift */,
-				30BE9EDE1EE78BC100808FDB /* LTMorphingEffect.swift */,
-				30BE9EDF1EE78BC100808FDB /* LTMorphingLabel.h */,
-				30BE9EE01EE78BC100808FDB /* LTMorphingLabel.swift */,
-				30BE9EE11EE78BC100808FDB /* LTMorphingLabel+Anvil.swift */,
-				30BE9EE21EE78BC100808FDB /* LTMorphingLabel+Burn.swift */,
-				30BE9EE31EE78BC100808FDB /* LTMorphingLabel+Evaporate.swift */,
-				30BE9EE41EE78BC100808FDB /* LTMorphingLabel+Fall.swift */,
-				30BE9EE51EE78BC100808FDB /* LTMorphingLabel+Pixelate.swift */,
-				30BE9EE61EE78BC100808FDB /* LTMorphingLabel+Sparkle.swift */,
-				30BE9EE71EE78BC100808FDB /* LTStringDiffResult.swift */,
-			);
-			name = LTMorphingLabel;
-			sourceTree = "<group>";
-		};
-		30BE9EF51EE78BC500808FDB /* Particles */ = {
-			isa = PBXGroup;
-			children = (
-				30BE9EF61EE78BD900808FDB /* Fire.png */,
-				30BE9EF71EE78BD900808FDB /* Fragment.png */,
-				30BE9EF81EE78BD900808FDB /* Smoke.png */,
-				30BE9EF91EE78BD900808FDB /* Sparkle.png */,
-			);
-			name = Particles;
-			sourceTree = "<group>";
-		};
 		30F7A2751EE4ED4E002A0981 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,7 +311,6 @@
 		30F7A28C1EE51534002A0981 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				30BE9ED31EE78B8E00808FDB /* CountdownLabel */,
 				30F7A28D1EE51555002A0981 /* UIColor+ColorAdditions.swift */,
 				30F7A28F1EE51614002A0981 /* MMPButton.swift */,
 				30F7A2911EE51AD5002A0981 /* MMPRoundedCornersView.swift */,
@@ -441,7 +356,6 @@
 				300FC4D21EE37E0F00D93A6D /* Frameworks */,
 				300FC4D31EE37E0F00D93A6D /* Resources */,
 				FB3CDED72F390ABD71D94459 /* [CP] Embed Pods Frameworks */,
-				FB04AB712A9EB2A4EDE240C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -460,8 +374,6 @@
 				300FC4E51EE37E0F00D93A6D /* Sources */,
 				300FC4E61EE37E0F00D93A6D /* Frameworks */,
 				300FC4E71EE37E0F00D93A6D /* Resources */,
-				58695585D08420D5B84BC0C7 /* [CP] Embed Pods Frameworks */,
-				F9A48B99B1B9F5D93A78B2BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -481,8 +393,6 @@
 				300FC4F01EE37E0F00D93A6D /* Sources */,
 				300FC4F11EE37E0F00D93A6D /* Frameworks */,
 				300FC4F21EE37E0F00D93A6D /* Resources */,
-				8389913DE05E9BC64A2FD7A4 /* [CP] Embed Pods Frameworks */,
-				8A51991B90AC85AFBFAE5A5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,7 +411,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Félix Olivares";
 				TargetAttributes = {
 					300FC4D41EE37E0F00D93A6D = {
@@ -551,19 +461,14 @@
 			files = (
 				300FC4E31EE37E0F00D93A6D /* LaunchScreen.storyboard in Resources */,
 				30F7A2831EE4FF86002A0981 /* Nunito-Italic.ttf in Resources */,
-				30BE9EFB1EE78BD900808FDB /* Fragment.png in Resources */,
 				301BF1E91F173227001E7E40 /* Localizable.strings in Resources */,
-				30BE9ED91EE78BAE00808FDB /* Info.plist in Resources */,
 				30F7A2841EE4FF86002A0981 /* Nunito-Light.ttf in Resources */,
-				30BE9EFD1EE78BD900808FDB /* Sparkle.png in Resources */,
 				30FC17C11F514691009A9117 /* MMPCalendarTableViewCell.xib in Resources */,
 				30F7A2981EE653AD002A0981 /* MMPMainTableViewCell.xib in Resources */,
 				300FC4E01EE37E0F00D93A6D /* Assets.xcassets in Resources */,
 				30F7A2851EE4FF86002A0981 /* Nunito-Regular.ttf in Resources */,
-				30BE9EFA1EE78BD900808FDB /* Fire.png in Resources */,
 				30F7A2821EE4FF86002A0981 /* Nunito-Bold.ttf in Resources */,
 				300FC4DE1EE37E0F00D93A6D /* Main.storyboard in Resources */,
-				30BE9EFC1EE78BD900808FDB /* Smoke.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,21 +489,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		58695585D08420D5B84BC0C7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		749C4575876F310E2867052F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -615,36 +505,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8389913DE05E9BC64A2FD7A4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A51991B90AC85AFBFAE5A5E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneUITests/Pods-MyMedsPlan-iPhoneUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8EC586028B699BD78BF6B1E8 /* [CP] Check Pods Manifest.lock */ = {
@@ -683,51 +543,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F9A48B99B1B9F5D93A78B2BF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhoneTests/Pods-MyMedsPlan-iPhoneTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB04AB712A9EB2A4EDE240C7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FB3CDED72F390ABD71D94459 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlecrimCoreData/AlecrimCoreData.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/CountdownLabel/CountdownLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyPickerPopover/SwiftyPickerPopover.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
@@ -742,8 +575,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlecrimCoreData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountdownLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPickerPopover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
@@ -752,7 +588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMedsPlan-iPhone/Pods-MyMedsPlan-iPhone-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -762,45 +598,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30BE9EEA1EE78BC100808FDB /* LTEasing.swift in Sources */,
-				30BE9EED1EE78BC100808FDB /* LTMorphingLabel.swift in Sources */,
 				30F7A28B1EE50F0E002A0981 /* AddMedicineViewController.swift in Sources */,
 				3015397E1F4C9B91007F4EC9 /* CustomCell.swift in Sources */,
 				30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */,
-				30BE9EF31EE78BC100808FDB /* LTMorphingLabel+Sparkle.swift in Sources */,
 				30F7A2891EE50EE5002A0981 /* MainViewController.swift in Sources */,
 				30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */,
-				30BE9EF21EE78BC100808FDB /* LTMorphingLabel+Pixelate.swift in Sources */,
-				30BE9EF41EE78BC100808FDB /* LTStringDiffResult.swift in Sources */,
 				301539811F4C9C66007F4EC9 /* CalendarViewController.swift in Sources */,
-				30BE9EE91EE78BC100808FDB /* LTCharacterLimbo.swift in Sources */,
 				30F7A27B1EE4F02E002A0981 /* Plan+CoreDataProperties.swift in Sources */,
 				30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */,
-				30BE9ED81EE78BAE00808FDB /* CountdownLabel.swift in Sources */,
 				30F7A2941EE63776002A0981 /* MMPUtils.swift in Sources */,
 				308D94C31EEB746800929C7C /* Entity+AlecrimCoreDataAttributes.swift in Sources */,
 				308D94C51EEB746800929C7C /* Entity+CoreDataProperties.swift in Sources */,
 				30F7A2901EE51614002A0981 /* MMPButton.swift in Sources */,
-				30BE9EF01EE78BC100808FDB /* LTMorphingLabel+Evaporate.swift in Sources */,
 				308D94C61EEB746800929C7C /* Event+CoreDataProperties.swift in Sources */,
 				30F7A28E1EE51555002A0981 /* UIColor+ColorAdditions.swift in Sources */,
 				308D94BD1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift in Sources */,
 				30F7A2741EE4ED43002A0981 /* MyMedsPlanModel.xcdatamodeld in Sources */,
-				30BE9EE81EE78BC100808FDB /* LTCharacterDiffResult.swift in Sources */,
 				30FC17C01F514691009A9117 /* MMPCalendarTableViewCell.swift in Sources */,
-				30BE9EEB1EE78BC100808FDB /* LTEmitterView.swift in Sources */,
 				308D94C41EEB746800929C7C /* Entity+CoreDataClass.swift in Sources */,
-				30BE9EF11EE78BC100808FDB /* LTMorphingLabel+Fall.swift in Sources */,
 				308D94BE1EEB745D00929C7C /* Event+CoreDataClass.swift in Sources */,
 				300FC4D91EE37E0F00D93A6D /* AppDelegate.swift in Sources */,
-				30BE9EEC1EE78BC100808FDB /* LTMorphingEffect.swift in Sources */,
-				30BE9EEF1EE78BC100808FDB /* LTMorphingLabel+Burn.swift in Sources */,
 				30F7A27A1EE4F02E002A0981 /* Plan+CoreDataClass.swift in Sources */,
 				30FC17C31F533229009A9117 /* MMPCalendarDate.swift in Sources */,
 				30F7A2971EE653AD002A0981 /* MMPMainTableViewCell.swift in Sources */,
 				308D94CB1EF1B58000929C7C /* MMPNotificationCenter.swift in Sources */,
 				30F7A2921EE51AD5002A0981 /* MMPRoundedCornersView.swift in Sources */,
-				30BE9EEE1EE78BC100808FDB /* LTMorphingLabel+Anvil.swift in Sources */,
 				308D94C91EF0712600929C7C /* MMPManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -882,6 +704,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -889,6 +712,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -939,6 +763,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -946,6 +771,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -990,7 +816,7 @@
 				PRODUCT_NAME = "My Meds Plan";
 				PROVISIONING_PROFILE = "d1f573de-9ab3-413e-84ab-ea55878c23d4";
 				PROVISIONING_PROFILE_SPECIFIER = "MMP-Distribution";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1010,7 +836,7 @@
 				PRODUCT_NAME = "My Meds Plan";
 				PROVISIONING_PROFILE = "d1f573de-9ab3-413e-84ab-ea55878c23d4";
 				PROVISIONING_PROFILE_SPECIFIER = "MMP-Distribution";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1025,8 +851,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMedsPlan-iPhone.app/MyMedsPlan-iPhone";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Meds Plan.app/My Meds Plan";
 			};
 			name = Debug;
 		};
@@ -1041,8 +867,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMedsPlan-iPhone.app/MyMedsPlan-iPhone";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Meds Plan.app/My Meds Plan";
 			};
 			name = Release;
 		};
@@ -1056,7 +882,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "MyMedsPlan-iPhone";
 			};
 			name = Debug;
@@ -1071,7 +897,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.foe.MyMedsPlan.MyMedsPlan-iPhoneUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = "MyMedsPlan-iPhone";
 			};
 			name = Release;

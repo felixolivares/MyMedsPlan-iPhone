@@ -16,34 +16,46 @@ public class StringPickerPopover: AbstractPopover {
     /// Popover type
     public typealias PopoverType = StringPickerPopover
     /// Action type for buttons
-    public typealias ActionHandlerType = (PopoverType, Int, ItemType)->Void
+    public typealias ActionHandlerType = (PopoverType, Int, ItemType) -> ()
     /// Button parameters type
-    public typealias ButtonParameterType = (title: String, color:UIColor?, action:ActionHandlerType?)
+    public typealias ButtonParameterType = (title: String, font: UIFont?, color: UIColor?, action: ActionHandlerType?)
     /// Type of the rule closure to convert from a raw value to the display string
     public typealias DisplayStringForType = ((ItemType?)->String?)
+
+    // MARK: Constants
+    let kValueForCleared: ItemType = ""
 
     // MARK: - Properties
     
     /// Choice array
-    var choices: [ItemType] = []
-    /// Array of image name to attach to a choice
-    var imageNames_: [String?]?
+    private(set) var choices: [ItemType] = []
     /// Array of image to attach to a choice
-    var images_: [UIImage?]?
+    private(set) var images: [UIImage?]?
+    
+    /// Font
+    private(set) var font: UIFont?
+    private(set) var fontColor: UIColor = .black
+    private(set) var fontSize: CGFloat?
+    let kDefaultFontSize: CGFloat = 14
     
     /// Convert a raw value to the string for displaying it
-    var displayStringFor_:DisplayStringForType?
+    private(set) var displayStringFor: DisplayStringForType?
     
     /// Done button parameters
-    var doneButton_: ButtonParameterType = ("Done".localized, nil, nil)
+    private(set) var doneButton: ButtonParameterType = (title: "Done".localized, font: nil, color: nil, action: nil)
     /// Cancel button parameters
-    var cancelButton_: ButtonParameterType = ("Cancel".localized, nil, nil)
+    private(set) var cancelButton: ButtonParameterType = (title: "Cancel".localized, font: nil, color: nil, action: nil)
+    /// Clear button parameters
+    private(set) var clearButton: ButtonParameterType = (title: "Clear".localized, font: nil, color: nil, action: nil)
+
+    /// Action for picker value change
+    private(set) var valueChangeAction: ActionHandlerType?
     
     /// Selected row
-    var selectedRow_: Int = 0
+    private(set) var selectedRow: Int = 0
 
     /// Row height
-    var rowHeight_: CGFloat = 44.0
+    private(set) var rowHeight: CGFloat = 44
     
     // MARK: - Initializer
 
@@ -52,23 +64,50 @@ public class StringPickerPopover: AbstractPopover {
     /// - Parameters:
     ///   - title: Title for navigation bar.
     ///   - choices: Options for picker.
-    public init(title: String?, choices:[ItemType]){
+    public init(title: String?, choices: [ItemType]) {
         super.init()
         
         // Set parameters
         self.title = title
         self.choices = choices
-        
     }
 
+    /// Set font
+    ///
+    /// - Parameter fontName: UIFont to change picker font
+    /// - Returns: Self
+    public func setFont(_ font: UIFont) -> Self {
+        self.font = font
+        return self
+    }
+    
+    public func setFontSize(_ size: CGFloat) -> Self {
+        self.fontSize = size
+        return self
+    }
+    
+    /// Set pickerFontColor
+    ///
+    /// - Parameter colorName: UIColor to change picker ArrayColor
+    /// - Returns: Self
+    public func setFontColor(_ color:UIColor) ->Self {
+        self.fontColor = color
+        return self
+    }
+    
     // MARK: - Propery setter
 
     /// Set image names
     ///
     /// - Parameter imageNames: String Array of image name to attach to a choice
     /// - Returns: Self
-    public func setImageNames(_ imageNames:[String?]?)->Self{
-        self.imageNames_ = imageNames
+    public func setImageNames(_ imageNames: [String?]?) -> Self {
+        self.images = imageNames?.map {
+            guard let imageName = $0 else {
+                return nil
+            }
+            return UIImage(named: imageName)
+        }
         return self
     }
 
@@ -76,8 +115,8 @@ public class StringPickerPopover: AbstractPopover {
     ///
     /// - Parameter images: String Array of image to attach to a choice
     /// - Returns: Self
-    public func setImages(_ images:[UIImage?]?)->Self{
-        self.images_ = images
+    public func setImages(_ images: [UIImage?]?) -> Self {
+        self.images = images
         return self
     }
     
@@ -85,8 +124,8 @@ public class StringPickerPopover: AbstractPopover {
     ///
     /// - Parameter row: Selected row on picker
     /// - Returns: Self
-    public func setSelectedRow(_ row:Int)->Self{
-        self.selectedRow_ = row
+    public func setSelectedRow(_ row: Int) -> Self {
+        self.selectedRow = row
         return self
     }
 
@@ -94,8 +133,8 @@ public class StringPickerPopover: AbstractPopover {
     ///
     /// - Parameter height: Row height
     /// - Returns: Self
-    public func setRowHeight(_ height:CGFloat)->Self{
-        self.rowHeight_ = height
+    public func setRowHeight(_ height: CGFloat) -> Self {
+        self.rowHeight = height
         return self
     }
     
@@ -103,127 +142,80 @@ public class StringPickerPopover: AbstractPopover {
     ///
     /// - Parameter displayStringFor: Rules for converting choice values to display strings.
     /// - Returns: Self
-    public func setDisplayStringFor(_ displayStringFor:DisplayStringForType?)->Self{
-        self.displayStringFor_ = displayStringFor
+    public func setDisplayStringFor(_ displayStringFor: DisplayStringForType?) -> Self {
+        self.displayStringFor = displayStringFor
         return self
     }
     
     /// Set done button properties
     ///
     /// - Parameters:
-    ///   - title: Title for the bar button item. Omissble. If it is nil or not specified, then localized "Done" will be used.
+    ///   - title: Title for the bar button item. Omissible. If it is nil or not specified, then localized "Done" will be used.
+    ///   - font: Button title font for .normal. Omissible.
     ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
-    ///   - action: Action to be performed before the popover disappeared. The popover, Selected row, Selected value. Omissble.
+    ///   - action: Action to be performed before the popover disappeared. The popover, Selected row, Selected value. Omissible.
     /// - Returns: Self
-    public func setDoneButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
-        return setButton(button: &doneButton_, title:title, color:color, action: action)
+    public func setDoneButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self {
+        return setButton(button: &doneButton, title: title, font: font, color: color, action: action)
 
     }
 
     /// Set cancel button properties
     ///
     /// - Parameters:
-    ///   - title: Title for the bar button item. Omissble. If it is nil or not specified, then localized "Cancel" will be used.
+    ///   - title: Title for the bar button item. Omissible. If it is nil or not specified, then localized "Cancel" will be used.
+    ///   - font: Button title font for .normal. Omissible.
     ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor. 
     ///   - action: Action to be performed before the popover disappeared.The popover, Selected row, Selected value.
     /// - Returns: Self
-    public func setCancelButton(title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
-        return setButton(button: &cancelButton_, title:title, color:color, action: action)
+    public func setCancelButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self{
+        return setButton(button: &cancelButton, title: title, font: font, color: color, action: action)
     }
     
-    /// Set button arguments to the targeted button propertoes
+    /// - Parameters:
+    ///   - title: Title for the button. Omissible.
+    ///   - font: Button title font. Omissible.
+    ///   - color: Button tint color. Omissible. If this is nil or not specified, then the button tintColor inherits appear()'s baseViewController.view.tintColor.
+    ///   - completion: Action to be performed before the popover disappeared.
+    /// - Returns: Self
+    public func setClearButton(title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self {
+        // Insert the value like "" if needed
+        if let item = choices.first, item != kValueForCleared {
+            choices.insert(kValueForCleared, at: 0)
+        }
+        return setButton(button: &clearButton, title:title, font: font, color: color, action: action)
+    }
+    
+    /// Set button arguments to the targeted button properties
     ///
     /// - Parameters:
     ///   - button: Target button properties
     ///   - title: Button title
+    ///   - font: Button title font
     ///   - color: Button tintcolor
     ///   - action: Action to be performed before the popover disappeared.
     /// - Returns: Self
-    func setButton( button: inout ButtonParameterType, title:String? = nil, color:UIColor? = nil, action:ActionHandlerType?)->Self{
-        if let t = title{
-            button.title = t
+    func setButton(button: inout ButtonParameterType, title: String? = nil, font: UIFont? = nil, color: UIColor? = nil, action: ActionHandlerType?) -> Self {
+        if let title = title {
+            button.title = title
         }
-        if let c = color{
-            button.color = c
+        if let font = font {
+            button.font = font
+        }
+        if let color = color {
+            button.color = color
         }
         button.action = action
         return self
     }
-
-}
-
-// MARK: - UIPickerViewDataSource
-extension StringPickerPopover: UIPickerViewDataSource {
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
     
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return choices.count
-    }
-}
-
-// MARK: - UIPickerViewDelegate
-extension StringPickerPopover: UIPickerViewDelegate {
-    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if let d = displayStringFor_ {
-            return d(choices[row])
-        }
-        return choices[row]
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let baseAtt = NSMutableAttributedString()
-        
-        if let imageNames = imageNames_{
-            if let name = imageNames[row], let image = UIImage(named: name){
-                
-                let imageAttachment = NSTextAttachment()
-                imageAttachment.image = image
-                let imageAtt = NSAttributedString(attachment: imageAttachment)
-                baseAtt.append(imageAtt)
-                
-                let marginAtt = NSAttributedString(string: " ")
-                baseAtt.append(marginAtt)
-            }
-            else {
-                return nil
-            }
-        }
-        else if let images = images_ {
-            if let image = images[row] {
-                
-                let imageAttachment = NSTextAttachment()
-                imageAttachment.image = image
-                let imageAtt = NSAttributedString(attachment: imageAttachment)
-                baseAtt.append(imageAtt)
-                
-                let marginAtt = NSAttributedString(string: " ")
-                baseAtt.append(marginAtt)
-            }
-            else {
-                return nil
-            }
-
-        }
-        
-        var str:String?
-        if let d = displayStringFor_ {
-            str = d(choices[row])
-        }
-        
-        let stringAtt = NSAttributedString(string: str ?? choices[row])
-        baseAtt.append(stringAtt)
-        
-        return baseAtt
-    }
-
-    public func pickerView(_ pickerView: UIPickerView,
-                           rowHeightForComponent component: Int) -> CGFloat {
-        return rowHeight_
-    }
-    
-    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        redoDisappearAutomatically()
+    /// Set an action for each value change done by user
+    ///
+    /// - Parameters:
+    ///   -action: Action to be performed each time the picker is moved to a new value.
+    /// - Returns: Self
+    public func setValueChange(action: ActionHandlerType?) -> Self{
+        valueChangeAction = action
+        return self
     }
 }
