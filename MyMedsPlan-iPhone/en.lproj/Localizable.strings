@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  MyMedsPlan-iPhone
+
+  Created by Félix Olivares on 12/07/17.
+  Copyright © 2017 Félix Olivares. All rights reserved.
+*/
+
+Tablets = "Tablets";
+Shots = "Shots";
+Tea_Spoons = "Tea Spoons";
+Pills = "Pills";
+Dropplets = "Dropplets";
+Dose = "Dose";
+Next_intake_in = "Next intake in";
+Hit_start_button = "Hit start button";
+Start = "Start";
+View = "View";
+You_need_to_take_your_medicine = "You need to take your medicine";
+Please_select_one_of_the_options_below = "Please select one of the options below";
+OPTIONS = "OPTIONS";
+EDIT = "EDIT";
+DELETE = "DELETE";
+CANCEL = "CANCEL";
+TAKEN = "TAKEN";
+SKIPPED = "SKIPPED";
+RESET = "RESET";
+STOP = "STOP";
+WATCH = "WATCH";
+NO_THANKS = "NO THANKS";
+REMOVE_IMAGE = "DELETE IMAGE";
+ATTENTION = "ATTENTION";
+takeMessage = "AWESOME!\nWould you like to reset the countdown so it could be ready for your next intake?";
+skipMessage = "OH NO!\nWould you like to reset the countdown to be ready for a next intake?";
+watchRewardedMessage = "If you want to add more meds to track, please watch the next video";
+watchRewardedTitle = "Want to add a new med?";
+planExpiredMessage = "Oops!\nIt seems that you have reached the end date of your medication plan. Would you like to start over your plan?";
+Saved_succesfully = "Saved succesfully";
+There_has_been_an_error = "There has been an error, please try again.";
+Please_complete_all_fields = "Please complete all fields";
+Hours = "Hours";
+Dose = "Dose";
+Kind = "Kind";
+Days = "Days";
+Status_in_progress = "In Progress";
+Status_not_started = "Not Started";
+Status_finished = "Finished";
+Status_paused = "Paused";

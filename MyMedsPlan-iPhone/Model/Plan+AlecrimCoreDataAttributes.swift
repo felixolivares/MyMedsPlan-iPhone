@@ -18,12 +18,21 @@ import AlecrimCoreData
 extension Plan {
 
     static let additionalInfo = AlecrimCoreData.NullableAttribute<String>("additionalInfo")
+    static let durationDays = AlecrimCoreData.NullableAttribute<Int16>("durationDays")
+    static let endDate = AlecrimCoreData.NullableAttribute<Date>("endDate")
     static let fireDate = AlecrimCoreData.NullableAttribute<Date>("fireDate")
+    static let inProgress = AlecrimCoreData.NullableAttribute<Bool>("inProgress")
     static let medicineKind = AlecrimCoreData.NullableAttribute<String>("medicineKind")
     static let medicineName = AlecrimCoreData.NullableAttribute<String>("medicineName")
+    static let notificationId = AlecrimCoreData.NullableAttribute<String>("notificationId")
     static let otherUser = AlecrimCoreData.NullableAttribute<String>("otherUser")
     static let periodicity = AlecrimCoreData.NullableAttribute<Int16>("periodicity")
+    static let startDate = AlecrimCoreData.NullableAttribute<Date>("startDate")
+    static let status = AlecrimCoreData.NullableAttribute<String>("status")
+    static let totalIntakes = AlecrimCoreData.NullableAttribute<Int16>("totalIntakes")
     static let unitsPerDose = AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose")
+
+    static let event = AlecrimCoreData.Attribute<Set<Event>>("event")
 
 }
 
@@ -32,12 +41,21 @@ extension Plan {
 extension AlecrimCoreData.AttributeProtocol where Self.ValueType: Plan {
 
     var additionalInfo: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("additionalInfo", self) }
+    var durationDays: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("durationDays", self) }
+    var endDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("endDate", self) }
     var fireDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("fireDate", self) }
+    var inProgress: AlecrimCoreData.NullableAttribute<Bool> { return AlecrimCoreData.NullableAttribute<Bool>("inProgress", self) }
     var medicineKind: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("medicineKind", self) }
     var medicineName: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("medicineName", self) }
+    var notificationId: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("notificationId", self) }
     var otherUser: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("otherUser", self) }
     var periodicity: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("periodicity", self) }
+    var startDate: AlecrimCoreData.NullableAttribute<Date> { return AlecrimCoreData.NullableAttribute<Date>("startDate", self) }
+    var status: AlecrimCoreData.NullableAttribute<String> { return AlecrimCoreData.NullableAttribute<String>("status", self) }
+    var totalIntakes: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("totalIntakes", self) }
     var unitsPerDose: AlecrimCoreData.NullableAttribute<Int16> { return AlecrimCoreData.NullableAttribute<Int16>("unitsPerDose", self) }
+
+    var event: AlecrimCoreData.Attribute<Set<Event>> { return AlecrimCoreData.Attribute<Set<Event>>("event", self) }
 
 }
 

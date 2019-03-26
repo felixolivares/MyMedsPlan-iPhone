@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MyMedsPlan_iPhone
+//@testable import MyMedsPlan_iPhone
 
 class MyMedsPlan_iPhoneTests: XCTestCase {
     

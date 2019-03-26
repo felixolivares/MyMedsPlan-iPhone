@@ -1,0 +1,99 @@
+
+/* Class = "UILabel"; text = "UNIDADES POR DOSIS"; ObjectID = "1J9-Fw-HNV"; */
+"1J9-Fw-HNV.text" = "UNIDADES POR DOSIS";
+
+/* Class = "UITextField"; placeholder = "Necesito tomar medicina cada"; ObjectID = "3zf-7D-mUY"; */
+"3zf-7D-mUY.placeholder" = "Necesito tomar medicina cada";
+
+/* Class = "UILabel"; text = "Agregar Medicina"; ObjectID = "7CM-dk-rgw"; */
+"7CM-dk-rgw.text" = "Agregar Medicina";
+
+/* Class = "UILabel"; text = "Avance"; ObjectID = "A00-2u-NXE"; */
+"A00-2u-NXE.text" = "Restante";
+
+/* Class = "UILabel"; text = "Informacion General"; ObjectID = "BYl-0L-qGX"; */
+"BYl-0L-qGX.text" = "Informacion General";
+
+/* Class = "UIButton"; normalTitle = "Saltar"; ObjectID = "GnN-58-SkE"; */
+"GnN-58-SkE.normalTitle" = "Saltar";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Jwz-O1-yYN"; */
+"Jwz-O1-yYN.text" = "-";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LJy-eD-hiP"; */
+"LJy-eD-hiP.text" = "Label";
+
+/* Class = "UILabel"; text = "TOMAR MEDICINA CADA"; ObjectID = "N4P-3b-iLe"; */
+"N4P-3b-iLe.text" = "TOMAR MEDICINA CADA";
+
+/* Class = "UITextField"; placeholder = "Nombre"; ObjectID = "P0F-gK-Kas"; */
+"P0F-gK-Kas.placeholder" = "Nombre";
+
+/* Class = "UILabel"; text = "No hay medicinas"; ObjectID = "S4Q-OC-qFR"; */
+"S4Q-OC-qFR.text" = "No hay medicinas";
+
+/* Class = "UILabel"; text = "ESTADO:"; ObjectID = "THZ-l4-acJ"; */
+"THZ-l4-acJ.text" = "ESTADO:";
+
+/* Class = "UILabel"; text = "Mi Medicina"; ObjectID = "Tvn-Ac-7Yt"; */
+"Tvn-Ac-7Yt.text" = "Mi Medicina";
+
+/* Class = "UIButton"; normalTitle = "Tomar"; ObjectID = "baH-OV-hxB"; */
+"baH-OV-hxB.normalTitle" = "Tomar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bfR-P1-EwM"; */
+"bfR-P1-EwM.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bwm-OZ-C7v"; */
+"bwm-OZ-C7v.text" = "Label";
+
+/* Class = "UILabel"; text = "--"; ObjectID = "cCG-Pl-KRw"; */
+"cCG-Pl-KRw.text" = "--";
+
+/* Class = "UITextField"; placeholder = "Por cuantos dias"; ObjectID = "gfy-MN-b9B"; */
+"gfy-MN-b9B.placeholder" = "Por cuantos dias";
+
+/* Class = "UILabel"; text = "Otra Información"; ObjectID = "giH-V6-lp9"; */
+"giH-V6-lp9.text" = "Otra Información";
+
+/* Class = "UILabel"; text = "Dias"; ObjectID = "iIS-Fk-ydV"; */
+"iIS-Fk-ydV.text" = "Dias";
+
+/* Class = "UIButton"; normalTitle = "Iniciar"; ObjectID = "jQc-Vr-Oe4"; */
+"jQc-Vr-Oe4.normalTitle" = "Iniciar";
+
+/* Class = "UILabel"; text = "Toca el icono de '+' para agregar una medicina"; ObjectID = "jZH-4w-AhA"; */
+"jZH-4w-AhA.text" = "Parece que no tienes medicinas que monitorear";
+
+/* Class = "UILabel"; text = "SIGUIENTE TOMA EN"; ObjectID = "n8A-eQ-GcJ"; */
+"n8A-eQ-GcJ.text" = "SIGUIENTE TOMA EN";
+
+/* Class = "UILabel"; text = "My Meds Plan"; ObjectID = "nnY-mb-x0r"; */
+"nnY-mb-x0r.text" = "My Meds Plan";
+
+/* Class = "UILabel"; text = "Dias"; ObjectID = "pCi-hg-4Sz"; */
+"pCi-hg-4Sz.text" = "Dias";
+
+/* Class = "UILabel"; text = "OTRA INFORMACION"; ObjectID = "pFQ-wQ-RFY"; */
+"pFQ-wQ-RFY.text" = "OTRA INFORMACION";
+
+/* Class = "UIButton"; normalTitle = "Guardar"; ObjectID = "qFd-vX-puJ"; */
+"qFd-vX-puJ.normalTitle" = "Guardar";
+
+/* Class = "UILabel"; text = "Tratamiento por"; ObjectID = "utC-Nl-5jH"; */
+"utC-Nl-5jH.text" = "Tratamiento por";
+
+/* Class = "UITextField"; placeholder = "Tipo"; ObjectID = "vD1-ue-1wE"; */
+"vD1-ue-1wE.placeholder" = "Tipo";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "w6M-1R-F4f"; */
+"w6M-1R-F4f.text" = "-";
+
+/* Class = "UITextField"; placeholder = "Unidades por dosis"; ObjectID = "zlp-F9-ND9"; */
+"zlp-F9-ND9.placeholder" = "Unidades por dosis";
+
+"qfa-bb-l7g.text" = "Has terminado tu tratamiento exitosamente. Te gustaria volverlo a empezar? ";
+
+"6qZ-B8-kDC.normalTitle" = "Empezar";
+
+"nE8-52-jrt.normalTitle" = "Agregar Medicina";

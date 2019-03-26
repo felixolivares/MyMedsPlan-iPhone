@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0479A70896A2A7654C0F7F1199741808'
-               BlueprintName = 'AlecrimCoreData'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AlecrimCoreData.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7D4B2994F3EA363DEFC4694F5FC3D72D"
+               BuildableName = "AlecrimCoreData.framework"
+               BlueprintName = "AlecrimCoreData"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

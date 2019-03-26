@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  MyMedsPlan-iPhone
+
+  Created by Félix Olivares on 12/07/17.
+  Copyright © 2017 Félix Olivares. All rights reserved.
+*/
+
+Tablets = "Tabletas";
+Shots = "Injecciones";
+Tea_Spoons = "Cucharadas";
+Pills = "Pildoras";
+Dropplets = "Gotas";
+Dose = "Dosis";
+Next_intake_in = "Siguiente toma en";
+Hit_start_button = "Presiona Iniciar";
+Start = "Iniciar";
+View = "Ver";
+You_need_to_take_your_medicine = "Necesitas tomar tu medicina";
+Please_select_one_of_the_options_below = "Por favor selecciona una opción";
+OPTIONS = "OPCIONES";
+EDIT = "EDITAR";
+DELETE = "BORRAR";
+CANCEL = "CANCELAR";
+TAKEN = "LA TOME";
+SKIPPED = "LA SALTE";
+RESET = "REINICIAR";
+STOP = "DETENER";
+WATCH = "VER";
+NO_THANKS = "NO GRACIAS";
+REMOVE_IMAGE = "BORRAR IMAGEN";
+ATTENTION = "ATENCIÓN";
+takeMessage = "¡GRANDIOSO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";
+skipMessage = "¡OH NO!\nTe gustaria reiniciar el contador y asi pueda estar listo para tu siguiente toma?";
+watchRewardedMessage = "Si quieres agregar mas medicinas para monitorear, por favor ve el siguiente video";
+watchRewardedTitle = "Una nueva medicina?";
+planExpiredMessage = "Ups!\nParece que has alcanzado la fecha de termino de tu tratamiento. Te gustaria volver a empezarlo ?";
+Saved_succesfully = "Guardado Exitosamente";
+There_has_been_an_error = "Ha ocurrido un error, por favor intenta de nuevo.";
+Please_complete_all_fields = "Por favor completa todos los campos";
+Hours = "Horas";
+Dose = "Dosis";
+Kind = "Tipo";
+Days = "Dias";
+Status_in_progress = "En Progreso";
+Status_not_started = "No Iniciado";
+Status_finished = "Terminado";
+Status_paused = "En Pausa";

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Entity" representedClassName="Entity" isAbstract="YES" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" parentEntity="Entity" syncable="YES">
+        <attribute name="eventDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="taken" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plan" inverseName="event" inverseEntity="Plan" syncable="YES"/>
+    </entity>
+    <entity name="Plan" representedClassName="Plan" parentEntity="Entity" syncable="YES">
+        <attribute name="additionalInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="durationDays" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fireDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="inProgress" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="medicineKind" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="medicineName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherUser" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="periodicity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="unitsPerDose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="event" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Event" inverseName="plan" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Entity" positionX="135" positionY="-198" width="128" height="58"/>
+        <element name="Event" positionX="340" positionY="54" width="128" height="88"/>
+        <element name="Plan" positionX="-81" positionY="-46" width="128" height="240"/>
+    </elements>
+</model>

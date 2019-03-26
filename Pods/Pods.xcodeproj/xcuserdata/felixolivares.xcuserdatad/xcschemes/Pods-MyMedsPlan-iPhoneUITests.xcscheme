@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55566A1AAD8896B5E5E41FAFA6C9A73D"
+               BlueprintIdentifier = "7E911D39A9B7B348021501F35910D768"
                BuildableName = "Pods_MyMedsPlan_iPhoneUITests.framework"
                BlueprintName = "Pods-MyMedsPlan-iPhoneUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55566A1AAD8896B5E5E41FAFA6C9A73D"
+            BlueprintIdentifier = "7E911D39A9B7B348021501F35910D768"
             BuildableName = "Pods_MyMedsPlan_iPhoneUITests.framework"
             BlueprintName = "Pods-MyMedsPlan-iPhoneUITests"
             ReferencedContainer = "container:Pods.xcodeproj">
