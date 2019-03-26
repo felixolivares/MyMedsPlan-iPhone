@@ -9,6 +9,8 @@
 import UIKit
 import JTAppleCalendar
 import ChameleonFramework
+import GoogleMobileAds
+import PopupDialog
 
 class CalendarViewController: UIViewController {
 
@@ -24,6 +26,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var dotFri: UIView!
     @IBOutlet weak var dotSat: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bannerAdCalendar: GADBannerView!
     
     let formatter = DateFormatter()
     
@@ -55,10 +58,15 @@ class CalendarViewController: UIViewController {
         }
         setupCalendarView()
         setupTableView()
-        
         calendarView.scrollToDate(Date(), animateScroll: false)
-        
         highlightCurrentTreatmentsDay()
+        setupAds()
+        setupRewardedAd()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,6 +114,57 @@ class CalendarViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
     
+    func setupAds(){
+        bannerAdCalendar.adSize = kGADAdSizeBanner
+        bannerAdCalendar.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerCalendarId
+        bannerAdCalendar.rootViewController = self
+        bannerAdCalendar.delegate = self
+        bannerAdCalendar.load(AdsManager.shared.getRequest())
+    }
+    
+    func setupRewardedAd() {
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedMainListId)
+    }
+    
+    @IBAction func addNewMedicineButtonPressed(_ sender: Any) {
+        let plans = persistentContainer.viewContext.plans
+        if plans.count() >= 3 {
+            showRewardedPopup(title: NSLocalizedString("watchRewardedTitle", comment: ""), message: NSLocalizedString("watchRewardedMessage", comment: ""), vc: self)
+        }
+    }
+    
+    //MARK: - Popups
+    func showRewardedPopup(title:String?, message:String?, vc : UIViewController){
+        // Create the dialog
+        let image = UIImage(named: "questionMarkBannerBlue")
+        let popup = PopupDialog(title: title,
+                                message: message,
+                                image: image,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
+        }
+        
+        let buttonOne = DefaultButton(title: NSLocalizedString("WATCH", comment: "")) {
+            self.showRewardedAd()
+        }
+        
+        let buttonTwo = CancelButton(title: NSLocalizedString("NO_THANKS", comment: "")){
+            print("Cancel")
+        }
+        popup.addButtons([buttonTwo, buttonOne])
+        // Present dialog
+        vc.present(popup, animated: true, completion: nil)
+    }
+    
+    func showRewardedAd() {
+        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        }
+    }
     //MARK: - Calendar views selection objects
     
     func handleCellTextColor(view:JTAppleCell?, cellState:CellState){
@@ -485,5 +544,55 @@ extension UIView{
                        animations: {
                         self.transform = CGAffineTransform(scaleX: 1, y: 1)
                        })
+    }
+}
+
+//MARk: - Admob ads
+extension CalendarViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            bannerView.alpha = 1
+        })
+    }
+}
+
+extension CalendarViewController: GADRewardBasedVideoAdDelegate {
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        if (reward.type == "medicine" && reward.amount == 1) {
+            self.performSegue(withIdentifier: "toAddMedicineFromCalendar", sender: nil)
+        }
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad has completed.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+        self.setupRewardedAd()
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load.")
     }
 }

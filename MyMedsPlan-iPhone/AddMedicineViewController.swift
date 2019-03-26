@@ -11,6 +11,7 @@ import SwiftyPickerPopover
 import Async
 import PopupDialog
 import XLActionController
+import GoogleMobileAds
 
 class AddMedicineViewController: UIViewController, UITextFieldDelegate {
 
@@ -25,6 +26,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var durationUnderline: UIView!
     
+    @IBOutlet weak var bannerAddMedicine: GADBannerView!
     @IBOutlet weak var otherInformationTextView: UITextView!
     
     let periodicityArray:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12","24"]
@@ -36,11 +38,13 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         loadPlan()
+        setupAds()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -102,6 +106,14 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
         }catch {
             showPopup(message: NSLocalizedString("There_has_been_an_error", comment: ""), vc: self)
         }
+    }
+    
+    func setupAds(){
+        bannerAddMedicine.adSize = kGADAdSizeBanner
+        bannerAddMedicine.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerAddMedicine
+        bannerAddMedicine.rootViewController = self
+        bannerAddMedicine.delegate = self
+        bannerAddMedicine.load(AdsManager.shared.getRequest())
     }
     
     func loadPlan(){
@@ -217,4 +229,14 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+
+//MARk: - Admob ads
+extension AddMedicineViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            bannerView.alpha = 1
+        })
+    }
 }

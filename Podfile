@@ -19,6 +19,7 @@ target 'MyMedsPlan-iPhone' do
   pod 'AlamofireImage', '~> 3.3'
   pod 'LTMorphingLabel'
   pod 'CountdownLabel'
+  pod 'Google-Mobile-Ads-SDK'
 
   target 'MyMedsPlan-iPhoneTests' do
     inherit! :search_paths
