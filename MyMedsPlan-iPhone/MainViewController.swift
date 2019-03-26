@@ -9,10 +9,13 @@
 import UIKit
 import SwipeCellKit
 import UserNotifications
+import GoogleMobileAds
+import PopupDialog
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mainListBannerView: GADBannerView!
     
     var allPlans:[Plan] = []
     
@@ -27,12 +30,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
         configure()
-        
         loadData()
+        setupAds()
+        setupRewardedAd()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,28 +43,12 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         loadData()
         listNotifications()
     }
     
     func configure(){
-        
-        /*
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted:Bool, error:Error?) in
-            if error != nil {
-                print(String(describing: error?.localizedDescription))
-            }
-            
-            MMPManager.sharedInstance.saveGrantedNotificationAccess(completed: granted)
-            if granted {
-                print("Permission granted")
-            } else {
-                print("Permission not granted")
-                MMPUtils.showPopupWithOK(message: "In order to receive local notifications you need to enable notificiations for My Meds Plan app in you phone settings", vc: self)
-            }
-        }
-        */
+ 
         if MMPManager._isGrantedNotificationAccess!{
             print("Permissions granted for notifications")
         }
@@ -78,6 +63,20 @@ class MainViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
     
+    func setupAds(){
+        mainListBannerView.adSize = kGADAdSizeBanner
+        mainListBannerView.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerMainListId
+        mainListBannerView.rootViewController = self
+        mainListBannerView.delegate = self
+        mainListBannerView.load(AdsManager.shared.getRequest())
+    }
+    
+    func setupRewardedAd() {
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedMainListId)
+    }
+    
+    
     func loadData(){
         
         allPlans.removeAll()
@@ -91,6 +90,14 @@ class MainViewController: UIViewController {
             print("\(String(describing: eachPlan.medicineName))")
         }
         tableView.reloadData()
+    }
+    @IBAction func addMedicineButtonPressed(_ sender: Any) {
+        let plans = persistentContainer.viewContext.plans
+        if plans.count() >= 3 {
+            showRewardedPopup(title: NSLocalizedString("watchRewardedTitle", comment: ""), message: NSLocalizedString("watchRewardedMessage", comment: ""), vc: self)
+        }else {
+            self.performSegue(withIdentifier: "toAddMedicineFromMain", sender: nil)
+        }
     }
     
     @objc func startButtonPressed(button:UIButton){
@@ -132,11 +139,11 @@ class MainViewController: UIViewController {
         if segue.identifier == "toMedicinePlan"{
             let vc:MedicinePlanViewController = segue.destination as! MedicinePlanViewController
             vc.plan = sender as? Plan
-        }else{
-            if segue.identifier == "toCalendarFromMain"{
-                let vc:CalendarViewController = segue.destination as! CalendarViewController
-                vc.calendarType = .General
-            }
+        }else if segue.identifier == "toCalendarFromMain"{
+            let vc:CalendarViewController = segue.destination as! CalendarViewController
+            vc.calendarType = .General
+        } else if segue.identifier == "toAddMedicineFromMain" {
+            
         }
     }
     
@@ -161,9 +168,37 @@ class MainViewController: UIViewController {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
     }
     
-    // MARK: - Delegate Notifications
+    //MARK: - Popups
+    func showRewardedPopup(title:String?, message:String?, vc : UIViewController){
+        // Create the dialog
+        let image = UIImage(named: "questionMarkBannerBlue")
+        let popup = PopupDialog(title: title,
+                                message: message,
+                                image: image,
+                                buttonAlignment: .horizontal,
+                                transitionStyle: .zoomIn,
+                                tapGestureDismissal: true,
+                                panGestureDismissal: true,
+                                hideStatusBar: true) {
+        }
+        
+        let buttonOne = DefaultButton(title: NSLocalizedString("WATCH", comment: "")) {
+            self.showRewardedAd()
+        }
+        
+        let buttonTwo = CancelButton(title: NSLocalizedString("NO_THANKS", comment: "")){
+            print("Cancel")
+        }
+        popup.addButtons([buttonTwo, buttonOne])
+        // Present dialog
+        vc.present(popup, animated: true, completion: nil)
+    }
     
-    
+    func showRewardedAd() {
+        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        }
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
@@ -304,4 +339,54 @@ enum ButtonDisplayMode {
 
 enum ButtonStyle {
     case backgroundColor, circular
+}
+
+//MARk: - Admob ads
+extension MainViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            bannerView.alpha = 1
+        })
+    }
+}
+
+extension MainViewController: GADRewardBasedVideoAdDelegate {
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        if (reward.type == "medicine" && reward.amount == 1) {
+            self.performSegue(withIdentifier: "toAddMedicineFromMain", sender: nil)
+        }
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad has completed.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+        self.setupRewardedAd()
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load.")
+    }
 }

@@ -12,8 +12,10 @@ import IQKeyboardManagerSwift
 import CoreData
 import PopupDialog
 import UserNotifications
+import GoogleMobileAds
 
 let persistentContainer = PersistentContainer(name: "MyMedsPlanModel")
+let testingAds:Bool = false
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -40,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //Register rich notifications
         registerForRichNotifications()
+        _ = AdsManager.shared
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         return true
     }

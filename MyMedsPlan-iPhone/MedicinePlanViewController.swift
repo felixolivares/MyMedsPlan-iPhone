@@ -14,6 +14,7 @@ import Async
 import ALCameraViewController
 import AlamofireImage
 import CountdownLabel
+import GoogleMobileAds
 
 
 class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDelegate {
@@ -52,12 +53,11 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     var croppingParameters: CroppingParameters {
         return CroppingParameters(isEnabled: true, allowResizing: true, allowMoving: true, minimumSize: CGSize(width: 30, height: 30))
     }
-
+    var interstitialAd: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configure()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,8 +67,6 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configure()
-        
         if comingFromNotification{
             
             guard isTaken != nil else {return}
@@ -82,7 +80,6 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         self.setProgresRin()
     }
     
@@ -133,6 +130,23 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
         counterLabel.start()
         updateMedicineImageView()
         startButton.alpha = (plan?.inProgress)! ? 0 : 1
+        interstitialAd = createAndLoadInterstitial()
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial{
+        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialMedicinePlane)
+        interstitial.delegate = self
+        interstitial.load(AdsManager.shared.getRequest())
+        return interstitial
+    }
+    
+    func showInterstitial() {
+        if interstitialAd.isReady {
+            interstitialAd.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+//            _ = self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func updateMedicineImageView(){
@@ -231,6 +245,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
                 self.restartPlanContainerView.alpha = 1
             })
         }
+        progressRin.style = .ontop
         progressRin.startProgress(to: CGFloat(progress), duration: 0.5){
             if progress == 100{
                 self.statusTextLabel.text = PlanStatus.StatusFinished
@@ -414,6 +429,7 @@ class MedicinePlanViewController: UIViewController, UNUserNotificationCenterDele
     
     @IBAction func startOverButtonPressed(_ sender: Any) {
         startOverPlan()
+        showInterstitial()
     }
     
     
@@ -550,5 +566,17 @@ public final class RedButton: PopupDialogButton {
         defaultButtonColor    = UIColor.clear
         defaultSeparatorColor = UIColor.mmpMainAquaAlpha
         super.setupView()
+    }
+}
+
+extension MedicinePlanViewController: GADInterstitialDelegate{
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+//        _ = self.navigationController?.popViewController(animated: true)
+        interstitialAd = createAndLoadInterstitial()
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("Ad received")
     }
 }

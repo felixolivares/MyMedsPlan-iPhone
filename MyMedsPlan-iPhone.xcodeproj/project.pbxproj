@@ -16,6 +16,8 @@
 		3015397E1F4C9B91007F4EC9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015397D1F4C9B91007F4EC9 /* CustomCell.swift */; };
 		301539811F4C9C66007F4EC9 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301539801F4C9C66007F4EC9 /* CalendarViewController.swift */; };
 		301BF1E91F173227001E7E40 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 301BF1EB1F173227001E7E40 /* Localizable.strings */; };
+		3062A0EE224590F300953378 /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062A0ED224590F300953378 /* AdsManager.swift */; };
+		3062A0F122459D1100953378 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062A0F022459D1100953378 /* Constants.swift */; };
 		30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */; };
 		30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */; };
 		308D94BD1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D94BB1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift */; };
@@ -90,6 +92,8 @@
 		301BF1EA1F173227001E7E40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		301BF1EC1F173233001E7E40 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		301BF1ED1F1735A5001E7E40 /* MyMedsPlanModel-B6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MyMedsPlanModel-B6.xcdatamodel"; sourceTree = "<group>"; };
+		3062A0ED224590F300953378 /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
+		3062A0F022459D1100953378 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		30891EC61EE9E24300E84F93 /* MMPDateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMPDateUtils.swift; sourceTree = "<group>"; };
 		30891EC91EEA248D00E84F93 /* MedicinePlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicinePlanViewController.swift; sourceTree = "<group>"; };
 		308D94BB1EEB745D00929C7C /* Event+AlecrimCoreDataAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Event+AlecrimCoreDataAttributes.swift"; path = "Model/Event+AlecrimCoreDataAttributes.swift"; sourceTree = "<group>"; };
@@ -182,7 +186,8 @@
 		300FC4D71EE37E0F00D93A6D /* MyMedsPlan-iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				308D94C71EF070CA00929C7C /* SDK */,
+				3062A0EF22459CE600953378 /* Utilities */,
+				308D94C71EF070CA00929C7C /* Managers */,
 				30F7A28C1EE51534002A0981 /* Helpers */,
 				30F7A2751EE4ED4E002A0981 /* Model */,
 				30F7A27C1EE4FEB8002A0981 /* Common */,
@@ -221,6 +226,14 @@
 			name = Calendar;
 			sourceTree = "<group>";
 		};
+		3062A0EF22459CE600953378 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3062A0F022459D1100953378 /* Constants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		30891EC51EE9E21500E84F93 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,13 +243,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		308D94C71EF070CA00929C7C /* SDK */ = {
+		308D94C71EF070CA00929C7C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				308D94C81EF0712600929C7C /* MMPManager.swift */,
 				308D94CA1EF1B58000929C7C /* MMPNotificationCenter.swift */,
+				3062A0ED224590F300953378 /* AdsManager.swift */,
 			);
-			name = SDK;
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		30BE9ECF1EE7584600808FDB /* Cell */ = {
@@ -558,6 +572,7 @@
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CountdownLabel/CountdownLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
@@ -566,6 +581,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -577,6 +593,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountdownLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
@@ -585,6 +602,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -602,12 +620,14 @@
 				3015397E1F4C9B91007F4EC9 /* CustomCell.swift in Sources */,
 				30891EC71EE9E24300E84F93 /* MMPDateUtils.swift in Sources */,
 				30F7A2891EE50EE5002A0981 /* MainViewController.swift in Sources */,
+				3062A0EE224590F300953378 /* AdsManager.swift in Sources */,
 				30891ECA1EEA248D00E84F93 /* MedicinePlanViewController.swift in Sources */,
 				301539811F4C9C66007F4EC9 /* CalendarViewController.swift in Sources */,
 				30F7A27B1EE4F02E002A0981 /* Plan+CoreDataProperties.swift in Sources */,
 				30F7A2791EE4F02E002A0981 /* Plan+AlecrimCoreDataAttributes.swift in Sources */,
 				30F7A2941EE63776002A0981 /* MMPUtils.swift in Sources */,
 				308D94C31EEB746800929C7C /* Entity+AlecrimCoreDataAttributes.swift in Sources */,
+				3062A0F122459D1100953378 /* Constants.swift in Sources */,
 				308D94C51EEB746800929C7C /* Entity+CoreDataProperties.swift in Sources */,
 				30F7A2901EE51614002A0981 /* MMPButton.swift in Sources */,
 				308D94C61EEB746800929C7C /* Event+CoreDataProperties.swift in Sources */,
@@ -806,8 +826,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: J FELIX OLIVARES ESTRADA (SJ93ZUM77B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: J FELIX OLIVARES ESTRADA (SJ93ZUM77B)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
@@ -816,7 +836,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foe.MyMedsPlan;
 				PRODUCT_NAME = "My Meds Plan";
 				PROVISIONING_PROFILE = "d1f573de-9ab3-413e-84ab-ea55878c23d4";
-				PROVISIONING_PROFILE_SPECIFIER = MMPDevProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "MMP-Distribution";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -827,8 +847,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: J FELIX OLIVARES ESTRADA (SJ93ZUM77B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: J FELIX OLIVARES ESTRADA (SJ93ZUM77B)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = "MyMedsPlan-iPhone/Info.plist";
@@ -837,7 +857,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foe.MyMedsPlan;
 				PRODUCT_NAME = "My Meds Plan";
 				PROVISIONING_PROFILE = "d1f573de-9ab3-413e-84ab-ea55878c23d4";
-				PROVISIONING_PROFILE_SPECIFIER = MMPDevProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "MMP-Distribution";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
