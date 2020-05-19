@@ -29,7 +29,7 @@ class AddMedicineViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bannerAddMedicine: GADBannerView!
     @IBOutlet weak var otherInformationTextView: UITextView!
     
-    let periodicityArray:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12","24"]
+    let periodicityArray:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12","24", "48", "72"]
     let unitsPerDoseArray:[String] = ["1","2","3","4","5","10","15","20","30"]
     let durationDaysArray:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12", "13", "14", "15", "30"]
     let medicineKindArray:[String] = [MedicineType.Pill, MedicineType.Dropplet, MedicineType.Tablet, MedicineType.TeaSpoon, MedicineType.Shot]
