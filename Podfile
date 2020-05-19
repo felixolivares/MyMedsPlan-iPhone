@@ -8,7 +8,7 @@ target 'MyMedsPlan-iPhone' do
   pod 'AlecrimCoreData', '~> 5.0'
   pod 'IQKeyboardManagerSwift'
   pod 'PopupDialog', '~> 0.9'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon', :branch => 'swift5'
   pod 'SwiftyPickerPopover'
   pod ‘AsyncSwift’
   pod 'SwipeCellKit', :git => 'https://github.com/jerkoch/SwipeCellKit.git', :branch => 'develop'

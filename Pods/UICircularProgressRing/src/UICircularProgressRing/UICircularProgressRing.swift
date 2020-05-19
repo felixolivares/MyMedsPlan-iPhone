@@ -68,17 +68,16 @@ final public class UICircularProgressRing: UICircularRing {
                 print("Warning in: \(#file):\(#line)")
                 print("Attempted to set a value less than minValue, value has been set to minValue.\n")
                 #endif
-                value = minValue
-            }
-            if value > maxValue {
+                ringLayer.value = minValue
+            } else if value > maxValue {
                 #if DEBUG
                 print("Warning in: \(#file):\(#line)")
                 print("Attempted to set a value greater than maxValue, value has been set to maxValue.\n")
                 #endif
-                value = maxValue
+                ringLayer.value = maxValue
+            } else {
+                ringLayer.value = value
             }
-
-            ringLayer.value = value
         }
     }
 
@@ -145,7 +144,7 @@ final public class UICircularProgressRing: UICircularRing {
      ## Author
      Luis Padron
      */
-    public var animationTimingFunction: CAMediaTimingFunctionName = CAMediaTimingFunctionName.easeInEaseOut as CAMediaTimingFunctionName {
+    public var animationTimingFunction: CAMediaTimingFunctionName = .easeInEaseOut {
         didSet { ringLayer.animationTimingFunction = animationTimingFunction }
     }
 
